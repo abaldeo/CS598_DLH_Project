@@ -37,7 +37,7 @@ The function *cross_validation* will take the feature matrix as input to perform
 - stanfordnlp (==0.2.0)  
 Use the following command to install all dependencies. 
 ```
-    pip install requirement.txt
+    pip install -r requirements.txt
 ```
  
 **Notice: Too high version of sklearn will probably not work. We use 0.21.2 for sklearn.**
