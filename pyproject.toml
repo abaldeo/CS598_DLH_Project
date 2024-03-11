@@ -9,5 +9,9 @@ dependencies = [
     "scikit-learn==0.21.2",
     "stanfordnlp==0.2.0",
     "tensorflow==1.15",
+    "beautifulsoup4>=4.12.3",
+    "requests>=2.31.0",
+    "xlrd==1.2.0",
+    "lxml>=5.1.0",
 ]
 requires-python = ">=3.7"

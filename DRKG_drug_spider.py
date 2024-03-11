@@ -1,5 +1,6 @@
 #coding=utf-8
 import sqlite3
+import traceback
 import requests
 from bs4 import BeautifulSoup as bs
 import math
@@ -70,8 +71,9 @@ def interactions(url_id,name):
                 #creat table named event in advance so that it can insert
                 cur.execute("insert into event(id1,name1,id2,name2,interaction)values(?,?,?,?,?)",(url_id,name,interaction_id[:-1],name2,i[1]))
             interaction=interaction[:-1]
-    except:
+    except Exception as e:
         pass
+        # traceback.print_exc()
     return interaction,event
 
 def head_attr(soup):
@@ -82,9 +84,23 @@ def head_attr(soup):
             for j in i.select('.bond-list strong a'):
                 attr+=(j.attrs['href'].split('/')[-1]+'|')
             d[i.h3.text]=attr[:-1]
-    except:
+    except Exception as e:
+        print(str(e))
+    return d
+
+def category_attr(soup):
+    d={}
+    try:
+        for i in soup.select('.category-columns'):
+            attr=''
+            for j in i.select('.list-unstyled.table-list a'):
+                attr+=(j.attrs['href'].split('/')[-1]+'|')
+            d['Drug Categories']=attr[:-1]
+    except Exception as e:
+        # print(str(e))
         pass
     return d
+
 
 conn=sqlite3.connect("Drug.db")
 cur=conn.cursor()
@@ -137,6 +153,12 @@ for i in url_id:
         transporter=d_attr['Transporters']
     except:
         transporter=''
+        
+    cat_attr =category_attr(soup)
+    try:
+        drug_cat = cat_attr['Drug Categories']
+    except:
+        drug_cat = ''    
     #Creat a table named drug first, so that you can use the insert sql code.
     cur.execute("insert into drug(id,name,interaction,smile,target,enzyme,carrier,transporter)values(?,?,?,?,?,?,?,?)",(i,name,interaction,smile,target,enzyme,carrier,transporter))
 conn.commit()
