@@ -81,7 +81,8 @@ def head_attr(soup):
     try:
         for i in soup.select('.bond-list-container'):
             attr=''
-            for j in i.select('.bond-list strong a'):
+            for j in i.select('.bond-list .card-header strong a'):
+                print(j.getText)
                 attr+=(j.attrs['href'].split('/')[-1]+'|')
             d[i.h3.text]=attr[:-1]
     except Exception as e:
@@ -97,8 +98,8 @@ def category_attr(soup):
                 attr+=(j.attrs['href'].split('/')[-1]+'|')
             d['Drug Categories']=attr[:-1]
     except Exception as e:
-        # print(str(e))
-        pass
+        print(str(e))
+        # pass
     return d
 
 
@@ -116,9 +117,16 @@ Here is an example. We read url_id from drug_list.xlsx.
 '''
 basic_url='https://www.drugbank.ca/drugs/'
 event=[]
-drug=pd.read_excel("drug_list.xlsx",header=None)
+count = 0
+drug=pd.read_excel("drug_list.xlsx",header=None, engine='openpyxl')
 url_id=drug.iloc[:,0]
 for i in url_id:
+    count = count + 1
+
+    if count > 50:
+        break
+
+    print('Line ',count)
     soup=download(basic_url,i,num_retries=150)
     try:
         d_iden=identification(soup)
@@ -150,7 +158,7 @@ for i in url_id:
     except:
         carrier=''
     try:
-        transporter=d_attr['Transporters']
+        transporter=d_attr['Pathways']
     except:
         transporter=''
         
@@ -160,6 +168,7 @@ for i in url_id:
     except:
         drug_cat = ''    
     #Creat a table named drug first, so that you can use the insert sql code.
-    cur.execute("insert into drug(id,name,interaction,smile,target,enzyme,carrier,transporter)values(?,?,?,?,?,?,?,?)",(i,name,interaction,smile,target,enzyme,carrier,transporter))
+    # cur.execute("insert into drug(id,name,interaction,smile,target,enzyme,carrier,transporter,category)values(?,?,?,?,?,?,?,?,?)",(i,name,interaction,smile,target,enzyme,carrier,transporter,drug_cat))
+    cur.execute("insert into drug(id,name,smile,target,enzyme,pathway,category)values(?,?,?,?,?,?,?)",(i,name,smile,target,enzyme,transporter,drug_cat))
 conn.commit()
 conn.close()

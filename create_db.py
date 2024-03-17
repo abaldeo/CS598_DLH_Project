@@ -26,7 +26,8 @@ def main():
             enzyme TEXT,
             pathway TEXT,
             smile TEXT,
-            name TEXT
+            name TEXT,
+            category TEXT
         );""",
         """CREATE TABLE event ( 
             [index] INTEGER,
