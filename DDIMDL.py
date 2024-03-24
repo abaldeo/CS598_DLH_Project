@@ -47,6 +47,55 @@ def DNN():
 
     return model
 
+
+# from keras.models import Model
+# from keras.layers import Input, Dense, Conv1D, BatchNormalization, Activation, Flatten, Dropout, Add
+from keras.layers import Conv1D, Flatten, Add
+from keras.layers.advanced_activations import LeakyReLU
+
+def CNN_DDI():
+    # Define the input layer
+    inputs = Input(shape=(572, 2), name='InputLayer')
+    
+    # Convolutional layers as specified in the paper
+    conv1 = Conv1D(filters=64, kernel_size=3, strides=1, padding='same')(inputs)
+    conv1 = LeakyReLU(alpha=0.2)(conv1)
+    
+    conv2 = Conv1D(filters=128, kernel_size=3, strides=1, padding='same')(conv1)
+    conv2 = LeakyReLU(alpha=0.2)(conv2)
+    
+    # Residual block starts
+    conv3_1 = Conv1D(filters=128, kernel_size=3, strides=1, padding='same')(conv2)
+    conv3_1 = LeakyReLU(alpha=0.2)(conv3_1)
+    
+    conv3_2 = Conv1D(filters=128, kernel_size=3, strides=1, padding='same')(conv3_1)
+    conv3_2 = LeakyReLU(alpha=0.2)(conv3_2)
+    
+    # Add the input of the residual block (conv2) to its output (conv3_2)
+    res_out = Add()([conv2, conv3_2])
+    # Residual block ends
+    
+    conv4 = Conv1D(filters=256, kernel_size=3, strides=1, padding='same')(res_out)
+    conv4 = LeakyReLU(alpha=0.2)(conv4)
+    
+    # Flatten the output of the last convolutional layer
+    flatten = Flatten()(conv4)
+    
+    # Fully connected layers
+    fc1 = Dense(267, activation='relu')(flatten)
+    # fc1 = BatchNormalization()(fc1)
+    # fc1 = Dropout(droprate)(fc1)
+    
+    fc2 = Dense(event_num)(fc1)  # Assuming 'num_classes' is the number of DDI event types
+    out = Activation('softmax')(fc2)
+    
+    # Create the model
+    model = Model(inputs=inputs, outputs=out)
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    
+    return model
+
+
 def prepare(df_drug, feature_list, vector_size,mechanism,action,drugA,drugB):
     d_label = {}
     d_feature = {}
@@ -164,10 +213,19 @@ def cross_validation(feature_matrix, label_matrix, clf_type, event_num, seed, CV
             if clf_type == 'DDIMDL':
                 dnn = DNN()
                 early_stopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
-                dnn.fit(x_train, y_train_one_hot, batch_size=128, epochs=100, validation_data=(x_test, y_test_one_hot),
+                dnn.fit(x_train_reshaped, y_train_one_hot, batch_size=128, epochs=100, validation_data=(x_test, y_test_one_hot),
                         callbacks=[early_stopping])
                 pred += dnn.predict(x_test)
                 continue
+            elif clf_type == 'CNN_DDI':
+                x_train_reshaped = x_train.reshape(-1, 572, 2)
+                x_test_reshaped = x_test.reshape(-1, 572, 2)                
+                cnn_ddi = CNN_DDI()
+                early_stopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
+                cnn_ddi.fit(x_train_reshaped, y_train_one_hot, batch_size=128, epochs=100, validation_data=(x_test_reshaped, y_test_one_hot),
+                            callbacks=[early_stopping])
+                pred += cnn_ddi.predict(x_test)
+                continue 
             elif clf_type == 'RF':
                 clf = RandomForestClassifier(n_estimators=100)
             elif clf_type == 'GBDT':
@@ -380,9 +438,9 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-f","--featureList",default=["smile","target","enzyme"],help="features to use",nargs="+")
-    parser.add_argument("-c","--classifier",choices=["DDIMDL","RF","KNN","LR"],default=["DDIMDL"],help="classifiers to use",nargs="+")
+    parser.add_argument("-c","--classifier",choices=["CNN_DDI","DDIMDL","RF","KNN","LR"],default=["DDIMDL"],help="classifiers to use",nargs="+")
     parser.add_argument("-p","--NLPProcess",choices=["read","process"],default="read",help="Read the NLP extraction result directly or process the events again")
     args=vars(parser.parse_args())
     print(args)
     main(args)
-
+    print('done')
