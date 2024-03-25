@@ -213,7 +213,7 @@ def cross_validation(feature_matrix, label_matrix, clf_type, event_num, seed, CV
             if clf_type == 'DDIMDL':
                 dnn = DNN()
                 early_stopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
-                dnn.fit(x_train_reshaped, y_train_one_hot, batch_size=128, epochs=100, validation_data=(x_test, y_test_one_hot),
+                dnn.fit(x_train, y_train_one_hot, batch_size=128, epochs=100, validation_data=(x_test, y_test_one_hot),
                         callbacks=[early_stopping])
                 pred += dnn.predict(x_test)
                 continue
@@ -224,7 +224,7 @@ def cross_validation(feature_matrix, label_matrix, clf_type, event_num, seed, CV
                 early_stopping = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
                 cnn_ddi.fit(x_train_reshaped, y_train_one_hot, batch_size=128, epochs=100, validation_data=(x_test_reshaped, y_test_one_hot),
                             callbacks=[early_stopping])
-                pred += cnn_ddi.predict(x_test)
+                pred += cnn_ddi.predict(x_test_reshaped)
                 continue 
             elif clf_type == 'RF':
                 clf = RandomForestClassifier(n_estimators=100)
@@ -437,7 +437,7 @@ def main(args):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f","--featureList",default=["smile","target","enzyme"],help="features to use",nargs="+")
+    parser.add_argument("-f","--featureList",default=["smile","target","enzyme", "category"],help="features to use",nargs="+")
     parser.add_argument("-c","--classifier",choices=["CNN_DDI","DDIMDL","RF","KNN","LR"],default=["DDIMDL"],help="classifiers to use",nargs="+")
     parser.add_argument("-p","--NLPProcess",choices=["read","process"],default="read",help="Read the NLP extraction result directly or process the events again")
     args=vars(parser.parse_args())
