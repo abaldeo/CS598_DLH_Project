@@ -31,9 +31,9 @@ event_num = 65
 droprate = 0.3
 vector_size = 572
 
-NUM_EPOCHS = 5
+NUM_EPOCHS = 100
 BATCH_SIZE = 128
-CV = 2
+CV = 5
 
 class DNN(nn.Module):
     def __init__(self):
