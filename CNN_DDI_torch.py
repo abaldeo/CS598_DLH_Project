@@ -21,6 +21,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from numpy.random import seed
+from tqdm import tqdm
 
 random_seed=1
 seed(random_seed)
@@ -30,10 +31,9 @@ event_num = 65
 droprate = 0.3
 vector_size = 572
 
-NUM_EPOCHS = 100
+NUM_EPOCHS = 5
 BATCH_SIZE = 128
-CV = 5
- 
+CV = 2
 
 class DNN(nn.Module):
     def __init__(self):
@@ -71,18 +71,31 @@ class CNN_DDI(nn.Module):
         self.softmax = nn.Softmax(dim=1)
 
     def forward(self, x):
-        x = x.transpose(1, 2)        
+        x = x.transpose(1, 2) 
         x = self.lrelu(self.conv1(x))
-        x = self.lrelu(self.conv2(x))
-        residual = x
-        x = self.lrelu(self.conv3_1(x))
+        conv2_out = self.lrelu(self.conv2(x))
+        x = self.lrelu(self.conv3_1(conv2_out))
         x = self.lrelu(self.conv3_2(x))
-        x += residual
+        x += conv2_out  # Adding the residual connection
         x = self.lrelu(self.conv4(x))
         x = self.flatten(x)
         x = torch.relu(self.fc1(x))
-        x = self.softmax(self.fc2(x))
+        x = self.fc2(x)
         return x
+
+    # def forward(self, x):
+    #     x = x.transpose(1, 2)        
+    #     x = self.lrelu(self.conv1(x))
+    #     x = self.lrelu(self.conv2(x))
+    #     residual = x
+    #     x = self.lrelu(self.conv3_1(x))
+    #     x = self.lrelu(self.conv3_2(x))
+    #     x += residual
+    #     x = self.lrelu(self.conv4(x))
+    #     x = self.flatten(x)
+    #     x = torch.relu(self.fc1(x))
+    #     x = self.softmax(self.fc2(x))
+    #     return x
 
 
 def prepare(df_drug, feature_list, vector_size,mechanism,action,drugA,drugB):
@@ -175,26 +188,26 @@ def train_model(model, train_loader, val_loader, epochs, criterion, optimizer, d
     for epoch in range(epochs):
         model.train()
         running_loss = 0.0
+        optimizer.zero_grad()
         for i, (inputs, labels) in enumerate(train_loader):
-            optimizer.zero_grad()
             inputs, labels = inputs.to(device), labels.to(device)
             outputs = model(inputs)
             loss = criterion(outputs, labels) / accumulation_steps  # Normalize loss to account for accumulation
             loss.backward()  # Accumulate gradients
 
-            optimizer.step()
+            # optimizer.step()
             running_loss += loss.item() * accumulation_steps  # Correct loss scaling after normalization
             # del inputs, labels, outputs, loss  # Free up memory
             # torch.cuda.empty_cache()  # Clear memory cache
           
-            # if (i + 1) % accumulation_steps == 0:
-            #     optimizer.step()  # Perform optimization step after accumulating gradients
-            #     optimizer.zero_grad()  # Clear gradients after optimization step
+            if (i + 1) % accumulation_steps == 0:
+                optimizer.step()  # Perform optimization step after accumulating gradients
+                optimizer.zero_grad()  # Clear gradients after optimization step
 
         # Perform optimization step if there are any unflushed gradients (for cases where dataset size is not divisible by accumulation_steps)
-        # if len(train_loader) % accumulation_steps != 0:
-        #     optimizer.step()
-        #     optimizer.zero_grad()
+        if len(train_loader) % accumulation_steps != 0:
+            optimizer.step()
+            optimizer.zero_grad()
         print(f'Epoch {epoch+1}/{epochs} - Loss: {running_loss/len(train_loader)}')
 
         # Validation loop
@@ -290,6 +303,11 @@ def cross_validation(feature_matrix, label_matrix, clf_type, event_num, seed, CV
                 model = CNN_DDI()
                 criterion = nn.CrossEntropyLoss()
                 optimizer = optim.Adam(model.parameters())
+
+                print(x_train_reshaped.shape)
+                print(x_test_reshaped.shape)
+                print(y_train_one_hot.shape, y_test_one_hot.shape)
+                print(model)
                 train_dataset = TensorDataset(torch.tensor(x_train_reshaped).float(), y_train_one_hot)
                 test_dataset = TensorDataset(torch.tensor(x_test_reshaped).float(), y_test_one_hot)
                 train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
