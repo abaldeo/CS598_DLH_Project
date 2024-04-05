@@ -27,7 +27,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 
 import tensorflow as tf
 
-def set_max_gpu_mem(limit=10*1024):
+def set_max_gpu_mem(limit=9*1024):
   gpus = tf.config.experimental.list_physical_devices('GPU')
   if gpus:
       try:
@@ -62,8 +62,8 @@ def print_memory_usage():
       
     import psutil,os
     PROCESS = psutil.Process(os.getpid())
-    total, available, percent, used, free = psutil.virtual_memory()
-    total, available, used, free = total / MEGA, available / MEGA, used / MEGA, free / MEGA
+    total, available, percent, used, free, *_ = psutil.virtual_memory()
+    total, available, used, free= total / MEGA, available / MEGA, used / MEGA, free / MEGA
     proc = PROCESS.memory_info()[1] / MEGA
     print('process = %s total = %s available = %s used = %s free = %s percent = %s'
           % (proc, total, available, used, free, percent))
@@ -471,7 +471,7 @@ def main(args):
     result_eve = {}
     all_matrix = []
     drugList = []
-    for line in open("/content/drive/My Drive/Colab Notebooks/DrugList.txt", 'r'):
+    for line in open("DrugList.txt", 'r'):
         drugList.append(line.split()[0])
     if args['NLPProcess'] == "read":
         extraction = pd.read_sql('select * from extraction;', conn)
