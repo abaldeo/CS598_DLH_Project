@@ -1,10 +1,13 @@
 # CS598 Deep Learning For Healthcare Project
 
-Paper Title: CNN-DDI: a learning-based method for predicting drug–drug interactions using convolution neural networks
-Team ID: 31 
-Avinash Baldeo (@abaldeo2)
-Jinfeng Wu (@jinfeng)
-Hao Zhang (@haoz)
+**Paper Title:** CNN-DDI: a learning-based method for predicting drug–drug interactions using convolution neural networks
+
+**Team ID:** 31 
+
+**Team Members:**
+- Avinash Baldeo (@abaldeo2)
+- Jinfeng Wu (@jinfeng)
+- Hao Zhang (@haoz)
 
 # For TA's
 1. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31.ipynb)
