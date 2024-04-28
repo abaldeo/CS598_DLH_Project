@@ -16,10 +16,15 @@
 ## Overview
 The paper we have selected to reproduce is "CNN-DDI: a learning-based method for predicting drug–drug interactions using convolution neural networks" [1]. This research relates to the issue of drug-drug interactions (DDIs) in pharmaceuticals development. Antagonistic DDIs are reactions between two or more drugs that may lead to adverse effects that diminish the efficacy of the drugs involved. Since these drugs are expensive to develop it is important to be able to predict DDIs based on properties of drugs. Knowing if two drugs interact is also useful since drugs similar to either of the two are more likely to interact and cause the same effect.
 
+## CNN-DDI
+CNN-DDI predict DDIs by learning from a chosen combination drug features such as categories, targets, pathways, and enzymes. It builds on a previous work “A multimodal deep learning framework for predicting drug-drug interaction events” [2], which uses a DNN model along with four drug features (Target, Enzyme, Pathways and Substructure) to predict DDIs. In the CNN-DDI model, a feature selection framework is constructed to select the best combination of drug features, which is stated to be the Target, Enzyme, Pathways and Category. 
+
+![Table 5.png](https://drive.google.com/uc?export=view&id=1t5hHfM85nWaG4Y6DpIjblb1yuwBSNS84)
+
 ## Reproduction Steps
 To reproduce the results from the paper, the following steps were performd:
 1. Downloaded the dataset collected in DDIMDL repo and added the category data from DrugBank website. 
-2. Performend feature extraction to construct feature vectors for target,pathway,enzyme, and category.
+2. Performed feature extraction to construct feature vectors for target,pathway,enzyme, and category.
 3. Performed similarity calculation and created drug similarity matrices using Jaccard similarity (also did for Cosine and Gausine similarity)
 4. Implemented the CNN-DDI model as described in the paper, including the convolutional layers, residual block, and activation functions.
 5. Trained the CNN-DDI model using the dataset collected and hyperparameter settings found from the CNN-DDI & DDIMDL papers.
@@ -34,25 +39,14 @@ Event.db contains the data we compiled from [DrugBank](https://www.drugbank.ca/)
 **2.event** contains the 37264 DDIs between the 572 kinds of drugs.  
 **3.extraction** is the process result of *NLPProcess*. Each interaction is transformed to a tuple: *{mechanism, action, drugA, drugB}*  
 **4.event_number** lists the kinds of DDI events and their occurence frequency.  
-## Evaluation
-Simply run *CNN_DDI_final.py*, the train-test procedure will start.
- ![Figure1.png](https://drive.google.com/uc?export=view&id=1sWcY2HtiPriRFlBcXqLRakNK73xzjSHg)
-
-The function *prepare* will calculate the similarity between each drug based on their features.  
-The function *cross_validation* will take the feature matrix as input to perform 5-CV and calculate metrics. Two csv files will be generated. For example, *pathway+target+enzyme+category_all_CNN_DDI.csv* and *pathway+target+enzyme+category_each_CNN_DDI.csv*. The first file evaluates the method's overall performance while the other evaluates the method's performance on each event. The meaning of the metrics can be seen in array *result_all* and *result_eve* of *CNN_DDI_final.py*.
 
 ## Hypothesis Tested
 The primary hypothesis tested was that the CNN-DDI model, which utilizes a feature selection framework and a novel CNN architecture, can accurately predict drug-drug interactions and outperform other the models mentioned in the paper (Random forest, Logistic Regression, K-nearest neighbor, Gradient boosted Decision Tree, & DDIMDL). This hypothesis was be tested by training the CNN-DDI model according to the approach mentioned in the paper and evaluating on the collected dataset with the same/inferred settings. Afterwards, we compared the results with table 3 and 4 from the paper to our results. 
 
 ## Ablations
-To understand the contribution of different components to the model's performance, attempted to do both feature and model ablation study. 
+To understand the contribution of different components to the model's performance, we performed both feature and model ablation study. 
 For feature ablation, we evaluated the model's performance by individually removing drug categories, targets, pathways, and enzyme features. This was done in the CNN-DDI paper and we did the same to allow us to verify the claim made that the drug category is an effective predictor for DDIs. 
 For model ablation, we assessed the impact of removing the residual block on the model performance as well as tried using different loss functions (specifically, KL-Divergence and Cosine Similarity).
-
-## CNN-DDI
-CNN-DDI predict DDIs by learning from a chosen combination drug features such as categories, targets, pathways, and enzymes. It builds on a previous work “A multimodal deep learning framework for predicting drug-drug interaction events” [2], which uses a DNN model along with four drug features (Target, Enzyme, Pathways and Substructure) to predict DDIs. In the CNN-DDI model, a feature selection framework is constructed to select the best combination of drug features, which is stated to be the Target, Enzyme, Pathways and Category. 
-
-![Table 5.png](https://drive.google.com/uc?export=view&id=1t5hHfM85nWaG4Y6DpIjblb1yuwBSNS84)
 
 ## Computation Requirements
 The CNN-DDI model has approximately 39 million parameters. A single forward pass requires close to 332 million operations as shown below. To run the full cross-validation training and evaluation, it requires a modern, high performance GPU such as Google Colab T4 or GeForce RTX 2080 Ti with at least 11 GBs of memory. It takes on average 60-70 minutes to run 5-fold cross-validation. For each fold, the number of trials run is equal to the number of features. For each trial the number of training epochs is 100. However, since the training process is using the early-stopping strategy (automatically stops the training if no improvement is observed in 10 epochs), the actual number of epochs is usually between 12 and 20.
@@ -71,6 +65,13 @@ fc2            34,840
 Total Operations: 331,776,536
 ```
 
+## Evaluation
+Simply run *CNN_DDI_final.py*, the train-test procedure will start.
+ ![Figure1.png](https://drive.google.com/uc?export=view&id=1sWcY2HtiPriRFlBcXqLRakNK73xzjSHg)
+
+The function *prepare* will calculate the similarity between each drug based on their features.  
+The function *cross_validation* will take the feature matrix as input to perform 5-CV and calculate metrics. Two csv files will be generated. For example, *pathway+target+enzyme+category_all_CNN_DDI.csv* and *pathway+target+enzyme+category_each_CNN_DDI.csv*. The first file evaluates the method's overall performance while the other evaluates the method's performance on each event. The meaning of the metrics can be seen in array *result_all* and *result_eve* of *CNN_DDI_final.py*.
+
 ## Usage
 *Example Usage*
 ```
@@ -86,6 +87,37 @@ And you need to download english package for StanforNLP:
 ```
     import stanfordnlp
     stanfordnlp.download('en')
+```
+
+## Requirement
+Most of the code in this notebook is taken from the github repo for the paper "A multimodal deep learning framework for predicting drug-drug interaction events" [2]. This code was written for Python 3.7 and had the following dependencies.
+
+- numpy (==1.18.1)
+- Keras (==2.2.4)
+- pandas (==1.0.1)
+- scikit-learn (==0.21.2)
+- tensorflow (==1.15)
+  
+The code for this notebook is updated to be run in google colab environment (Python 3.10) and is tested with the following package versions:
+
+- numpy (==1.25.2)
+- pandas (==2.0.3)
+- scikit-learn (==1.2.2)
+- tensorflow (==2.15.0)
+- tqdm (==4.66.2)
+- psutil (==5.9.5)
+- gdown (==4.7.3)
+
+Use the following command to install all dependencies.
+```
+    # pip install requirement.txt
+    pip install numpy==1.25.2
+    pip install pandas==2.0.3
+    pip install scikit-learn==1.2.2
+    pip install tensorflow==2.15.0
+    pip install tqdm==4.66.2
+    pip install psutil==5.9.5
+    pip install gdown==4.7.3
 ```
 
 ## Reproduction Commands
@@ -121,36 +153,6 @@ python CNN_DDI_final.py -c DDIMDL
 # For ablation
 python CNN_DDI_final.py -lf kl_divergence
 python CNN_DDI_final.py -lf cosine_similarity
-```
-## Requirement
-Most of the code in this notebook is taken from the github repo for the paper "A multimodal deep learning framework for predicting drug-drug interaction events" [2]. This code was written for Python 3.7 and had the following dependencies.
-
-- numpy (==1.18.1)
-- Keras (==2.2.4)
-- pandas (==1.0.1)
-- scikit-learn (==0.21.2)
-- tensorflow (==1.15)
-  
-The code for this notebook is updated to be run in google colab environment (Python 3.10) and is tested with the following package versions:
-
-- numpy (==1.25.2)
-- pandas (==2.0.3)
-- scikit-learn (==1.2.2)
-- tensorflow (==2.15.0)
-- tqdm (==4.66.2)
-- psutil (==5.9.5)
-- gdown (==4.7.3)
-
-Use the following command to install all dependencies.
-```
-    # pip install requirement.txt
-    pip install numpy==1.25.2
-    pip install pandas==2.0.3
-    pip install scikit-learn==1.2.2
-    pip install tensorflow==2.15.0
-    pip install tqdm==4.66.2
-    pip install psutil==5.9.5
-    pip install gdown==4.7.3
 ```
 
 ## Citation  
