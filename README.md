@@ -9,13 +9,12 @@
 - Jinfeng Wu (@jinfeng)
 - Hao Zhang (@haoz)
 
-# For TA's
+## For TA's
 1. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31.ipynb)
 2. [Google Drive folder for Draft](https://drive.google.com/drive/folders/1ln1ga9J7XzwAnAikKXS-ejXcPLe27jgI?usp=drive_link)
 
-# Overview
+## Overview
 The paper we have selected to reproduce is "CNN-DDI: a learning-based method for predicting drug–drug interactions using convolution neural networks" [1]. This research relates to the issue of drug-drug interactions (DDIs) in pharmaceuticals development. Antagonistic DDIs are reactions between two or more drugs that may lead to adverse effects that diminish the efficacy of the drugs involved. Since these drugs are expensive to develop it is important to be able to predict DDIs based on properties of drugs. Knowing if two drugs interact is also useful since drugs similar to either of the two are more likely to interact and cause the same effect.
-
 
 ## Reproduction Steps
 To reproduce the results from the paper, the following steps were performd:
@@ -34,14 +33,13 @@ Event.db contains the data we compiled from [DrugBank](https://www.drugbank.ca/)
 **1.drug** contains 572 kinds of drugs and their features.  
 **2.event** contains the 37264 DDIs between the 572 kinds of drugs.  
 **3.extraction** is the process result of *NLPProcess*. Each interaction is transformed to a tuple: *{mechanism, action, drugA, drugB}*  
-**4.event_numer** lists the kinds of DDI events and their occurence frequency.  
+**4.event_number** lists the kinds of DDI events and their occurence frequency.  
 ## Evaluation
 Simply run *CNN_DDI_final.py*, the train-test procedure will start.
  ![Figure1.png](https://drive.google.com/uc?export=view&id=1sWcY2HtiPriRFlBcXqLRakNK73xzjSHg)
 
 The function *prepare* will calculate the similarity between each drug based on their features.  
 The function *cross_validation* will take the feature matrix as input to perform 5-CV and calculate metrics. Two csv files will be generated. For example, *pathway+target+enzyme+category_all_CNN_DDI.csv* and *pathway+target+enzyme+category_each_CNN_DDI.csv*. The first file evaluates the method's overall performance while the other evaluates the method's performance on each event. The meaning of the metrics can be seen in array *result_all* and *result_eve* of *CNN_DDI_final.py*.
-
 
 ## Hypothesis Tested
 The primary hypothesis tested was that the CNN-DDI model, which utilizes a feature selection framework and a novel CNN architecture, can accurately predict drug-drug interactions and outperform other the models mentioned in the paper (Random forest, Logistic Regression, K-nearest neighbor, Gradient boosted Decision Tree, & DDIMDL). This hypothesis was be tested by training the CNN-DDI model according to the approach mentioned in the paper and evaluating on the collected dataset with the same/inferred settings. Afterwards, we compared the results with table 3 and 4 from the paper to our results. 
@@ -54,6 +52,24 @@ For model ablation, we assessed the impact of removing the residual block on the
 ## CNN-DDI
 CNN-DDI predict DDIs by learning from a chosen combination drug features such as categories, targets, pathways, and enzymes. It builds on a previous work “A multimodal deep learning framework for predicting drug-drug interaction events” [2], which uses a DNN model along with four drug features (Target, Enzyme, Pathways and Substructure) to predict DDIs. In the CNN-DDI model, a feature selection framework is constructed to select the best combination of drug features, which is stated to be the Target, Enzyme, Pathways and Category. 
 
+![Table 5.png](https://drive.google.com/uc?export=view&id=1t5hHfM85nWaG4Y6DpIjblb1yuwBSNS84)
+
+## Computation Requirements
+The CNN-DDI model has approximately 39 million parameters. A single forward pass requires close to 332 million operations as shown below. To run the full cross-validation training and evaluation, it requires a modern, high performance GPU such as Google Colab T4 or GeForce RTX 2080 Ti with at least 11 GBs of memory. It takes on average 60-70 minutes to run 5-fold cross-validation. For each fold, the number of trials run is equal to the number of features. For each trial the number of training epochs is 100. However, since the training process is using the early-stopping strategy (automatically stops the training if no improvement is observed in 10 epochs), the actual number of epochs is usually between 12 and 20.
+
+```
+Layers         # operations for a single forward pass
+conv1          439,296
+conv2          28,114,944
+conv3_1        56,229,888
+conv3_2        56,229,888
+conv4          112,459,776
+residual       73,216
+fc1            78,194,688
+fc2            34,840
+
+Total Operations: 331,776,536
+```
 
 ## Usage
 *Example Usage*
