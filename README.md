@@ -13,7 +13,7 @@
 1. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31_Draft.ipynb)
 2. [Google Drive folder for Draft](https://drive.google.com/drive/folders/1ln1ga9J7XzwAnAikKXS-ejXcPLe27jgI?usp=drive_link)
 
-## Overview
+## Introduction
 The paper we have selected to reproduce is "CNN-DDI: a learning-based method for predicting drug–drug interactions using convolution neural networks" [1]. This research relates to the issue of drug-drug interactions (DDIs) in pharmaceuticals development. Antagonistic DDIs are reactions between two or more drugs that may lead to adverse effects that diminish the efficacy of the drugs involved. Since these drugs are expensive to develop it is important to be able to predict DDIs based on properties of drugs. Knowing if two drugs interact is also useful since drugs similar to either of the two are more likely to interact and cause the same effect.
 
 ## CNN-DDI
@@ -154,6 +154,11 @@ python CNN_DDI_final.py -c DDIMDL
 python CNN_DDI_final.py -lf kl_divergence
 python CNN_DDI_final.py -lf cosine_similarity
 ```
+## Reproduction  Results
+
+![Table 1 R.png](https://drive.google.com/uc?export=view&id=1-aOyN_28loBjH-WiWbjWIC3qgMefPcGH)
+![Table 2 R.png](https://drive.google.com/uc?export=view&id=1fbC8dhaDiqN9M4squMcifsFk3jOQcfXn)
+![Table 3 R.png](https://drive.google.com/uc?export=view&id=1lFJ5utmt1I12jkLjRmChu4-SDRetxitv)
 
 ## Citation  
 ```
