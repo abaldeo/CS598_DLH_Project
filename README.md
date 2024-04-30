@@ -10,7 +10,7 @@
 - Hao Zhang (@haoz)
 
 ## For TA's
-1. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31.ipynb)
+1. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31_Draft.ipynb)
 2. [Google Drive folder for Draft](https://drive.google.com/drive/folders/1ln1ga9J7XzwAnAikKXS-ejXcPLe27jgI?usp=drive_link)
 
 ## Overview
