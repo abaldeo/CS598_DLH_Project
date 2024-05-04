@@ -1,0 +1,675 @@
+(H:\CondaEnv\CNNDDIV4) PS H:\CodeV3\CS598_DLH_Project-CNN_DDI\CS598_DLH_Project-CNN_DDI> pdm run python CNN_DDI_final.py -c CNN_DDI
+Inside an active virtualenv H:\CondaEnv\CNNDDIV4, reusing it.
+Set env var PDM_IGNORE_ACTIVE_VENV to ignore it.
+2024-04-30 08:46:28.304716: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-30 08:46:37.211511: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2024-04-30 08:46:37.238067: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 573.69GiB/s
+2024-04-30 08:46:37.238213: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-30 08:46:37.640504: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-30 08:46:37.708459: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2024-04-30 08:46:37.740885: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2024-04-30 08:46:38.003199: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2024-04-30 08:46:38.249941: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2024-04-30 08:46:40.063423: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-30 08:46:40.063608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+Setting GPU memory limit to 10GB.
+2024-04-30 08:46:40.064095: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-30 08:46:40.071493: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1fd4c907660 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2024-04-30 08:46:40.071567: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2024-04-30 08:46:40.071745: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 573.69GiB/s
+2024-04-30 08:46:40.071865: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-30 08:46:40.071972: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-30 08:46:40.072058: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2024-04-30 08:46:40.072108: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2024-04-30 08:46:40.072204: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2024-04-30 08:46:40.072254: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2024-04-30 08:46:40.072340: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-30 08:46:40.072402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2024-04-30 08:46:40.528204: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-30 08:46:40.528466: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0
+2024-04-30 08:46:40.528690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N
+2024-04-30 08:46:40.529199: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10240 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2024-04-30 08:46:40.534596: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1fd8bb20170 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-04-30 08:46:40.534695: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+1 Physical GPU, 1 Logical GPU(s) with memory limit:10240
+TensorFlow version: 2.3.1
+Num GPUs Available:  1
+{'featureList': ['pathway', 'target', 'enzyme', 'category'], 'classifier': ['CNN_DDI'], 'NLPProcess': 'read', 'similarity_measure': 'Jaccard', 'num_folds': 5, 'num_epochs': 100, 'batch_size': 128, 'evaluate_only': False, 'save_weights': False, 'loss_fn': 'categorical_crossentropy'}
+pathway
+target
+enzyme
+category
+4
+running cross validation for CNN_DDI
+process = 16201.37984 total = 34176.229376 available = 17130.098688 used = 17046.130688 free = 17130.098688 percent = 49.9
+No weights found or loading not requested for fold 1, feature 1. Starting training.
+Epoch 1/100
+2024-04-30 08:46:50.248620: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-30 08:46:50.660328: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-30 08:46:51.935854: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation.
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+233/233 [==============================] - 8s 32ms/step - loss: 1.1430 - accuracy: 0.6626 - val_loss: 0.7486 - val_accuracy: 0.7537
+Epoch 2/100
+233/233 [==============================] - 7s 31ms/step - loss: 0.5847 - accuracy: 0.8001 - val_loss: 0.6305 - val_accuracy: 0.7903
+Epoch 3/100
+233/233 [==============================] - 7s 32ms/step - loss: 0.4435 - accuracy: 0.8418 - val_loss: 0.5875 - val_accuracy: 0.7984
+Epoch 4/100
+233/233 [==============================] - 7s 32ms/step - loss: 0.3595 - accuracy: 0.8704 - val_loss: 0.5911 - val_accuracy: 0.8036
+Epoch 5/100
+233/233 [==============================] - 7s 32ms/step - loss: 0.3110 - accuracy: 0.8877 - val_loss: 0.6413 - val_accuracy: 0.8000
+Epoch 6/100
+233/233 [==============================] - 7s 32ms/step - loss: 0.2768 - accuracy: 0.8990 - val_loss: 0.6028 - val_accuracy: 0.8120
+Epoch 7/100
+233/233 [==============================] - 7s 32ms/step - loss: 0.2532 - accuracy: 0.9083 - val_loss: 0.5980 - val_accuracy: 0.8124
+Epoch 8/100
+233/233 [==============================] - 7s 32ms/step - loss: 0.2336 - accuracy: 0.9132 - val_loss: 0.6365 - val_accuracy: 0.8105
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2234 - accuracy: 0.9165 - val_loss: 0.6579 - val_accuracy: 0.8077
+Epoch 10/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2148 - accuracy: 0.9201 - val_loss: 0.6265 - val_accuracy: 0.8123
+Epoch 11/100
+233/233 [==============================] - 8s 32ms/step - loss: 0.2042 - accuracy: 0.9236 - val_loss: 0.6580 - val_accuracy: 0.8111
+Epoch 12/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1987 - accuracy: 0.9231 - val_loss: 0.6110 - val_accuracy: 0.8160
+Epoch 13/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1963 - accuracy: 0.9244 - val_loss: 0.6292 - val_accuracy: 0.8139
+process = 18404.442112 total = 34176.229376 available = 15577.059328 used = 18599.170048 free = 15577.059328 percent = 54.4
+No weights found or loading not requested for fold 1, feature 2. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.1672 - accuracy: 0.6565 - val_loss: 0.7254 - val_accuracy: 0.7593
+Epoch 2/100
+233/233 [==============================] - 8s 36ms/step - loss: 0.5653 - accuracy: 0.8056 - val_loss: 0.6054 - val_accuracy: 0.7944
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4132 - accuracy: 0.8504 - val_loss: 0.5588 - val_accuracy: 0.8120
+Epoch 4/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.3327 - accuracy: 0.8807 - val_loss: 0.5700 - val_accuracy: 0.8126
+Epoch 5/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2810 - accuracy: 0.8984 - val_loss: 0.5861 - val_accuracy: 0.8139
+Epoch 6/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2464 - accuracy: 0.9116 - val_loss: 0.5939 - val_accuracy: 0.8195
+Epoch 7/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2226 - accuracy: 0.9194 - val_loss: 0.5793 - val_accuracy: 0.8210
+Epoch 8/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2084 - accuracy: 0.9242 - val_loss: 0.6118 - val_accuracy: 0.8180
+Epoch 9/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1944 - accuracy: 0.9286 - val_loss: 0.6203 - val_accuracy: 0.8187
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1829 - accuracy: 0.9338 - val_loss: 0.6096 - val_accuracy: 0.8265
+Epoch 11/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1775 - accuracy: 0.9340 - val_loss: 0.6065 - val_accuracy: 0.8258
+Epoch 12/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1710 - accuracy: 0.9370 - val_loss: 0.6211 - val_accuracy: 0.8271
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1672 - accuracy: 0.9366 - val_loss: 0.5736 - val_accuracy: 0.8250
+process = 18602.889216 total = 34176.229376 available = 15500.0832 used = 18676.146176 free = 15500.0832 percent = 54.6
+No weights found or loading not requested for fold 1, feature 3. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 33ms/step - loss: 1.6080 - accuracy: 0.5321 - val_loss: 1.2403 - val_accuracy: 0.6179
+Epoch 2/100
+233/233 [==============================] - 8s 33ms/step - loss: 1.0929 - accuracy: 0.6500 - val_loss: 1.1242 - val_accuracy: 0.6310
+Epoch 3/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.9431 - accuracy: 0.6807 - val_loss: 1.0328 - val_accuracy: 0.6555
+Epoch 4/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.8501 - accuracy: 0.7045 - val_loss: 1.0443 - val_accuracy: 0.6648
+Epoch 5/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.7882 - accuracy: 0.7229 - val_loss: 1.0439 - val_accuracy: 0.6608
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7491 - accuracy: 0.7326 - val_loss: 1.0351 - val_accuracy: 0.6663
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7163 - accuracy: 0.7443 - val_loss: 1.0658 - val_accuracy: 0.6615
+Epoch 8/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.6958 - accuracy: 0.7483 - val_loss: 1.0770 - val_accuracy: 0.6614
+Epoch 9/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.6753 - accuracy: 0.7541 - val_loss: 1.0481 - val_accuracy: 0.6616
+Epoch 10/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.6576 - accuracy: 0.7608 - val_loss: 1.1062 - val_accuracy: 0.6559
+Epoch 11/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.6502 - accuracy: 0.7615 - val_loss: 1.1326 - val_accuracy: 0.6585
+Epoch 12/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.6369 - accuracy: 0.7662 - val_loss: 1.0841 - val_accuracy: 0.6583
+Epoch 13/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.6252 - accuracy: 0.7674 - val_loss: 1.1222 - val_accuracy: 0.6540
+process = 18428.178432 total = 34176.229376 available = 15710.031872 used = 18466.197504 free = 15710.031872 percent = 54.0
+No weights found or loading not requested for fold 1, feature 4. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0770 - accuracy: 0.6914 - val_loss: 0.5566 - val_accuracy: 0.8218
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4128 - accuracy: 0.8638 - val_loss: 0.4538 - val_accuracy: 0.8507
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2639 - accuracy: 0.9075 - val_loss: 0.4175 - val_accuracy: 0.8722
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1811 - accuracy: 0.9360 - val_loss: 0.4595 - val_accuracy: 0.8661
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1284 - accuracy: 0.9554 - val_loss: 0.4723 - val_accuracy: 0.8770
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0926 - accuracy: 0.9693 - val_loss: 0.5161 - val_accuracy: 0.8813
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0765 - accuracy: 0.9755 - val_loss: 0.5377 - val_accuracy: 0.8786
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0607 - accuracy: 0.9813 - val_loss: 0.5664 - val_accuracy: 0.8797
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0556 - accuracy: 0.9816 - val_loss: 0.6027 - val_accuracy: 0.8796
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0494 - accuracy: 0.9841 - val_loss: 0.6353 - val_accuracy: 0.8819
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0472 - accuracy: 0.9850 - val_loss: 0.5984 - val_accuracy: 0.8824
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0404 - accuracy: 0.9874 - val_loss: 0.6735 - val_accuracy: 0.8804
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0326 - accuracy: 0.9894 - val_loss: 0.6593 - val_accuracy: 0.8835
+process = 18222.313472 total = 34176.229376 available = 15964.688384 used = 18211.540992 free = 15964.688384 percent = 53.3
+No weights found or loading not requested for fold 2, feature 1. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.1259 - accuracy: 0.6680 - val_loss: 0.7429 - val_accuracy: 0.7529
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5719 - accuracy: 0.8030 - val_loss: 0.6446 - val_accuracy: 0.7856
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4277 - accuracy: 0.8489 - val_loss: 0.5988 - val_accuracy: 0.7930
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3468 - accuracy: 0.8747 - val_loss: 0.5869 - val_accuracy: 0.7992
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3037 - accuracy: 0.8914 - val_loss: 0.6070 - val_accuracy: 0.8014
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2640 - accuracy: 0.9045 - val_loss: 0.6414 - val_accuracy: 0.8000
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2437 - accuracy: 0.9116 - val_loss: 0.6463 - val_accuracy: 0.8002
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2229 - accuracy: 0.9184 - val_loss: 0.6198 - val_accuracy: 0.8059
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2138 - accuracy: 0.9197 - val_loss: 0.6375 - val_accuracy: 0.8099
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2078 - accuracy: 0.9219 - val_loss: 0.6777 - val_accuracy: 0.8077
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2015 - accuracy: 0.9239 - val_loss: 0.6574 - val_accuracy: 0.8032
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1943 - accuracy: 0.9269 - val_loss: 0.6631 - val_accuracy: 0.8077
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1907 - accuracy: 0.9268 - val_loss: 0.6557 - val_accuracy: 0.8041
+Epoch 14/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1847 - accuracy: 0.9279 - val_loss: 0.6838 - val_accuracy: 0.8059
+process = 18439.00416 total = 34176.229376 available = 16124.90752 used = 18051.321856 free = 16124.90752 percent = 52.8
+No weights found or loading not requested for fold 2, feature 2. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.1410 - accuracy: 0.6636 - val_loss: 0.7495 - val_accuracy: 0.7579
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5637 - accuracy: 0.8082 - val_loss: 0.6189 - val_accuracy: 0.7885
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4125 - accuracy: 0.8545 - val_loss: 0.5843 - val_accuracy: 0.8071
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3328 - accuracy: 0.8813 - val_loss: 0.5870 - val_accuracy: 0.8095
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2812 - accuracy: 0.9015 - val_loss: 0.6017 - val_accuracy: 0.8012
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2482 - accuracy: 0.9122 - val_loss: 0.6105 - val_accuracy: 0.7962
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2207 - accuracy: 0.9206 - val_loss: 0.6039 - val_accuracy: 0.8095
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2045 - accuracy: 0.9256 - val_loss: 0.6219 - val_accuracy: 0.8139
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1914 - accuracy: 0.9308 - val_loss: 0.6173 - val_accuracy: 0.8191
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1793 - accuracy: 0.9336 - val_loss: 0.6456 - val_accuracy: 0.8177
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1756 - accuracy: 0.9340 - val_loss: 0.6450 - val_accuracy: 0.8148
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1699 - accuracy: 0.9378 - val_loss: 0.6220 - val_accuracy: 0.8167
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1648 - accuracy: 0.9367 - val_loss: 0.6844 - val_accuracy: 0.8214
+process = 18635.640832 total = 34176.229376 available = 15887.757312 used = 18288.472064 free = 15887.757312 percent = 53.5
+No weights found or loading not requested for fold 2, feature 3. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.5903 - accuracy: 0.5371 - val_loss: 1.2277 - val_accuracy: 0.6145
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0754 - accuracy: 0.6512 - val_loss: 1.1152 - val_accuracy: 0.6360
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.9265 - accuracy: 0.6857 - val_loss: 1.0687 - val_accuracy: 0.6502
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.8418 - accuracy: 0.7072 - val_loss: 1.1184 - val_accuracy: 0.6432
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7873 - accuracy: 0.7212 - val_loss: 1.0716 - val_accuracy: 0.6430
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7477 - accuracy: 0.7325 - val_loss: 1.0927 - val_accuracy: 0.6459
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7130 - accuracy: 0.7430 - val_loss: 1.0608 - val_accuracy: 0.6610
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6884 - accuracy: 0.7523 - val_loss: 1.1028 - val_accuracy: 0.6431
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6688 - accuracy: 0.7574 - val_loss: 1.1419 - val_accuracy: 0.6446
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6532 - accuracy: 0.7599 - val_loss: 1.1269 - val_accuracy: 0.6510
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6364 - accuracy: 0.7664 - val_loss: 1.1357 - val_accuracy: 0.6510
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6292 - accuracy: 0.7681 - val_loss: 1.0945 - val_accuracy: 0.6498
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6216 - accuracy: 0.7678 - val_loss: 1.2032 - val_accuracy: 0.6484
+Epoch 14/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6149 - accuracy: 0.7695 - val_loss: 1.1072 - val_accuracy: 0.6510
+Epoch 15/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6041 - accuracy: 0.7707 - val_loss: 1.1651 - val_accuracy: 0.6491
+Epoch 16/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5990 - accuracy: 0.7747 - val_loss: 1.1501 - val_accuracy: 0.6475
+Epoch 17/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5967 - accuracy: 0.7754 - val_loss: 1.1825 - val_accuracy: 0.6492
+process = 18798.465024 total = 34176.229376 available = 15735.107584 used = 18441.121792 free = 15735.107584 percent = 54.0
+No weights found or loading not requested for fold 2, feature 4. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0262 - accuracy: 0.7021 - val_loss: 0.6038 - val_accuracy: 0.8068
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4137 - accuracy: 0.8635 - val_loss: 0.4672 - val_accuracy: 0.8529
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2641 - accuracy: 0.9102 - val_loss: 0.4515 - val_accuracy: 0.8647
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1800 - accuracy: 0.9383 - val_loss: 0.4588 - val_accuracy: 0.8769
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1306 - accuracy: 0.9553 - val_loss: 0.4683 - val_accuracy: 0.8779
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1000 - accuracy: 0.9675 - val_loss: 0.4852 - val_accuracy: 0.8804
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0759 - accuracy: 0.9741 - val_loss: 0.5759 - val_accuracy: 0.8749
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0731 - accuracy: 0.9755 - val_loss: 0.5316 - val_accuracy: 0.8703
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0587 - accuracy: 0.9809 - val_loss: 0.5713 - val_accuracy: 0.8738
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0410 - accuracy: 0.9871 - val_loss: 0.6484 - val_accuracy: 0.8754
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0531 - accuracy: 0.9821 - val_loss: 0.5841 - val_accuracy: 0.8796
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0366 - accuracy: 0.9886 - val_loss: 0.6904 - val_accuracy: 0.8797
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0380 - accuracy: 0.9881 - val_loss: 0.6711 - val_accuracy: 0.8781
+process = 18278.391808 total = 34176.229376 available = 16268.505088 used = 17907.724288 free = 16268.505088 percent = 52.4
+No weights found or loading not requested for fold 3, feature 1. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 35ms/step - loss: 1.1437 - accuracy: 0.6625 - val_loss: 0.7562 - val_accuracy: 0.7561
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5746 - accuracy: 0.8027 - val_loss: 0.6301 - val_accuracy: 0.7894
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4380 - accuracy: 0.8440 - val_loss: 0.6293 - val_accuracy: 0.7986
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3534 - accuracy: 0.8731 - val_loss: 0.6551 - val_accuracy: 0.7948
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3064 - accuracy: 0.8913 - val_loss: 0.6348 - val_accuracy: 0.8034
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2700 - accuracy: 0.9024 - val_loss: 0.6483 - val_accuracy: 0.8000
+Epoch 7/100
+233/233 [==============================] - 8s 35ms/step - loss: 0.2493 - accuracy: 0.9084 - val_loss: 0.6360 - val_accuracy: 0.8018
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2324 - accuracy: 0.9139 - val_loss: 0.6400 - val_accuracy: 0.7991
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2188 - accuracy: 0.9187 - val_loss: 0.6330 - val_accuracy: 0.8043
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2090 - accuracy: 0.9218 - val_loss: 0.6489 - val_accuracy: 0.8051
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1995 - accuracy: 0.9231 - val_loss: 0.6507 - val_accuracy: 0.8014
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1941 - accuracy: 0.9259 - val_loss: 0.6520 - val_accuracy: 0.8047
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1912 - accuracy: 0.9257 - val_loss: 0.7255 - val_accuracy: 0.8054
+process = 18493.157376 total = 34176.229376 available = 16074.579968 used = 18101.649408 free = 16074.579968 percent = 53.0
+No weights found or loading not requested for fold 3, feature 2. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.1096 - accuracy: 0.6721 - val_loss: 0.7172 - val_accuracy: 0.7686
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5413 - accuracy: 0.8147 - val_loss: 0.6207 - val_accuracy: 0.7916
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3985 - accuracy: 0.8598 - val_loss: 0.6000 - val_accuracy: 0.8057
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3223 - accuracy: 0.8838 - val_loss: 0.5841 - val_accuracy: 0.8090
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2713 - accuracy: 0.9030 - val_loss: 0.6290 - val_accuracy: 0.8043
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2380 - accuracy: 0.9145 - val_loss: 0.6311 - val_accuracy: 0.8117
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2151 - accuracy: 0.9233 - val_loss: 0.6467 - val_accuracy: 0.8085
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1991 - accuracy: 0.9287 - val_loss: 0.6512 - val_accuracy: 0.8096
+Epoch 9/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1858 - accuracy: 0.9312 - val_loss: 0.6336 - val_accuracy: 0.8104
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1749 - accuracy: 0.9366 - val_loss: 0.6873 - val_accuracy: 0.8113
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1724 - accuracy: 0.9366 - val_loss: 0.6573 - val_accuracy: 0.8156
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1696 - accuracy: 0.9366 - val_loss: 0.6506 - val_accuracy: 0.8156
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1619 - accuracy: 0.9394 - val_loss: 0.6739 - val_accuracy: 0.8112
+Epoch 14/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1615 - accuracy: 0.9365 - val_loss: 0.6600 - val_accuracy: 0.8147
+process = 18673.836032 total = 34176.229376 available = 15992.786944 used = 18183.442432 free = 15992.786944 percent = 53.2
+No weights found or loading not requested for fold 3, feature 3. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.6060 - accuracy: 0.5326 - val_loss: 1.2126 - val_accuracy: 0.6176
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0826 - accuracy: 0.6490 - val_loss: 1.0923 - val_accuracy: 0.6504
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.9351 - accuracy: 0.6821 - val_loss: 1.0584 - val_accuracy: 0.6511
+Epoch 4/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.8540 - accuracy: 0.7041 - val_loss: 1.0205 - val_accuracy: 0.6609
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7921 - accuracy: 0.7198 - val_loss: 1.0470 - val_accuracy: 0.6641
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7513 - accuracy: 0.7313 - val_loss: 1.0339 - val_accuracy: 0.6625
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7157 - accuracy: 0.7410 - val_loss: 1.0837 - val_accuracy: 0.6547
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6938 - accuracy: 0.7483 - val_loss: 1.0694 - val_accuracy: 0.6547
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6738 - accuracy: 0.7560 - val_loss: 1.1114 - val_accuracy: 0.6528
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6531 - accuracy: 0.7634 - val_loss: 1.1438 - val_accuracy: 0.6537
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6417 - accuracy: 0.7627 - val_loss: 1.1225 - val_accuracy: 0.6476
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6294 - accuracy: 0.7712 - val_loss: 1.0893 - val_accuracy: 0.6517
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6241 - accuracy: 0.7681 - val_loss: 1.1416 - val_accuracy: 0.6520
+Epoch 14/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6153 - accuracy: 0.7710 - val_loss: 1.1254 - val_accuracy: 0.6541
+process = 18819.579904 total = 34176.229376 available = 15825.760256 used = 18350.46912 free = 15825.760256 percent = 53.7
+No weights found or loading not requested for fold 3, feature 4. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0627 - accuracy: 0.6937 - val_loss: 0.6211 - val_accuracy: 0.8016
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4096 - accuracy: 0.8657 - val_loss: 0.4639 - val_accuracy: 0.8585
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2580 - accuracy: 0.9130 - val_loss: 0.4525 - val_accuracy: 0.8663
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1767 - accuracy: 0.9378 - val_loss: 0.4532 - val_accuracy: 0.8724
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1236 - accuracy: 0.9591 - val_loss: 0.4808 - val_accuracy: 0.8776
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0937 - accuracy: 0.9687 - val_loss: 0.5264 - val_accuracy: 0.8740
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0773 - accuracy: 0.9740 - val_loss: 0.5243 - val_accuracy: 0.8851
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0569 - accuracy: 0.9819 - val_loss: 0.5778 - val_accuracy: 0.8811
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0567 - accuracy: 0.9817 - val_loss: 0.6311 - val_accuracy: 0.8734
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0546 - accuracy: 0.9823 - val_loss: 0.5599 - val_accuracy: 0.8831
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0445 - accuracy: 0.9861 - val_loss: 0.5959 - val_accuracy: 0.8854
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0294 - accuracy: 0.9911 - val_loss: 0.6499 - val_accuracy: 0.8832
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0283 - accuracy: 0.9915 - val_loss: 0.7021 - val_accuracy: 0.8796
+process = 18287.763456 total = 34176.229376 available = 16369.905664 used = 17806.323712 free = 16369.905664 percent = 52.1
+No weights found or loading not requested for fold 4, feature 1. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.1543 - accuracy: 0.6594 - val_loss: 0.7517 - val_accuracy: 0.7555
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5713 - accuracy: 0.8048 - val_loss: 0.6400 - val_accuracy: 0.7839
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4308 - accuracy: 0.8472 - val_loss: 0.5954 - val_accuracy: 0.8006
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3543 - accuracy: 0.8731 - val_loss: 0.6178 - val_accuracy: 0.8048
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3086 - accuracy: 0.8889 - val_loss: 0.5874 - val_accuracy: 0.8125
+Epoch 6/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2725 - accuracy: 0.8998 - val_loss: 0.5920 - val_accuracy: 0.8096
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2466 - accuracy: 0.9096 - val_loss: 0.6276 - val_accuracy: 0.8098
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2283 - accuracy: 0.9177 - val_loss: 0.6382 - val_accuracy: 0.8122
+Epoch 9/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.2198 - accuracy: 0.9177 - val_loss: 0.6098 - val_accuracy: 0.8129
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2093 - accuracy: 0.9219 - val_loss: 0.6531 - val_accuracy: 0.8099
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2033 - accuracy: 0.9221 - val_loss: 0.6228 - val_accuracy: 0.8135
+Epoch 12/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1970 - accuracy: 0.9247 - val_loss: 0.6158 - val_accuracy: 0.8119
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1933 - accuracy: 0.9263 - val_loss: 0.6919 - val_accuracy: 0.8094
+Epoch 14/100
+233/233 [==============================] - 8s 33ms/step - loss: 0.1857 - accuracy: 0.9276 - val_loss: 0.6794 - val_accuracy: 0.8169
+Epoch 15/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1882 - accuracy: 0.9266 - val_loss: 0.6257 - val_accuracy: 0.8125
+process = 18502.57408 total = 34176.229376 available = 16139.137024 used = 18037.092352 free = 16139.137024 percent = 52.8
+No weights found or loading not requested for fold 4, feature 2. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.1661 - accuracy: 0.6592 - val_loss: 0.7273 - val_accuracy: 0.7620
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5602 - accuracy: 0.8076 - val_loss: 0.5969 - val_accuracy: 0.7996
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.4107 - accuracy: 0.8528 - val_loss: 0.5826 - val_accuracy: 0.8056
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3370 - accuracy: 0.8821 - val_loss: 0.5872 - val_accuracy: 0.8130
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2807 - accuracy: 0.8983 - val_loss: 0.5842 - val_accuracy: 0.8152
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2457 - accuracy: 0.9117 - val_loss: 0.6018 - val_accuracy: 0.8114
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2237 - accuracy: 0.9196 - val_loss: 0.5704 - val_accuracy: 0.8157
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2052 - accuracy: 0.9274 - val_loss: 0.5808 - val_accuracy: 0.8177
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1941 - accuracy: 0.9288 - val_loss: 0.6073 - val_accuracy: 0.8229
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1872 - accuracy: 0.9313 - val_loss: 0.6254 - val_accuracy: 0.8160
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1771 - accuracy: 0.9339 - val_loss: 0.6228 - val_accuracy: 0.8239
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1718 - accuracy: 0.9357 - val_loss: 0.6010 - val_accuracy: 0.8221
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1687 - accuracy: 0.9363 - val_loss: 0.5804 - val_accuracy: 0.8244
+Epoch 14/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1672 - accuracy: 0.9362 - val_loss: 0.6121 - val_accuracy: 0.8238
+Epoch 15/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1606 - accuracy: 0.9371 - val_loss: 0.6318 - val_accuracy: 0.8185
+Epoch 16/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1615 - accuracy: 0.9383 - val_loss: 0.6271 - val_accuracy: 0.8196
+Epoch 17/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1559 - accuracy: 0.9375 - val_loss: 0.6563 - val_accuracy: 0.8204
+process = 18683.265024 total = 34176.229376 available = 16013.938688 used = 18162.290688 free = 16013.938688 percent = 53.1
+No weights found or loading not requested for fold 4, feature 3. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.6060 - accuracy: 0.5315 - val_loss: 1.2667 - val_accuracy: 0.5991
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0750 - accuracy: 0.6475 - val_loss: 1.1272 - val_accuracy: 0.6327
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.9276 - accuracy: 0.6858 - val_loss: 1.0741 - val_accuracy: 0.6322
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.8410 - accuracy: 0.7049 - val_loss: 1.0513 - val_accuracy: 0.6454
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7800 - accuracy: 0.7216 - val_loss: 1.0440 - val_accuracy: 0.6487
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7442 - accuracy: 0.7361 - val_loss: 1.0731 - val_accuracy: 0.6498
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.7082 - accuracy: 0.7451 - val_loss: 1.0893 - val_accuracy: 0.6466
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6828 - accuracy: 0.7524 - val_loss: 1.1006 - val_accuracy: 0.6495
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6650 - accuracy: 0.7566 - val_loss: 1.1178 - val_accuracy: 0.6464
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6464 - accuracy: 0.7638 - val_loss: 1.0776 - val_accuracy: 0.6503
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6338 - accuracy: 0.7677 - val_loss: 1.2058 - val_accuracy: 0.6513
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6284 - accuracy: 0.7667 - val_loss: 1.2122 - val_accuracy: 0.6384
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6149 - accuracy: 0.7719 - val_loss: 1.1280 - val_accuracy: 0.6444
+Epoch 14/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.6101 - accuracy: 0.7732 - val_loss: 1.1581 - val_accuracy: 0.6427
+Epoch 15/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.5995 - accuracy: 0.7761 - val_loss: 1.1419 - val_accuracy: 0.6480
+process = 18827.935744 total = 34176.229376 available = 16026.198016 used = 18150.03136 free = 16026.198016 percent = 53.1
+No weights found or loading not requested for fold 4, feature 4. Starting training.
+Epoch 1/100
+233/233 [==============================] - 8s 34ms/step - loss: 1.0071 - accuracy: 0.7076 - val_loss: 0.5713 - val_accuracy: 0.8205
+Epoch 2/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.3985 - accuracy: 0.8675 - val_loss: 0.4682 - val_accuracy: 0.8485
+Epoch 3/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.2511 - accuracy: 0.9143 - val_loss: 0.4494 - val_accuracy: 0.8593
+Epoch 4/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1742 - accuracy: 0.9416 - val_loss: 0.4527 - val_accuracy: 0.8679
+Epoch 5/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1224 - accuracy: 0.9579 - val_loss: 0.5255 - val_accuracy: 0.8638
+Epoch 6/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.1034 - accuracy: 0.9652 - val_loss: 0.5371 - val_accuracy: 0.8735
+Epoch 7/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0761 - accuracy: 0.9744 - val_loss: 0.5042 - val_accuracy: 0.8790
+Epoch 8/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0603 - accuracy: 0.9806 - val_loss: 0.5465 - val_accuracy: 0.8811
+Epoch 9/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0547 - accuracy: 0.9821 - val_loss: 0.6278 - val_accuracy: 0.8774
+Epoch 10/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0451 - accuracy: 0.9855 - val_loss: 0.6147 - val_accuracy: 0.8825
+Epoch 11/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0415 - accuracy: 0.9867 - val_loss: 0.6168 - val_accuracy: 0.8838
+Epoch 12/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0424 - accuracy: 0.9876 - val_loss: 0.6065 - val_accuracy: 0.8876
+Epoch 13/100
+233/233 [==============================] - 8s 34ms/step - loss: 0.0309 - accuracy: 0.9910 - val_loss: 0.6025 - val_accuracy: 0.8862
+process = 18295.1936 total = 34176.229376 available = 16409.780224 used = 17766.449152 free = 16409.780224 percent = 52.0
+No weights found or loading not requested for fold 5, feature 1. Starting training.
+Epoch 1/100
+234/234 [==============================] - 9s 38ms/step - loss: 1.1710 - accuracy: 0.6531 - val_loss: 0.7175 - val_accuracy: 0.7629
+Epoch 2/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.5934 - accuracy: 0.7987 - val_loss: 0.5888 - val_accuracy: 0.7994
+Epoch 3/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.4427 - accuracy: 0.8419 - val_loss: 0.5769 - val_accuracy: 0.8024
+Epoch 4/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.3600 - accuracy: 0.8716 - val_loss: 0.5838 - val_accuracy: 0.8113
+Epoch 5/100
+234/234 [==============================] - 8s 33ms/step - loss: 0.3082 - accuracy: 0.8886 - val_loss: 0.5712 - val_accuracy: 0.8090
+Epoch 6/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2759 - accuracy: 0.8992 - val_loss: 0.5902 - val_accuracy: 0.8113
+Epoch 7/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2579 - accuracy: 0.9058 - val_loss: 0.5613 - val_accuracy: 0.8146
+Epoch 8/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2335 - accuracy: 0.9145 - val_loss: 0.5792 - val_accuracy: 0.8198
+Epoch 9/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2150 - accuracy: 0.9193 - val_loss: 0.6509 - val_accuracy: 0.8080
+Epoch 10/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2160 - accuracy: 0.9193 - val_loss: 0.6090 - val_accuracy: 0.8148
+Epoch 11/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2128 - accuracy: 0.9207 - val_loss: 0.6171 - val_accuracy: 0.8133
+Epoch 12/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2025 - accuracy: 0.9225 - val_loss: 0.6003 - val_accuracy: 0.8154
+Epoch 13/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1951 - accuracy: 0.9257 - val_loss: 0.5936 - val_accuracy: 0.8224
+Epoch 14/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1960 - accuracy: 0.9241 - val_loss: 0.6439 - val_accuracy: 0.8166
+Epoch 15/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1887 - accuracy: 0.9262 - val_loss: 0.5953 - val_accuracy: 0.8210
+Epoch 16/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1857 - accuracy: 0.9275 - val_loss: 0.6751 - val_accuracy: 0.8158
+Epoch 17/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1889 - accuracy: 0.9251 - val_loss: 0.6232 - val_accuracy: 0.8183
+process = 18510.5408 total = 34176.229376 available = 16246.35392 used = 17929.875456 free = 16246.35392 percent = 52.5
+No weights found or loading not requested for fold 5, feature 2. Starting training.
+Epoch 1/100
+234/234 [==============================] - 8s 34ms/step - loss: 1.1641 - accuracy: 0.6553 - val_loss: 0.7050 - val_accuracy: 0.7707
+Epoch 2/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.5742 - accuracy: 0.8052 - val_loss: 0.5921 - val_accuracy: 0.7980
+Epoch 3/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.4236 - accuracy: 0.8524 - val_loss: 0.5467 - val_accuracy: 0.8115
+Epoch 4/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.3409 - accuracy: 0.8792 - val_loss: 0.5340 - val_accuracy: 0.8190
+Epoch 5/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2870 - accuracy: 0.8978 - val_loss: 0.5564 - val_accuracy: 0.8244
+Epoch 6/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2533 - accuracy: 0.9095 - val_loss: 0.5527 - val_accuracy: 0.8202
+Epoch 7/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2281 - accuracy: 0.9181 - val_loss: 0.5851 - val_accuracy: 0.8179
+Epoch 8/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2077 - accuracy: 0.9237 - val_loss: 0.5557 - val_accuracy: 0.8253
+Epoch 9/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1959 - accuracy: 0.9283 - val_loss: 0.5947 - val_accuracy: 0.8259
+Epoch 10/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1907 - accuracy: 0.9302 - val_loss: 0.5611 - val_accuracy: 0.8269
+Epoch 11/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1826 - accuracy: 0.9301 - val_loss: 0.5779 - val_accuracy: 0.8213
+Epoch 12/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1764 - accuracy: 0.9330 - val_loss: 0.5744 - val_accuracy: 0.8255
+Epoch 13/100
+234/234 [==============================] - 8s 33ms/step - loss: 0.1710 - accuracy: 0.9360 - val_loss: 0.6222 - val_accuracy: 0.8203
+Epoch 14/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1667 - accuracy: 0.9361 - val_loss: 0.6179 - val_accuracy: 0.8275
+process = 18691.231744 total = 34176.229376 available = 16063.574016 used = 18112.65536 free = 16063.574016 percent = 53.0
+No weights found or loading not requested for fold 5, feature 3. Starting training.
+Epoch 1/100
+234/234 [==============================] - 8s 34ms/step - loss: 1.6285 - accuracy: 0.5287 - val_loss: 1.1918 - val_accuracy: 0.6200
+Epoch 2/100
+234/234 [==============================] - 8s 34ms/step - loss: 1.0841 - accuracy: 0.6468 - val_loss: 1.0388 - val_accuracy: 0.6562
+Epoch 3/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.9365 - accuracy: 0.6817 - val_loss: 1.0035 - val_accuracy: 0.6710
+Epoch 4/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.8538 - accuracy: 0.7012 - val_loss: 1.0299 - val_accuracy: 0.6610
+Epoch 5/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.8001 - accuracy: 0.7174 - val_loss: 1.0150 - val_accuracy: 0.6567
+Epoch 6/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.7628 - accuracy: 0.7276 - val_loss: 0.9833 - val_accuracy: 0.6734
+Epoch 7/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.7255 - accuracy: 0.7393 - val_loss: 0.9897 - val_accuracy: 0.6653
+Epoch 8/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6987 - accuracy: 0.7480 - val_loss: 1.0141 - val_accuracy: 0.6738
+Epoch 9/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6833 - accuracy: 0.7503 - val_loss: 1.0193 - val_accuracy: 0.6722
+Epoch 10/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6651 - accuracy: 0.7571 - val_loss: 1.0258 - val_accuracy: 0.6660
+Epoch 11/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6572 - accuracy: 0.7604 - val_loss: 1.0793 - val_accuracy: 0.6629
+Epoch 12/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6423 - accuracy: 0.7654 - val_loss: 1.1422 - val_accuracy: 0.6602
+Epoch 13/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6435 - accuracy: 0.7629 - val_loss: 1.0833 - val_accuracy: 0.6633
+Epoch 14/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6223 - accuracy: 0.7702 - val_loss: 1.0599 - val_accuracy: 0.6704
+Epoch 15/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6216 - accuracy: 0.7677 - val_loss: 1.0660 - val_accuracy: 0.6575
+Epoch 16/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.6119 - accuracy: 0.7715 - val_loss: 1.0489 - val_accuracy: 0.6652
+process = 18836.488192 total = 34176.229376 available = 15960.45312 used = 18215.776256 free = 15960.45312 percent = 53.3
+No weights found or loading not requested for fold 5, feature 4. Starting training.
+Epoch 1/100
+234/234 [==============================] - 8s 34ms/step - loss: 1.1027 - accuracy: 0.6892 - val_loss: 0.5471 - val_accuracy: 0.8189
+Epoch 2/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.4300 - accuracy: 0.8578 - val_loss: 0.4094 - val_accuracy: 0.8661
+Epoch 3/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.2644 - accuracy: 0.9109 - val_loss: 0.3801 - val_accuracy: 0.8727
+Epoch 4/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1804 - accuracy: 0.9390 - val_loss: 0.4066 - val_accuracy: 0.8712
+Epoch 5/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1365 - accuracy: 0.9535 - val_loss: 0.4337 - val_accuracy: 0.8789
+Epoch 6/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.1015 - accuracy: 0.9676 - val_loss: 0.4410 - val_accuracy: 0.8872
+Epoch 7/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.0794 - accuracy: 0.9757 - val_loss: 0.5106 - val_accuracy: 0.8809
+Epoch 8/100
+234/234 [==============================] - 8s 33ms/step - loss: 0.0584 - accuracy: 0.9800 - val_loss: 0.5356 - val_accuracy: 0.8845
+Epoch 9/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.0611 - accuracy: 0.9807 - val_loss: 0.5011 - val_accuracy: 0.8862
+Epoch 10/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.0459 - accuracy: 0.9853 - val_loss: 0.5289 - val_accuracy: 0.8857
+Epoch 11/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.0412 - accuracy: 0.9877 - val_loss: 0.5496 - val_accuracy: 0.8837
+Epoch 12/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.0395 - accuracy: 0.9882 - val_loss: 0.5694 - val_accuracy: 0.8808
+Epoch 13/100
+234/234 [==============================] - 8s 34ms/step - loss: 0.0652 - accuracy: 0.9811 - val_loss: 0.5696 - val_accuracy: 0.8828
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+   Accuracy  AUPR (micro-averaged)  AUPR (macro-averaged)  AUC (micro-averaged)  AUC (macro-averaged)  ...  Precision (micro-averaged)  Precision (macro-averaged)  Recall (micro-averaged)  Recall (macro-averaged)     Time (s)
+0  0.880662               0.937965               0.833515              0.997905              0.985567  ...                    0.880662                    0.849326                 0.880662                 0.729383  2276.600902
+
+[1 rows x 12 columns]
+time used for CNN_DDI: 2276.6009023
+Total time used: 2276.7472437
+done

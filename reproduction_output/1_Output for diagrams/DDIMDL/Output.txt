@@ -1,0 +1,1104 @@
+(base) PS H:\CodeV4\CS598_DLH_Project-CNN_DDI (1)\CS598_DLH_Project-CNN_DDI> conda activate H:\CondaEnv\CNNDDIV4       
+(H:\CondaEnv\CNNDDIV4) PS H:\CodeV4\CS598_DLH_Project-CNN_DDI (1)\CS598_DLH_Project-CNN_DDI> pdm run python CNN_DDI_final.py -c CNN_DDI
+Inside an active virtualenv H:\CondaEnv\CNNDDIV4, reusing it.
+Set env var PDM_IGNORE_ACTIVE_VENV to ignore it.
+2024-04-29 21:01:46.318701: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2024-04-29 21:01:46.318797: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2024-04-29 21:01:47.936315: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2024-04-29 21:01:47.955156: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2024-04-29 21:01:47.955791: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2024-04-29 21:01:47.956256: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cublas64_100.dll'; dlerror: cublas64_100.dll not found
+2024-04-29 21:01:47.956790: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cufft64_100.dll'; dlerror: cufft64_100.dll not found
+2024-04-29 21:01:47.957315: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'curand64_100.dll'; dlerror: curand64_100.dll not found
+2024-04-29 21:01:47.957841: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusolver64_100.dll'; dlerror: cusolver64_100.dll not found
+2024-04-29 21:01:47.958356: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusparse64_100.dll'; dlerror: cusparse64_100.dll not found
+2024-04-29 21:01:47.964372: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2024-04-29 21:01:47.964480: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1641] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+TensorFlow version: 1.15.0
+Num GPUs Available:  0
+{'featureList': ['pathway', 'target', 'enzyme', 'category'], 'classifier': ['CNN_DDI'], 'NLPProcess': 'read', 'similarity_measure': 'Jaccard', 'num_folds': 5, 'num_epochs': 100, 'batch_size': 128, 'evaluate_only': False, 'save_weights': False, 'loss_fn': 'categorical_crossentropy'}
+pathway
+target
+enzyme
+category
+4
+running cross validation for CNN_DDI
+WARNING:tensorflow:From H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\ops\resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+process = 4180.987904 total = 34176.229376 available = 14389.755904 used = 19786.473472 free = 14389.755904 percent = 57.9
+No weights found or loading not requested for fold 1, feature 1. Starting training.
+Train on 29790 samples, validate on 7474 samples
+2024-04-29 21:01:56.750384: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2024-04-29 21:01:56.754578: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:01:56.754689: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+29790/29790 [==============================] - 114s 4ms/sample - loss: 1.1456 - acc: 0.6601 - val_loss: 0.7269 - val_acc: 0.7597
+Epoch 2/100
+ 7296/29790 [======>.......................] - ETA: 1:20 - loss: 0.5898 - acc: 0.7970Traceback (most recent call last):
+  File "CNN_DDI_final.py", line 1013, in <module>
+    main(args)
+  File "CNN_DDI_final.py", line 978, in main
+    evalute_only=evalute_only, save_weights=save_weights, loss_fn=loss_fn, weight_path=weight_path)
+  File "CNN_DDI_final.py", line 545, in cross_validation
+    callbacks=[early_stopping])
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\engine\training.py", line 727, in fit
+    use_multiprocessing=use_multiprocessing)
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\engine\training_arrays.py", line 675, in fit
+    steps_name='steps_per_epoch')
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\engine\training_arrays.py", line 394, in model_iteration
+    batch_outs = f(ins_batch)
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\backend.py", line 3476, in __call__
+    run_metadata=self.run_metadata)
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\client\session.py", line 1472, in __call__
+    run_metadata_ptr)
+KeyboardInterrupt
+(H:\CondaEnv\CNNDDIV4) PS H:\CodeV4\CS598_DLH_Project-CNN_DDI (1)\CS598_DLH_Project-CNN_DDI> pdm run python CNN_DDI_tf.py -c CNN_DDI   
+Inside an active virtualenv H:\CondaEnv\CNNDDIV4, reusing it.
+Set env var PDM_IGNORE_ACTIVE_VENV to ignore it.
+2024-04-29 21:04:28.483272: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2024-04-29 21:04:28.483395: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2024-04-29 21:04:30.032770: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2024-04-29 21:04:30.058157: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2024-04-29 21:04:30.058753: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2024-04-29 21:04:30.059199: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cublas64_100.dll'; dlerror: cublas64_100.dll not found
+2024-04-29 21:04:30.059628: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cufft64_100.dll'; dlerror: cufft64_100.dll not found
+2024-04-29 21:04:30.060131: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'curand64_100.dll'; dlerror: curand64_100.dll not found
+2024-04-29 21:04:30.060577: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusolver64_100.dll'; dlerror: cusolver64_100.dll not found
+2024-04-29 21:04:30.060993: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusparse64_100.dll'; dlerror: cusparse64_100.dll not found
+2024-04-29 21:04:30.066748: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2024-04-29 21:04:30.066840: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1641] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+TensorFlow version: 1.15.0
+Num GPUs Available:  0
+{'featureList': ['smile', 'target', 'enzyme', 'category'], 'classifier': ['CNN_DDI'], 'NLPProcess': 'read'}
+.
+smile
+target
+enzyme
+category
+CNN_DDI
+4
+WARNING:tensorflow:From H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\ops\resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d (Conv1D)                 (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu (LeakyReLU)         (None, 572, 64)      0           conv1d[0][0]
+__________________________________________________________________________________________________
+conv1d_1 (Conv1D)               (None, 572, 128)     24704       leaky_re_lu[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_1 (LeakyReLU)       (None, 572, 128)     0           conv1d_1[0][0]
+__________________________________________________________________________________________________
+conv1d_2 (Conv1D)               (None, 572, 128)     49280       leaky_re_lu_1[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_2 (LeakyReLU)       (None, 572, 128)     0           conv1d_2[0][0]
+__________________________________________________________________________________________________
+conv1d_3 (Conv1D)               (None, 572, 128)     49280       leaky_re_lu_2[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_3 (LeakyReLU)       (None, 572, 128)     0           conv1d_3[0][0]
+__________________________________________________________________________________________________
+add (Add)                       (None, 572, 128)     0           leaky_re_lu_1[0][0]
+                                                                 leaky_re_lu_3[0][0]
+__________________________________________________________________________________________________
+conv1d_4 (Conv1D)               (None, 572, 256)     98560       add[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_4 (LeakyReLU)       (None, 572, 256)     0           conv1d_4[0][0]
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 146432)       0           leaky_re_lu_4[0][0]
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 267)          39097611    flatten[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 65)           17420       dense[0][0]
+__________________________________________________________________________________________________
+activation (Activation)         (None, 65)           0           dense_1[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 4178.993152 total = 34176.229376 available = 13928.558592 used = 20247.670784 free = 13928.558592 percent = 59.2
+Train on 29790 samples, validate on 7474 samples
+2024-04-29 21:04:46.823904: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2024-04-29 21:04:46.828079: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:04:46.828209: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+26368/29790 [=========================>....] - ETA: 11s - loss: 1.4988 - acc: 0.5666Traceback (most recent call last):
+  File "CNN_DDI_tf.py", line 511, in <module>
+    main(args)
+  File "CNN_DDI_tf.py", line 495, in main
+    all_result, each_result = cross_validation(all_matrix, new_label, clf, event_num, seed, CV, set_name)
+  File "CNN_DDI_tf.py", line 289, in cross_validation
+    callbacks=[early_stopping, cp_callback])
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\engine\training.py", line 727, in fit
+    use_multiprocessing=use_multiprocessing)
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\engine\training_arrays.py", line 675, in fit
+    steps_name='steps_per_epoch')
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\engine\training_arrays.py", line 394, in model_iteration
+    batch_outs = f(ins_batch)
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\keras\backend.py", line 3476, in __call__
+    run_metadata=self.run_metadata)
+  File "H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\client\session.py", line 1472, in __call__
+    run_metadata_ptr)
+KeyboardInterrupt
+(H:\CondaEnv\CNNDDIV4) PS H:\CodeV4\CS598_DLH_Project-CNN_DDI (1)\CS598_DLH_Project-CNN_DDI> pdm run python CNN_DDI_final.py -c DDIMDL 
+Inside an active virtualenv H:\CondaEnv\CNNDDIV4, reusing it.
+Set env var PDM_IGNORE_ACTIVE_VENV to ignore it.
+2024-04-29 21:06:33.728837: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2024-04-29 21:06:33.728951: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2024-04-29 21:06:35.337509: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2024-04-29 21:06:35.355006: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties: 
+name: NVIDIA GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2024-04-29 21:06:35.355568: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2024-04-29 21:06:35.356008: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cublas64_100.dll'; dlerror: cublas64_100.dll not found
+2024-04-29 21:06:35.356432: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cufft64_100.dll'; dlerror: cufft64_100.dll not found
+2024-04-29 21:06:35.356863: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'curand64_100.dll'; dlerror: curand64_100.dll not found
+2024-04-29 21:06:35.357310: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusolver64_100.dll'; dlerror: cusolver64_100.dll not found
+2024-04-29 21:06:35.357738: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusparse64_100.dll'; dlerror: cusparse64_100.dll not found
+2024-04-29 21:06:35.363819: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2024-04-29 21:06:35.363976: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1641] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+TensorFlow version: 1.15.0
+Num GPUs Available:  0
+{'featureList': ['pathway', 'target', 'enzyme', 'category'], 'classifier': ['DDIMDL'], 'NLPProcess': 'read', 'similarity_measure': 'Jaccard', 'num_folds': 5, 'num_epochs': 100, 'batch_size': 128, 'evaluate_only': False, 'save_weights': False, 'loss_fn': 'categorical_crossentropy'}
+pathway
+target
+enzyme
+category
+4
+running cross validation for DDIMDL
+WARNING:tensorflow:From H:\CondaEnv\CNNDDIV4\lib\site-packages\tensorflow_core\python\ops\resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+process = 4183.683072 total = 34176.229376 available = 14442.25024 used = 19733.979136 free = 14442.25024 percent = 57.7
+Train on 29790 samples, validate on 7474 samples
+2024-04-29 21:06:44.138289: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2024-04-29 21:06:44.142352: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:06:44.142485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 1.9112 - acc: 0.5711 - val_loss: 1.7906 - val_acc: 0.4945
+Epoch 2/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.9041 - acc: 0.7283 - val_loss: 0.9180 - val_acc: 0.7083
+Epoch 3/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.6842 - acc: 0.7832 - val_loss: 0.6558 - val_acc: 0.7816
+Epoch 4/100
+29790/29790 [==============================] - 1s 46us/sample - loss: 0.5725 - acc: 0.8071 - val_loss: 0.6050 - val_acc: 0.7980
+Epoch 5/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.5022 - acc: 0.8293 - val_loss: 0.5786 - val_acc: 0.8045
+Epoch 6/100
+29790/29790 [==============================] - 1s 47us/sample - loss: 0.4505 - acc: 0.8419 - val_loss: 0.5762 - val_acc: 0.8072
+Epoch 7/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.4071 - acc: 0.8577 - val_loss: 0.5777 - val_acc: 0.8048
+Epoch 8/100
+29790/29790 [==============================] - 1s 47us/sample - loss: 0.3834 - acc: 0.8640 - val_loss: 0.5761 - val_acc: 0.8085
+Epoch 9/100
+29790/29790 [==============================] - 1s 47us/sample - loss: 0.3611 - acc: 0.8734 - val_loss: 0.5732 - val_acc: 0.8156
+Epoch 10/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.3407 - acc: 0.8768 - val_loss: 0.5738 - val_acc: 0.8112
+Epoch 11/100
+29790/29790 [==============================] - 1s 47us/sample - loss: 0.3259 - acc: 0.8829 - val_loss: 0.5723 - val_acc: 0.8117
+Epoch 12/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.3108 - acc: 0.8874 - val_loss: 0.5656 - val_acc: 0.8204
+Epoch 13/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.2967 - acc: 0.8918 - val_loss: 0.5732 - val_acc: 0.8164
+Epoch 14/100
+29790/29790 [==============================] - 1s 50us/sample - loss: 0.2862 - acc: 0.8966 - val_loss: 0.5810 - val_acc: 0.8140
+Epoch 15/100
+29790/29790 [==============================] - 1s 46us/sample - loss: 0.2834 - acc: 0.8971 - val_loss: 0.5837 - val_acc: 0.8159
+Epoch 16/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.2694 - acc: 0.9015 - val_loss: 0.5992 - val_acc: 0.8148
+Epoch 17/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.2660 - acc: 0.9019 - val_loss: 0.5819 - val_acc: 0.8184
+Epoch 18/100
+29790/29790 [==============================] - 2s 51us/sample - loss: 0.2611 - acc: 0.9045 - val_loss: 0.5901 - val_acc: 0.8214
+Epoch 19/100
+29790/29790 [==============================] - 2s 57us/sample - loss: 0.2557 - acc: 0.9061 - val_loss: 0.6003 - val_acc: 0.8198
+Epoch 20/100
+29790/29790 [==============================] - 1s 47us/sample - loss: 0.2452 - acc: 0.9090 - val_loss: 0.6000 - val_acc: 0.8184
+Epoch 21/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.2386 - acc: 0.9115 - val_loss: 0.6000 - val_acc: 0.8196
+Epoch 22/100
+29790/29790 [==============================] - 1s 47us/sample - loss: 0.2333 - acc: 0.9128 - val_loss: 0.6073 - val_acc: 0.8210
+process = 4222.967808 total = 34176.229376 available = 14383.509504 used = 19792.719872 free = 14383.509504 percent = 57.9
+Train on 29790 samples, validate on 7474 samples
+Epoch 1/100
+29790/29790 [==============================] - 2s 56us/sample - loss: 1.8524 - acc: 0.5775 - val_loss: 1.6982 - val_acc: 0.5171
+Epoch 2/100
+29790/29790 [==============================] - 1s 50us/sample - loss: 0.8622 - acc: 0.7453 - val_loss: 0.9203 - val_acc: 0.6948
+Epoch 3/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.6526 - acc: 0.7927 - val_loss: 0.6377 - val_acc: 0.7874
+Epoch 4/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.5414 - acc: 0.8177 - val_loss: 0.5894 - val_acc: 0.8091
+Epoch 5/100
+29790/29790 [==============================] - 2s 51us/sample - loss: 0.4758 - acc: 0.8375 - val_loss: 0.5695 - val_acc: 0.8127
+Epoch 6/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.4234 - acc: 0.8513 - val_loss: 0.5664 - val_acc: 0.8126
+Epoch 7/100
+29790/29790 [==============================] - 1s 48us/sample - loss: 0.3867 - acc: 0.8652 - val_loss: 0.5460 - val_acc: 0.8190
+Epoch 8/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 0.3532 - acc: 0.8769 - val_loss: 0.5648 - val_acc: 0.8175
+Epoch 9/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.3382 - acc: 0.8797 - val_loss: 0.5514 - val_acc: 0.8223
+Epoch 10/100
+29790/29790 [==============================] - 1s 49us/sample - loss: 0.3107 - acc: 0.8892 - val_loss: 0.5700 - val_acc: 0.8229
+Epoch 11/100
+29790/29790 [==============================] - 1s 50us/sample - loss: 0.3002 - acc: 0.8924 - val_loss: 0.5593 - val_acc: 0.8203
+Epoch 12/100
+29790/29790 [==============================] - 2s 62us/sample - loss: 0.2865 - acc: 0.8966 - val_loss: 0.5771 - val_acc: 0.8234
+Epoch 13/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.2689 - acc: 0.9025 - val_loss: 0.5606 - val_acc: 0.8251
+Epoch 14/100
+29790/29790 [==============================] - 2s 65us/sample - loss: 0.2611 - acc: 0.9074 - val_loss: 0.5685 - val_acc: 0.8267
+Epoch 15/100
+29790/29790 [==============================] - 2s 55us/sample - loss: 0.2547 - acc: 0.9076 - val_loss: 0.5666 - val_acc: 0.8258
+Epoch 16/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.2447 - acc: 0.9109 - val_loss: 0.5780 - val_acc: 0.8269
+Epoch 17/100
+29790/29790 [==============================] - 2s 51us/sample - loss: 0.2406 - acc: 0.9123 - val_loss: 0.5823 - val_acc: 0.8306
+process = 4251.344896 total = 34176.229376 available = 13881.69216 used = 20294.537216 free = 13881.69216 percent = 59.4
+Train on 29790 samples, validate on 7474 samples
+Epoch 1/100
+29790/29790 [==============================] - 2s 63us/sample - loss: 2.5265 - acc: 0.4282 - val_loss: 1.9747 - val_acc: 0.4882
+Epoch 2/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 1.5966 - acc: 0.5488 - val_loss: 1.4299 - val_acc: 0.5767
+Epoch 3/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 1.3544 - acc: 0.5954 - val_loss: 1.2305 - val_acc: 0.6197
+Epoch 4/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 1.2143 - acc: 0.6224 - val_loss: 1.1595 - val_acc: 0.6426
+Epoch 5/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 1.1227 - acc: 0.6424 - val_loss: 1.1198 - val_acc: 0.6394
+Epoch 6/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 1.0683 - acc: 0.6521 - val_loss: 1.0868 - val_acc: 0.6537
+Epoch 7/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 1.0213 - acc: 0.6614 - val_loss: 1.0752 - val_acc: 0.6568
+Epoch 8/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.9825 - acc: 0.6734 - val_loss: 1.0635 - val_acc: 0.6545
+Epoch 9/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.9505 - acc: 0.6819 - val_loss: 1.0633 - val_acc: 0.6555
+Epoch 10/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.9217 - acc: 0.6869 - val_loss: 1.0556 - val_acc: 0.6608
+Epoch 11/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 0.8941 - acc: 0.6973 - val_loss: 1.0408 - val_acc: 0.6622
+Epoch 12/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.8749 - acc: 0.7017 - val_loss: 1.0270 - val_acc: 0.6693
+Epoch 13/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.8626 - acc: 0.7041 - val_loss: 1.0218 - val_acc: 0.6674
+Epoch 14/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.8409 - acc: 0.7061 - val_loss: 1.0286 - val_acc: 0.6610
+Epoch 15/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.8324 - acc: 0.7111 - val_loss: 1.0350 - val_acc: 0.6691
+Epoch 16/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.8155 - acc: 0.7152 - val_loss: 1.0359 - val_acc: 0.6658
+Epoch 17/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.8041 - acc: 0.7201 - val_loss: 1.0327 - val_acc: 0.6686
+Epoch 18/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 0.7882 - acc: 0.7215 - val_loss: 1.0219 - val_acc: 0.6671
+Epoch 19/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.7820 - acc: 0.7221 - val_loss: 1.0280 - val_acc: 0.6702
+Epoch 20/100
+29790/29790 [==============================] - 2s 51us/sample - loss: 0.7735 - acc: 0.7238 - val_loss: 1.0284 - val_acc: 0.6691
+Epoch 21/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 0.7678 - acc: 0.7271 - val_loss: 1.0360 - val_acc: 0.6648
+Epoch 22/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.7550 - acc: 0.7304 - val_loss: 1.0312 - val_acc: 0.6656
+Epoch 23/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.7469 - acc: 0.7340 - val_loss: 1.0369 - val_acc: 0.6660
+process = 4296.372224 total = 34176.229376 available = 13803.106304 used = 20373.123072 free = 13803.106304 percent = 59.6
+Train on 29790 samples, validate on 7474 samples
+Epoch 1/100
+29790/29790 [==============================] - 2s 64us/sample - loss: 1.4841 - acc: 0.6494 - val_loss: 1.8181 - val_acc: 0.4653
+Epoch 2/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.6208 - acc: 0.8159 - val_loss: 0.7307 - val_acc: 0.7695
+Epoch 3/100
+29790/29790 [==============================] - 2s 51us/sample - loss: 0.4451 - acc: 0.8586 - val_loss: 0.4328 - val_acc: 0.8578
+Epoch 4/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.3521 - acc: 0.8826 - val_loss: 0.4031 - val_acc: 0.8758
+Epoch 5/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.2902 - acc: 0.9035 - val_loss: 0.3821 - val_acc: 0.8808
+Epoch 6/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 0.2454 - acc: 0.9185 - val_loss: 0.3735 - val_acc: 0.8879
+Epoch 7/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.2195 - acc: 0.9248 - val_loss: 0.3728 - val_acc: 0.8904
+Epoch 8/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.1861 - acc: 0.9374 - val_loss: 0.3588 - val_acc: 0.8950
+Epoch 9/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.1686 - acc: 0.9410 - val_loss: 0.3636 - val_acc: 0.8999
+Epoch 10/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.1527 - acc: 0.9464 - val_loss: 0.3634 - val_acc: 0.8986
+Epoch 11/100
+29790/29790 [==============================] - 2s 57us/sample - loss: 0.1345 - acc: 0.9536 - val_loss: 0.3783 - val_acc: 0.9001
+Epoch 12/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.1211 - acc: 0.9596 - val_loss: 0.3760 - val_acc: 0.9037
+Epoch 13/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.1123 - acc: 0.9609 - val_loss: 0.3921 - val_acc: 0.8995
+Epoch 14/100
+29790/29790 [==============================] - 2s 57us/sample - loss: 0.1059 - acc: 0.9635 - val_loss: 0.3770 - val_acc: 0.9037
+Epoch 15/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.1066 - acc: 0.9630 - val_loss: 0.3966 - val_acc: 0.9023
+Epoch 16/100
+29790/29790 [==============================] - 2s 52us/sample - loss: 0.1053 - acc: 0.9639 - val_loss: 0.3978 - val_acc: 0.9014
+Epoch 17/100
+29790/29790 [==============================] - 2s 53us/sample - loss: 0.0893 - acc: 0.9690 - val_loss: 0.3905 - val_acc: 0.9003
+Epoch 18/100
+29790/29790 [==============================] - 2s 54us/sample - loss: 0.0851 - acc: 0.9710 - val_loss: 0.3949 - val_acc: 0.9113
+process = 4342.25152 total = 34176.229376 available = 13620.61312 used = 20555.616256 free = 13620.61312 percent = 60.1
+Train on 29800 samples, validate on 7464 samples
+2024-04-29 21:08:51.692598: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:08:51.692695: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+29800/29800 [==============================] - 2s 59us/sample - loss: 1.8984 - acc: 0.5716 - val_loss: 1.7354 - val_acc: 0.5936
+Epoch 2/100
+29800/29800 [==============================] - 2s 53us/sample - loss: 0.9004 - acc: 0.7348 - val_loss: 0.9350 - val_acc: 0.7070
+Epoch 3/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.6800 - acc: 0.7826 - val_loss: 0.6734 - val_acc: 0.7768
+Epoch 4/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.5758 - acc: 0.8071 - val_loss: 0.6218 - val_acc: 0.7921
+Epoch 5/100
+29800/29800 [==============================] - 2s 53us/sample - loss: 0.5031 - acc: 0.8271 - val_loss: 0.6208 - val_acc: 0.7910
+Epoch 6/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.4573 - acc: 0.8407 - val_loss: 0.6098 - val_acc: 0.7998
+Epoch 7/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.4160 - acc: 0.8546 - val_loss: 0.5708 - val_acc: 0.8088
+Epoch 8/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.3838 - acc: 0.8627 - val_loss: 0.5824 - val_acc: 0.8065
+Epoch 9/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.3668 - acc: 0.8698 - val_loss: 0.5797 - val_acc: 0.8112
+Epoch 10/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.3413 - acc: 0.8779 - val_loss: 0.5781 - val_acc: 0.8124
+Epoch 11/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.3235 - acc: 0.8847 - val_loss: 0.5816 - val_acc: 0.8104
+Epoch 12/100
+29800/29800 [==============================] - 1s 49us/sample - loss: 0.3135 - acc: 0.8870 - val_loss: 0.5853 - val_acc: 0.8112
+Epoch 13/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.3008 - acc: 0.8921 - val_loss: 0.5922 - val_acc: 0.8103
+Epoch 14/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.2867 - acc: 0.8966 - val_loss: 0.5891 - val_acc: 0.8178
+Epoch 15/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.2768 - acc: 0.8982 - val_loss: 0.5932 - val_acc: 0.8170
+Epoch 16/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.2709 - acc: 0.8989 - val_loss: 0.5974 - val_acc: 0.8165
+Epoch 17/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.2668 - acc: 0.9045 - val_loss: 0.5888 - val_acc: 0.8151
+process = 4356.952064 total = 34176.229376 available = 13579.48928 used = 20596.740096 free = 13579.48928 percent = 60.3
+Train on 29800 samples, validate on 7464 samples
+Epoch 1/100
+29800/29800 [==============================] - 2s 58us/sample - loss: 1.8571 - acc: 0.5811 - val_loss: 1.7209 - val_acc: 0.5106
+Epoch 2/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.8498 - acc: 0.7479 - val_loss: 0.9184 - val_acc: 0.7087
+Epoch 3/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.6508 - acc: 0.7898 - val_loss: 0.6502 - val_acc: 0.7863
+Epoch 4/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.5459 - acc: 0.8180 - val_loss: 0.5971 - val_acc: 0.8053
+Epoch 5/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.4766 - acc: 0.8374 - val_loss: 0.5800 - val_acc: 0.8135
+Epoch 6/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.4262 - acc: 0.8507 - val_loss: 0.5619 - val_acc: 0.8120
+Epoch 7/100
+29800/29800 [==============================] - 2s 53us/sample - loss: 0.3905 - acc: 0.8626 - val_loss: 0.5594 - val_acc: 0.8190
+Epoch 8/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.3618 - acc: 0.8733 - val_loss: 0.5652 - val_acc: 0.8148
+Epoch 9/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.3366 - acc: 0.8804 - val_loss: 0.5611 - val_acc: 0.8177
+Epoch 10/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.3197 - acc: 0.8864 - val_loss: 0.5819 - val_acc: 0.8147
+Epoch 11/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.3025 - acc: 0.8926 - val_loss: 0.5642 - val_acc: 0.8206
+Epoch 12/100
+29800/29800 [==============================] - 1s 48us/sample - loss: 0.2912 - acc: 0.8968 - val_loss: 0.5682 - val_acc: 0.8209
+Epoch 13/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.2786 - acc: 0.9004 - val_loss: 0.5828 - val_acc: 0.8213
+Epoch 14/100
+29800/29800 [==============================] - 1s 49us/sample - loss: 0.2610 - acc: 0.9043 - val_loss: 0.5639 - val_acc: 0.8241
+Epoch 15/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.2563 - acc: 0.9078 - val_loss: 0.5745 - val_acc: 0.8292
+Epoch 16/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.2433 - acc: 0.9105 - val_loss: 0.5754 - val_acc: 0.8252
+Epoch 17/100
+29800/29800 [==============================] - 2s 53us/sample - loss: 0.2372 - acc: 0.9143 - val_loss: 0.5872 - val_acc: 0.8237
+process = 4379.3408 total = 34176.229376 available = 13624.758272 used = 20551.471104 free = 13624.758272 percent = 60.1
+Train on 29800 samples, validate on 7464 samples
+Epoch 1/100
+29800/29800 [==============================] - 2s 62us/sample - loss: 2.5147 - acc: 0.4297 - val_loss: 1.9259 - val_acc: 0.4433
+Epoch 2/100
+29800/29800 [==============================] - 2s 54us/sample - loss: 1.5956 - acc: 0.5552 - val_loss: 1.4384 - val_acc: 0.5742
+Epoch 3/100
+29800/29800 [==============================] - 2s 55us/sample - loss: 1.3416 - acc: 0.5986 - val_loss: 1.2356 - val_acc: 0.6278
+Epoch 4/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 1.2075 - acc: 0.6251 - val_loss: 1.1834 - val_acc: 0.6334
+Epoch 5/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 1.1291 - acc: 0.6429 - val_loss: 1.1416 - val_acc: 0.6413
+Epoch 6/100
+29800/29800 [==============================] - 2s 50us/sample - loss: 1.0594 - acc: 0.6592 - val_loss: 1.1184 - val_acc: 0.6424
+Epoch 7/100
+29800/29800 [==============================] - 1s 49us/sample - loss: 1.0175 - acc: 0.6662 - val_loss: 1.1048 - val_acc: 0.6561
+Epoch 8/100
+29800/29800 [==============================] - 1s 48us/sample - loss: 0.9819 - acc: 0.6757 - val_loss: 1.0777 - val_acc: 0.6574
+Epoch 9/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.9475 - acc: 0.6835 - val_loss: 1.0763 - val_acc: 0.6590
+Epoch 10/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.9228 - acc: 0.6891 - val_loss: 1.0633 - val_acc: 0.6545
+Epoch 11/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.8991 - acc: 0.6955 - val_loss: 1.0558 - val_acc: 0.6573
+Epoch 12/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.8796 - acc: 0.6987 - val_loss: 1.0558 - val_acc: 0.6617
+Epoch 13/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.8673 - acc: 0.7055 - val_loss: 1.0500 - val_acc: 0.6614
+Epoch 14/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.8475 - acc: 0.7090 - val_loss: 1.0487 - val_acc: 0.6641
+Epoch 15/100
+29800/29800 [==============================] - 2s 54us/sample - loss: 0.8316 - acc: 0.7129 - val_loss: 1.0546 - val_acc: 0.6612
+Epoch 16/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.8183 - acc: 0.7174 - val_loss: 1.0494 - val_acc: 0.6622
+Epoch 17/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.8013 - acc: 0.7222 - val_loss: 1.0607 - val_acc: 0.6558
+Epoch 18/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.7935 - acc: 0.7219 - val_loss: 1.0534 - val_acc: 0.6616
+Epoch 19/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.7830 - acc: 0.7255 - val_loss: 1.0521 - val_acc: 0.6681
+Epoch 20/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.7759 - acc: 0.7273 - val_loss: 1.0593 - val_acc: 0.6649
+Epoch 21/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.7667 - acc: 0.7295 - val_loss: 1.0561 - val_acc: 0.6668
+Epoch 22/100
+29800/29800 [==============================] - 2s 54us/sample - loss: 0.7538 - acc: 0.7338 - val_loss: 1.0608 - val_acc: 0.6660
+Epoch 23/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.7513 - acc: 0.7366 - val_loss: 1.0598 - val_acc: 0.6688
+Epoch 24/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.7401 - acc: 0.7376 - val_loss: 1.0638 - val_acc: 0.6613
+process = 4413.075456 total = 34176.229376 available = 14116.200448 used = 20060.028928 free = 14116.200448 percent = 58.7
+Train on 29800 samples, validate on 7464 samples
+Epoch 1/100
+29800/29800 [==============================] - 2s 59us/sample - loss: 1.4644 - acc: 0.6565 - val_loss: 1.6568 - val_acc: 0.6136
+Epoch 2/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.6272 - acc: 0.8147 - val_loss: 0.7628 - val_acc: 0.7497
+Epoch 3/100
+29800/29800 [==============================] - 2s 53us/sample - loss: 0.4535 - acc: 0.8549 - val_loss: 0.4627 - val_acc: 0.8513
+Epoch 4/100
+29800/29800 [==============================] - 1s 50us/sample - loss: 0.3480 - acc: 0.8872 - val_loss: 0.4191 - val_acc: 0.8714
+Epoch 5/100
+29800/29800 [==============================] - 1s 49us/sample - loss: 0.2961 - acc: 0.9011 - val_loss: 0.4032 - val_acc: 0.8759
+Epoch 6/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.2486 - acc: 0.9158 - val_loss: 0.3918 - val_acc: 0.8809
+Epoch 7/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.2090 - acc: 0.9291 - val_loss: 0.3884 - val_acc: 0.8855
+Epoch 8/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1864 - acc: 0.9365 - val_loss: 0.3864 - val_acc: 0.8840
+Epoch 9/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1659 - acc: 0.9434 - val_loss: 0.3965 - val_acc: 0.8855
+Epoch 10/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.1486 - acc: 0.9488 - val_loss: 0.4002 - val_acc: 0.8871
+Epoch 11/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1378 - acc: 0.9532 - val_loss: 0.3968 - val_acc: 0.8903
+Epoch 12/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1245 - acc: 0.9587 - val_loss: 0.3951 - val_acc: 0.8920
+Epoch 13/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.1147 - acc: 0.9607 - val_loss: 0.4122 - val_acc: 0.8975
+Epoch 14/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1072 - acc: 0.9630 - val_loss: 0.4140 - val_acc: 0.8956
+Epoch 15/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1025 - acc: 0.9643 - val_loss: 0.4132 - val_acc: 0.8991
+Epoch 16/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.1000 - acc: 0.9666 - val_loss: 0.4037 - val_acc: 0.8967
+Epoch 17/100
+29800/29800 [==============================] - 2s 52us/sample - loss: 0.0867 - acc: 0.9690 - val_loss: 0.4115 - val_acc: 0.8978
+Epoch 18/100
+29800/29800 [==============================] - 2s 51us/sample - loss: 0.0881 - acc: 0.9692 - val_loss: 0.4133 - val_acc: 0.9003
+process = 4383.178752 total = 34176.229376 available = 14126.08 used = 20050.149376 free = 14126.08 percent = 58.7
+Train on 29813 samples, validate on 7451 samples
+2024-04-29 21:10:52.039463: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:10:52.039610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+29813/29813 [==============================] - 2s 66us/sample - loss: 1.8906 - acc: 0.5690 - val_loss: 1.9318 - val_acc: 0.4429
+Epoch 2/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.8821 - acc: 0.7387 - val_loss: 0.9494 - val_acc: 0.6897
+Epoch 3/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.6680 - acc: 0.7865 - val_loss: 0.6648 - val_acc: 0.7837
+Epoch 4/100
+29813/29813 [==============================] - 2s 61us/sample - loss: 0.5645 - acc: 0.8104 - val_loss: 0.6436 - val_acc: 0.7901
+Epoch 5/100
+29813/29813 [==============================] - 2s 60us/sample - loss: 0.4981 - acc: 0.8290 - val_loss: 0.6233 - val_acc: 0.7939
+Epoch 6/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.4465 - acc: 0.8448 - val_loss: 0.6175 - val_acc: 0.7977
+Epoch 7/100
+29813/29813 [==============================] - 2s 60us/sample - loss: 0.4115 - acc: 0.8546 - val_loss: 0.6109 - val_acc: 0.8085
+Epoch 8/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.3830 - acc: 0.8648 - val_loss: 0.6112 - val_acc: 0.8031
+Epoch 9/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.3504 - acc: 0.8756 - val_loss: 0.6225 - val_acc: 0.8050
+Epoch 10/100
+29813/29813 [==============================] - 2s 60us/sample - loss: 0.3372 - acc: 0.8781 - val_loss: 0.6043 - val_acc: 0.8066
+Epoch 11/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.3184 - acc: 0.8847 - val_loss: 0.6199 - val_acc: 0.8059
+Epoch 12/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.3078 - acc: 0.8908 - val_loss: 0.6282 - val_acc: 0.8105
+Epoch 13/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.2969 - acc: 0.8918 - val_loss: 0.6231 - val_acc: 0.8117
+Epoch 14/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.2855 - acc: 0.8957 - val_loss: 0.6423 - val_acc: 0.8027
+Epoch 15/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.2768 - acc: 0.8982 - val_loss: 0.6271 - val_acc: 0.8077
+Epoch 16/100
+29813/29813 [==============================] - 2s 60us/sample - loss: 0.2714 - acc: 0.9002 - val_loss: 0.6265 - val_acc: 0.8108
+Epoch 17/100
+29813/29813 [==============================] - 2s 61us/sample - loss: 0.2561 - acc: 0.9064 - val_loss: 0.6304 - val_acc: 0.8094
+Epoch 18/100
+29813/29813 [==============================] - 2s 62us/sample - loss: 0.2516 - acc: 0.9083 - val_loss: 0.6446 - val_acc: 0.8105
+Epoch 19/100
+29813/29813 [==============================] - 2s 61us/sample - loss: 0.2472 - acc: 0.9088 - val_loss: 0.6489 - val_acc: 0.8078
+Epoch 20/100
+29813/29813 [==============================] - 2s 61us/sample - loss: 0.2466 - acc: 0.9081 - val_loss: 0.6436 - val_acc: 0.8145
+process = 4405.448704 total = 34176.229376 available = 14028.685312 used = 20147.544064 free = 14028.685312 percent = 59.0
+Train on 29813 samples, validate on 7451 samples
+Epoch 1/100
+29813/29813 [==============================] - 2s 63us/sample - loss: 1.8697 - acc: 0.5771 - val_loss: 1.7781 - val_acc: 0.4919
+Epoch 2/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.8540 - acc: 0.7466 - val_loss: 0.8827 - val_acc: 0.7262
+Epoch 3/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.6435 - acc: 0.7937 - val_loss: 0.6418 - val_acc: 0.7936
+Epoch 4/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.5338 - acc: 0.8222 - val_loss: 0.6138 - val_acc: 0.8010
+Epoch 5/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.4708 - acc: 0.8403 - val_loss: 0.5978 - val_acc: 0.8121
+Epoch 6/100
+29813/29813 [==============================] - 2s 57us/sample - loss: 0.4189 - acc: 0.8562 - val_loss: 0.5867 - val_acc: 0.8081
+Epoch 7/100
+29813/29813 [==============================] - 2s 52us/sample - loss: 0.3863 - acc: 0.8647 - val_loss: 0.5919 - val_acc: 0.8090
+Epoch 8/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.3536 - acc: 0.8743 - val_loss: 0.5875 - val_acc: 0.8176
+Epoch 9/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.3230 - acc: 0.8848 - val_loss: 0.5956 - val_acc: 0.8141
+Epoch 10/100
+29813/29813 [==============================] - 2s 57us/sample - loss: 0.3123 - acc: 0.8875 - val_loss: 0.5925 - val_acc: 0.8156
+Epoch 11/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.2961 - acc: 0.8933 - val_loss: 0.5869 - val_acc: 0.8194
+Epoch 12/100
+29813/29813 [==============================] - 2s 57us/sample - loss: 0.2789 - acc: 0.8981 - val_loss: 0.5873 - val_acc: 0.8204
+Epoch 13/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.2648 - acc: 0.9060 - val_loss: 0.6130 - val_acc: 0.8176
+Epoch 14/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.2629 - acc: 0.9052 - val_loss: 0.6119 - val_acc: 0.8203
+Epoch 15/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.2471 - acc: 0.9103 - val_loss: 0.6076 - val_acc: 0.8199
+Epoch 16/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.2414 - acc: 0.9128 - val_loss: 0.6248 - val_acc: 0.8208
+process = 4417.72032 total = 34176.229376 available = 14037.83168 used = 20138.397696 free = 14037.83168 percent = 58.9
+Train on 29813 samples, validate on 7451 samples
+Epoch 1/100
+29813/29813 [==============================] - 2s 63us/sample - loss: 2.5252 - acc: 0.4306 - val_loss: 1.9615 - val_acc: 0.4315
+Epoch 2/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 1.6012 - acc: 0.5512 - val_loss: 1.4241 - val_acc: 0.5803
+Epoch 3/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 1.3520 - acc: 0.5967 - val_loss: 1.2224 - val_acc: 0.6260
+Epoch 4/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 1.2199 - acc: 0.6209 - val_loss: 1.1345 - val_acc: 0.6435
+Epoch 5/100
+29813/29813 [==============================] - 2s 57us/sample - loss: 1.1327 - acc: 0.6387 - val_loss: 1.1007 - val_acc: 0.6563
+Epoch 6/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 1.0657 - acc: 0.6574 - val_loss: 1.0753 - val_acc: 0.6574
+Epoch 7/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 1.0279 - acc: 0.6615 - val_loss: 1.0686 - val_acc: 0.6606
+Epoch 8/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.9832 - acc: 0.6723 - val_loss: 1.0464 - val_acc: 0.6631
+Epoch 9/100
+29813/29813 [==============================] - 2s 54us/sample - loss: 0.9517 - acc: 0.6831 - val_loss: 1.0430 - val_acc: 0.6665
+Epoch 10/100
+29813/29813 [==============================] - 2s 54us/sample - loss: 0.9248 - acc: 0.6866 - val_loss: 1.0293 - val_acc: 0.6673
+Epoch 11/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.9101 - acc: 0.6935 - val_loss: 1.0237 - val_acc: 0.6673
+Epoch 12/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.8855 - acc: 0.6953 - val_loss: 1.0215 - val_acc: 0.6682
+Epoch 13/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.8696 - acc: 0.7019 - val_loss: 1.0216 - val_acc: 0.6702
+Epoch 14/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.8523 - acc: 0.7045 - val_loss: 1.0240 - val_acc: 0.6689
+Epoch 15/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.8388 - acc: 0.7102 - val_loss: 1.0170 - val_acc: 0.6737
+Epoch 16/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.8207 - acc: 0.7156 - val_loss: 1.0100 - val_acc: 0.6708
+Epoch 17/100
+29813/29813 [==============================] - 2s 57us/sample - loss: 0.8157 - acc: 0.7170 - val_loss: 1.0125 - val_acc: 0.6696
+Epoch 18/100
+29813/29813 [==============================] - 2s 53us/sample - loss: 0.7922 - acc: 0.7208 - val_loss: 1.0117 - val_acc: 0.6669
+Epoch 19/100
+29813/29813 [==============================] - 2s 54us/sample - loss: 0.7868 - acc: 0.7223 - val_loss: 1.0094 - val_acc: 0.6719
+Epoch 20/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.7818 - acc: 0.7246 - val_loss: 1.0154 - val_acc: 0.6676
+Epoch 21/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.7739 - acc: 0.7281 - val_loss: 1.0173 - val_acc: 0.6748
+Epoch 22/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.7631 - acc: 0.7312 - val_loss: 1.0206 - val_acc: 0.6740
+Epoch 23/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.7543 - acc: 0.7335 - val_loss: 1.0126 - val_acc: 0.6697
+Epoch 24/100
+29813/29813 [==============================] - 2s 55us/sample - loss: 0.7412 - acc: 0.7355 - val_loss: 1.0238 - val_acc: 0.6709
+Epoch 25/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.7418 - acc: 0.7355 - val_loss: 1.0165 - val_acc: 0.6682
+Epoch 26/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.7349 - acc: 0.7388 - val_loss: 1.0417 - val_acc: 0.6642
+Epoch 27/100
+29813/29813 [==============================] - 2s 53us/sample - loss: 0.7340 - acc: 0.7392 - val_loss: 1.0294 - val_acc: 0.6665
+Epoch 28/100
+29813/29813 [==============================] - 2s 53us/sample - loss: 0.7197 - acc: 0.7429 - val_loss: 1.0443 - val_acc: 0.6681
+Epoch 29/100
+29813/29813 [==============================] - 2s 56us/sample - loss: 0.7145 - acc: 0.7437 - val_loss: 1.0301 - val_acc: 0.6700
+process = 4432.072704 total = 34176.229376 available = 13947.281408 used = 20228.947968 free = 13947.281408 percent = 59.2
+Train on 29813 samples, validate on 7451 samples
+Epoch 1/100
+29813/29813 [==============================] - 2s 68us/sample - loss: 1.4836 - acc: 0.6514 - val_loss: 1.6494 - val_acc: 0.5868
+Epoch 2/100
+29813/29813 [==============================] - 2s 61us/sample - loss: 0.6281 - acc: 0.8136 - val_loss: 0.7486 - val_acc: 0.7571
+Epoch 3/100
+29813/29813 [==============================] - 2s 57us/sample - loss: 0.4437 - acc: 0.8588 - val_loss: 0.4476 - val_acc: 0.8591
+Epoch 4/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.3525 - acc: 0.8846 - val_loss: 0.4191 - val_acc: 0.8736
+Epoch 5/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.2932 - acc: 0.9023 - val_loss: 0.3904 - val_acc: 0.8832
+Epoch 6/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.2384 - acc: 0.9170 - val_loss: 0.4007 - val_acc: 0.8807
+Epoch 7/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.2115 - acc: 0.9283 - val_loss: 0.3997 - val_acc: 0.8894
+Epoch 8/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.1797 - acc: 0.9378 - val_loss: 0.3892 - val_acc: 0.8925
+Epoch 9/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.1653 - acc: 0.9430 - val_loss: 0.4034 - val_acc: 0.8928
+Epoch 10/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.1501 - acc: 0.9501 - val_loss: 0.4050 - val_acc: 0.8942
+Epoch 11/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.1358 - acc: 0.9535 - val_loss: 0.3960 - val_acc: 0.8985
+Epoch 12/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.1237 - acc: 0.9567 - val_loss: 0.4105 - val_acc: 0.8948
+Epoch 13/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.1146 - acc: 0.9608 - val_loss: 0.4411 - val_acc: 0.8934
+Epoch 14/100
+29813/29813 [==============================] - 2s 60us/sample - loss: 0.1119 - acc: 0.9616 - val_loss: 0.4130 - val_acc: 0.8988
+Epoch 15/100
+29813/29813 [==============================] - 2s 60us/sample - loss: 0.0998 - acc: 0.9650 - val_loss: 0.4333 - val_acc: 0.8967
+Epoch 16/100
+29813/29813 [==============================] - 2s 59us/sample - loss: 0.0920 - acc: 0.9679 - val_loss: 0.4546 - val_acc: 0.8959
+Epoch 17/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.0913 - acc: 0.9683 - val_loss: 0.4506 - val_acc: 0.8997
+Epoch 18/100
+29813/29813 [==============================] - 2s 58us/sample - loss: 0.0838 - acc: 0.9701 - val_loss: 0.4468 - val_acc: 0.9018
+process = 4375.51104 total = 34176.229376 available = 13995.978752 used = 20180.250624 free = 13995.978752 percent = 59.0
+Train on 29820 samples, validate on 7444 samples
+2024-04-29 21:13:17.922400: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:13:17.922541: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+29820/29820 [==============================] - 2s 67us/sample - loss: 1.9098 - acc: 0.5700 - val_loss: 1.7355 - val_acc: 0.5207
+Epoch 2/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.8897 - acc: 0.7360 - val_loss: 0.9220 - val_acc: 0.6985
+Epoch 3/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.6842 - acc: 0.7837 - val_loss: 0.6653 - val_acc: 0.7837
+Epoch 4/100
+29820/29820 [==============================] - 2s 62us/sample - loss: 0.5671 - acc: 0.8075 - val_loss: 0.6389 - val_acc: 0.7914
+Epoch 5/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.5017 - acc: 0.8275 - val_loss: 0.6105 - val_acc: 0.7997
+Epoch 6/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.4551 - acc: 0.8420 - val_loss: 0.5983 - val_acc: 0.8080
+Epoch 7/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.4116 - acc: 0.8558 - val_loss: 0.5905 - val_acc: 0.8074
+Epoch 8/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3872 - acc: 0.8627 - val_loss: 0.5823 - val_acc: 0.8118
+Epoch 9/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3661 - acc: 0.8690 - val_loss: 0.5849 - val_acc: 0.8100
+Epoch 10/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3388 - acc: 0.8767 - val_loss: 0.5884 - val_acc: 0.8087
+Epoch 11/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3283 - acc: 0.8823 - val_loss: 0.5876 - val_acc: 0.8135
+Epoch 12/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3067 - acc: 0.8886 - val_loss: 0.5883 - val_acc: 0.8145
+Epoch 13/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2974 - acc: 0.8921 - val_loss: 0.5914 - val_acc: 0.8111
+Epoch 14/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2952 - acc: 0.8916 - val_loss: 0.5851 - val_acc: 0.8161
+Epoch 15/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.2797 - acc: 0.8987 - val_loss: 0.5889 - val_acc: 0.8134
+Epoch 16/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.2684 - acc: 0.9008 - val_loss: 0.6074 - val_acc: 0.8160
+Epoch 17/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2650 - acc: 0.9030 - val_loss: 0.5969 - val_acc: 0.8180
+Epoch 18/100
+29820/29820 [==============================] - 2s 62us/sample - loss: 0.2578 - acc: 0.9060 - val_loss: 0.5966 - val_acc: 0.8188
+process = 4402.745344 total = 34176.229376 available = 13889.327104 used = 20286.902272 free = 13889.327104 percent = 59.4
+Train on 29820 samples, validate on 7444 samples
+Epoch 1/100
+29820/29820 [==============================] - 2s 68us/sample - loss: 1.8551 - acc: 0.5796 - val_loss: 1.7553 - val_acc: 0.4878
+Epoch 2/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.8587 - acc: 0.7443 - val_loss: 0.9091 - val_acc: 0.7057
+Epoch 3/100
+29820/29820 [==============================] - 2s 63us/sample - loss: 0.6495 - acc: 0.7910 - val_loss: 0.6489 - val_acc: 0.7892
+Epoch 4/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.5422 - acc: 0.8186 - val_loss: 0.6072 - val_acc: 0.7989
+Epoch 5/100
+29820/29820 [==============================] - 2s 62us/sample - loss: 0.4786 - acc: 0.8361 - val_loss: 0.5899 - val_acc: 0.8115
+Epoch 6/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.4296 - acc: 0.8509 - val_loss: 0.5591 - val_acc: 0.8117
+Epoch 7/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.3888 - acc: 0.8635 - val_loss: 0.5611 - val_acc: 0.8178
+Epoch 8/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.3554 - acc: 0.8724 - val_loss: 0.5562 - val_acc: 0.8205
+Epoch 9/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3385 - acc: 0.8786 - val_loss: 0.5579 - val_acc: 0.8238
+Epoch 10/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.3145 - acc: 0.8884 - val_loss: 0.5557 - val_acc: 0.8173
+Epoch 11/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.3016 - acc: 0.8905 - val_loss: 0.5649 - val_acc: 0.8255
+Epoch 12/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.2874 - acc: 0.8977 - val_loss: 0.5702 - val_acc: 0.8219
+Epoch 13/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2724 - acc: 0.9024 - val_loss: 0.5688 - val_acc: 0.8251
+Epoch 14/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.2618 - acc: 0.9050 - val_loss: 0.5556 - val_acc: 0.8278
+Epoch 15/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2509 - acc: 0.9086 - val_loss: 0.5791 - val_acc: 0.8227
+Epoch 16/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.2554 - acc: 0.9069 - val_loss: 0.5780 - val_acc: 0.8263
+Epoch 17/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.2358 - acc: 0.9126 - val_loss: 0.5795 - val_acc: 0.8319
+Epoch 18/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2345 - acc: 0.9138 - val_loss: 0.5915 - val_acc: 0.8276
+Epoch 19/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.2287 - acc: 0.9170 - val_loss: 0.5804 - val_acc: 0.8297
+Epoch 20/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.2222 - acc: 0.9191 - val_loss: 0.5926 - val_acc: 0.8266
+Epoch 21/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.2253 - acc: 0.9162 - val_loss: 0.5815 - val_acc: 0.8311
+Epoch 22/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.2123 - acc: 0.9222 - val_loss: 0.5934 - val_acc: 0.8283
+Epoch 23/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.2070 - acc: 0.9213 - val_loss: 0.6030 - val_acc: 0.8275
+Epoch 24/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.2039 - acc: 0.9226 - val_loss: 0.5975 - val_acc: 0.8298
+process = 4416.335872 total = 34176.229376 available = 14002.880512 used = 20173.348864 free = 14002.880512 percent = 59.0
+Train on 29820 samples, validate on 7444 samples
+Epoch 1/100
+29820/29820 [==============================] - 2s 64us/sample - loss: 2.4981 - acc: 0.4312 - val_loss: 1.9393 - val_acc: 0.4160
+Epoch 2/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 1.5821 - acc: 0.5571 - val_loss: 1.4209 - val_acc: 0.5738
+Epoch 3/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 1.3422 - acc: 0.5958 - val_loss: 1.2452 - val_acc: 0.6197
+Epoch 4/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 1.2085 - acc: 0.6244 - val_loss: 1.1870 - val_acc: 0.6263
+Epoch 5/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 1.1238 - acc: 0.6445 - val_loss: 1.1592 - val_acc: 0.6307
+Epoch 6/100
+29820/29820 [==============================] - 2s 56us/sample - loss: 1.0664 - acc: 0.6550 - val_loss: 1.1261 - val_acc: 0.6416
+Epoch 7/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 1.0179 - acc: 0.6664 - val_loss: 1.1005 - val_acc: 0.6451
+Epoch 8/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 0.9818 - acc: 0.6746 - val_loss: 1.0854 - val_acc: 0.6530
+Epoch 9/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.9482 - acc: 0.6837 - val_loss: 1.0840 - val_acc: 0.6490
+Epoch 10/100
+29820/29820 [==============================] - 2s 60us/sample - loss: 0.9231 - acc: 0.6890 - val_loss: 1.0627 - val_acc: 0.6534
+Epoch 11/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.8994 - acc: 0.6969 - val_loss: 1.0547 - val_acc: 0.6556
+Epoch 12/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 0.8782 - acc: 0.6991 - val_loss: 1.0602 - val_acc: 0.6570
+Epoch 13/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 0.8570 - acc: 0.7065 - val_loss: 1.0497 - val_acc: 0.6561
+Epoch 14/100
+29820/29820 [==============================] - 2s 61us/sample - loss: 0.8421 - acc: 0.7119 - val_loss: 1.0533 - val_acc: 0.6544
+Epoch 15/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 0.8334 - acc: 0.7127 - val_loss: 1.0421 - val_acc: 0.6582
+Epoch 16/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.8185 - acc: 0.7159 - val_loss: 1.0459 - val_acc: 0.6530
+Epoch 17/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 0.8022 - acc: 0.7218 - val_loss: 1.0530 - val_acc: 0.6600
+Epoch 18/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 0.7905 - acc: 0.7219 - val_loss: 1.0554 - val_acc: 0.6601
+Epoch 19/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 0.7856 - acc: 0.7249 - val_loss: 1.0599 - val_acc: 0.6554
+Epoch 20/100
+29820/29820 [==============================] - 2s 57us/sample - loss: 0.7726 - acc: 0.7288 - val_loss: 1.0458 - val_acc: 0.6576
+Epoch 21/100
+29820/29820 [==============================] - 2s 56us/sample - loss: 0.7617 - acc: 0.7302 - val_loss: 1.0479 - val_acc: 0.6588
+Epoch 22/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 0.7521 - acc: 0.7338 - val_loss: 1.0538 - val_acc: 0.6544
+Epoch 23/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 0.7448 - acc: 0.7337 - val_loss: 1.0551 - val_acc: 0.6560
+Epoch 24/100
+29820/29820 [==============================] - 2s 59us/sample - loss: 0.7437 - acc: 0.7351 - val_loss: 1.0692 - val_acc: 0.6596
+Epoch 25/100
+29820/29820 [==============================] - 2s 58us/sample - loss: 0.7299 - acc: 0.7398 - val_loss: 1.0606 - val_acc: 0.6597
+process = 4436.738048 total = 34176.229376 available = 13928.681472 used = 20247.547904 free = 13928.681472 percent = 59.2
+Train on 29820 samples, validate on 7444 samples
+Epoch 1/100
+29820/29820 [==============================] - 2s 63us/sample - loss: 1.4772 - acc: 0.6542 - val_loss: 1.6617 - val_acc: 0.5870
+Epoch 2/100
+29820/29820 [==============================] - 2s 56us/sample - loss: 0.6285 - acc: 0.8141 - val_loss: 0.7280 - val_acc: 0.7787
+Epoch 3/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.4471 - acc: 0.8604 - val_loss: 0.4502 - val_acc: 0.8538
+Epoch 4/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.3523 - acc: 0.8846 - val_loss: 0.4071 - val_acc: 0.8718
+Epoch 5/100
+29820/29820 [==============================] - 2s 56us/sample - loss: 0.2889 - acc: 0.9039 - val_loss: 0.3985 - val_acc: 0.8741
+Epoch 6/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.2451 - acc: 0.9147 - val_loss: 0.3886 - val_acc: 0.8799
+Epoch 7/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.2142 - acc: 0.9274 - val_loss: 0.3788 - val_acc: 0.8839
+Epoch 8/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.1873 - acc: 0.9363 - val_loss: 0.3708 - val_acc: 0.8920
+Epoch 9/100
+29820/29820 [==============================] - 2s 56us/sample - loss: 0.1624 - acc: 0.9437 - val_loss: 0.3811 - val_acc: 0.8886
+Epoch 10/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.1469 - acc: 0.9476 - val_loss: 0.3749 - val_acc: 0.8925
+Epoch 11/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.1292 - acc: 0.9559 - val_loss: 0.3688 - val_acc: 0.8951
+Epoch 12/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.1272 - acc: 0.9559 - val_loss: 0.3806 - val_acc: 0.8978
+Epoch 13/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.1132 - acc: 0.9609 - val_loss: 0.3753 - val_acc: 0.9003
+Epoch 14/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.1101 - acc: 0.9620 - val_loss: 0.4076 - val_acc: 0.8998
+Epoch 15/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.1036 - acc: 0.9648 - val_loss: 0.3964 - val_acc: 0.9015
+Epoch 16/100
+29820/29820 [==============================] - 2s 53us/sample - loss: 0.0987 - acc: 0.9662 - val_loss: 0.4013 - val_acc: 0.9001
+Epoch 17/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.0943 - acc: 0.9676 - val_loss: 0.3982 - val_acc: 0.9014
+Epoch 18/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.0858 - acc: 0.9712 - val_loss: 0.4146 - val_acc: 0.8995
+Epoch 19/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.0861 - acc: 0.9710 - val_loss: 0.3995 - val_acc: 0.9053
+Epoch 20/100
+29820/29820 [==============================] - 2s 54us/sample - loss: 0.0748 - acc: 0.9736 - val_loss: 0.4130 - val_acc: 0.9052
+Epoch 21/100
+29820/29820 [==============================] - 2s 55us/sample - loss: 0.0727 - acc: 0.9747 - val_loss: 0.4235 - val_acc: 0.9041
+process = 4394.65984 total = 34176.229376 available = 13945.012224 used = 20231.217152 free = 13945.012224 percent = 59.2
+Train on 29833 samples, validate on 7431 samples
+2024-04-29 21:15:55.377771: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-29 21:15:55.377913: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]
+Epoch 1/100
+29833/29833 [==============================] - 2s 62us/sample - loss: 1.9371 - acc: 0.5638 - val_loss: 1.7362 - val_acc: 0.5578
+Epoch 2/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.9110 - acc: 0.7299 - val_loss: 0.8705 - val_acc: 0.7231
+Epoch 3/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.6952 - acc: 0.7745 - val_loss: 0.6120 - val_acc: 0.7890
+Epoch 4/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.5832 - acc: 0.8054 - val_loss: 0.5845 - val_acc: 0.8034
+Epoch 5/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.5200 - acc: 0.8233 - val_loss: 0.5617 - val_acc: 0.8104
+Epoch 6/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.4566 - acc: 0.8414 - val_loss: 0.5422 - val_acc: 0.8121
+Epoch 7/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.4327 - acc: 0.8488 - val_loss: 0.5452 - val_acc: 0.8175
+Epoch 8/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.4000 - acc: 0.8599 - val_loss: 0.5367 - val_acc: 0.8248
+Epoch 9/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.3754 - acc: 0.8678 - val_loss: 0.5489 - val_acc: 0.8160
+Epoch 10/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.3500 - acc: 0.8743 - val_loss: 0.5509 - val_acc: 0.8236
+Epoch 11/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.3514 - acc: 0.8756 - val_loss: 0.5420 - val_acc: 0.8240
+Epoch 12/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.3223 - acc: 0.8846 - val_loss: 0.5348 - val_acc: 0.8268
+Epoch 13/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.3188 - acc: 0.8860 - val_loss: 0.5429 - val_acc: 0.8255
+Epoch 14/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.3020 - acc: 0.8894 - val_loss: 0.5381 - val_acc: 0.8268
+Epoch 15/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.2867 - acc: 0.8960 - val_loss: 0.5527 - val_acc: 0.8271
+Epoch 16/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.2800 - acc: 0.8984 - val_loss: 0.5596 - val_acc: 0.8315
+Epoch 17/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.2751 - acc: 0.8986 - val_loss: 0.5483 - val_acc: 0.8279
+Epoch 18/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.2668 - acc: 0.9020 - val_loss: 0.5558 - val_acc: 0.8265
+Epoch 19/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.2564 - acc: 0.9051 - val_loss: 0.5606 - val_acc: 0.8337
+Epoch 20/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.2560 - acc: 0.9047 - val_loss: 0.5557 - val_acc: 0.8284
+Epoch 21/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.2484 - acc: 0.9061 - val_loss: 0.5643 - val_acc: 0.8298
+Epoch 22/100
+29833/29833 [==============================] - 2s 60us/sample - loss: 0.2443 - acc: 0.9074 - val_loss: 0.5657 - val_acc: 0.8312
+process = 4416.73728 total = 34176.229376 available = 13819.129856 used = 20357.09952 free = 13819.129856 percent = 59.6
+Train on 29833 samples, validate on 7431 samples
+Epoch 1/100
+29833/29833 [==============================] - 2s 61us/sample - loss: 1.8878 - acc: 0.5746 - val_loss: 1.7923 - val_acc: 0.5970
+Epoch 2/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.8718 - acc: 0.7424 - val_loss: 0.8553 - val_acc: 0.7292
+Epoch 3/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.6676 - acc: 0.7847 - val_loss: 0.6076 - val_acc: 0.7973
+Epoch 4/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.5619 - acc: 0.8106 - val_loss: 0.5605 - val_acc: 0.8093
+Epoch 5/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.4879 - acc: 0.8353 - val_loss: 0.5474 - val_acc: 0.8178
+Epoch 6/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.4302 - acc: 0.8503 - val_loss: 0.5314 - val_acc: 0.8208
+Epoch 7/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.3957 - acc: 0.8592 - val_loss: 0.5295 - val_acc: 0.8240
+Epoch 8/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.3774 - acc: 0.8661 - val_loss: 0.5347 - val_acc: 0.8210
+Epoch 9/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.3463 - acc: 0.8760 - val_loss: 0.5251 - val_acc: 0.8268
+Epoch 10/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.3201 - acc: 0.8847 - val_loss: 0.5236 - val_acc: 0.8263
+Epoch 11/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.3090 - acc: 0.8894 - val_loss: 0.5296 - val_acc: 0.8255
+Epoch 12/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2995 - acc: 0.8943 - val_loss: 0.5263 - val_acc: 0.8361
+Epoch 13/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2827 - acc: 0.8970 - val_loss: 0.5204 - val_acc: 0.8331
+Epoch 14/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.2755 - acc: 0.9019 - val_loss: 0.5316 - val_acc: 0.8295
+Epoch 15/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.2583 - acc: 0.9058 - val_loss: 0.5366 - val_acc: 0.8360
+Epoch 16/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.2609 - acc: 0.9042 - val_loss: 0.5423 - val_acc: 0.8331
+Epoch 17/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2460 - acc: 0.9100 - val_loss: 0.5248 - val_acc: 0.8389
+Epoch 18/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2403 - acc: 0.9106 - val_loss: 0.5425 - val_acc: 0.8404
+Epoch 19/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2323 - acc: 0.9134 - val_loss: 0.5518 - val_acc: 0.8322
+Epoch 20/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2250 - acc: 0.9156 - val_loss: 0.5486 - val_acc: 0.8347
+Epoch 21/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.2216 - acc: 0.9170 - val_loss: 0.5575 - val_acc: 0.8354
+Epoch 22/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.2218 - acc: 0.9162 - val_loss: 0.5495 - val_acc: 0.8416
+Epoch 23/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.2127 - acc: 0.9203 - val_loss: 0.5552 - val_acc: 0.8427
+process = 4429.344768 total = 34176.229376 available = 13795.516416 used = 20380.71296 free = 13795.516416 percent = 59.6
+Train on 29833 samples, validate on 7431 samples
+Epoch 1/100
+29833/29833 [==============================] - 2s 63us/sample - loss: 2.4892 - acc: 0.4346 - val_loss: 1.9131 - val_acc: 0.4745
+Epoch 2/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 1.6208 - acc: 0.5457 - val_loss: 1.3890 - val_acc: 0.5804
+Epoch 3/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 1.3697 - acc: 0.5905 - val_loss: 1.1936 - val_acc: 0.6330
+Epoch 4/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 1.2378 - acc: 0.6148 - val_loss: 1.1237 - val_acc: 0.6481
+Epoch 5/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 1.1551 - acc: 0.6354 - val_loss: 1.0839 - val_acc: 0.6482
+Epoch 6/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 1.0894 - acc: 0.6478 - val_loss: 1.0464 - val_acc: 0.6667
+Epoch 7/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 1.0451 - acc: 0.6589 - val_loss: 1.0383 - val_acc: 0.6642
+Epoch 8/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.9964 - acc: 0.6707 - val_loss: 1.0187 - val_acc: 0.6681
+Epoch 9/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.9700 - acc: 0.6764 - val_loss: 1.0088 - val_acc: 0.6694
+Epoch 10/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.9482 - acc: 0.6800 - val_loss: 1.0053 - val_acc: 0.6730
+Epoch 11/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.9207 - acc: 0.6895 - val_loss: 0.9942 - val_acc: 0.6747
+Epoch 12/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.9008 - acc: 0.6949 - val_loss: 0.9896 - val_acc: 0.6731
+Epoch 13/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.8867 - acc: 0.6989 - val_loss: 0.9914 - val_acc: 0.6766
+Epoch 14/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.8684 - acc: 0.7002 - val_loss: 0.9962 - val_acc: 0.6722
+Epoch 15/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.8512 - acc: 0.7051 - val_loss: 0.9848 - val_acc: 0.6788
+Epoch 16/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.8378 - acc: 0.7108 - val_loss: 0.9832 - val_acc: 0.6786
+Epoch 17/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.8238 - acc: 0.7125 - val_loss: 0.9868 - val_acc: 0.6772
+Epoch 18/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.8059 - acc: 0.7189 - val_loss: 0.9919 - val_acc: 0.6786
+Epoch 19/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.8108 - acc: 0.7175 - val_loss: 0.9842 - val_acc: 0.6776
+Epoch 20/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.7906 - acc: 0.7219 - val_loss: 0.9913 - val_acc: 0.6761
+Epoch 21/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.7927 - acc: 0.7198 - val_loss: 0.9864 - val_acc: 0.6782
+Epoch 22/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.7758 - acc: 0.7235 - val_loss: 0.9871 - val_acc: 0.6776
+Epoch 23/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.7618 - acc: 0.7301 - val_loss: 0.9830 - val_acc: 0.6817
+Epoch 24/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.7571 - acc: 0.7309 - val_loss: 0.9926 - val_acc: 0.6753
+Epoch 25/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.7526 - acc: 0.7308 - val_loss: 0.9942 - val_acc: 0.6773
+Epoch 26/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.7408 - acc: 0.7349 - val_loss: 1.0042 - val_acc: 0.6755
+Epoch 27/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.7521 - acc: 0.7333 - val_loss: 0.9867 - val_acc: 0.6785
+Epoch 28/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.7438 - acc: 0.7334 - val_loss: 0.9939 - val_acc: 0.6788
+Epoch 29/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.7354 - acc: 0.7388 - val_loss: 0.9970 - val_acc: 0.6804
+Epoch 30/100
+29833/29833 [==============================] - 2s 54us/sample - loss: 0.7225 - acc: 0.7436 - val_loss: 0.9963 - val_acc: 0.6804
+Epoch 31/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.7190 - acc: 0.7423 - val_loss: 1.0007 - val_acc: 0.6800
+Epoch 32/100
+29833/29833 [==============================] - 2s 55us/sample - loss: 0.7168 - acc: 0.7428 - val_loss: 1.0024 - val_acc: 0.6831
+Epoch 33/100
+29833/29833 [==============================] - 2s 53us/sample - loss: 0.7104 - acc: 0.7425 - val_loss: 0.9994 - val_acc: 0.6823
+process = 4442.97216 total = 34176.229376 available = 13635.125248 used = 20541.104128 free = 13635.125248 percent = 60.1
+Train on 29833 samples, validate on 7431 samples
+Epoch 1/100
+29833/29833 [==============================] - 2s 69us/sample - loss: 1.4926 - acc: 0.6511 - val_loss: 1.7245 - val_acc: 0.4544
+Epoch 2/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.6348 - acc: 0.8118 - val_loss: 0.7304 - val_acc: 0.7576
+Epoch 3/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.4538 - acc: 0.8549 - val_loss: 0.4092 - val_acc: 0.8623
+Epoch 4/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.3543 - acc: 0.8841 - val_loss: 0.3787 - val_acc: 0.8743
+Epoch 5/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.2942 - acc: 0.9022 - val_loss: 0.3589 - val_acc: 0.8847
+Epoch 6/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.2499 - acc: 0.9170 - val_loss: 0.3567 - val_acc: 0.8855
+Epoch 7/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.2311 - acc: 0.9215 - val_loss: 0.3454 - val_acc: 0.8956
+Epoch 8/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.1978 - acc: 0.9329 - val_loss: 0.3455 - val_acc: 0.8950
+Epoch 9/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.1820 - acc: 0.9374 - val_loss: 0.3519 - val_acc: 0.8961
+Epoch 10/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.1521 - acc: 0.9465 - val_loss: 0.3644 - val_acc: 0.8940
+Epoch 11/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.1521 - acc: 0.9487 - val_loss: 0.3504 - val_acc: 0.9010
+Epoch 12/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.1337 - acc: 0.9535 - val_loss: 0.3330 - val_acc: 0.9028
+Epoch 13/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.1111 - acc: 0.9609 - val_loss: 0.3661 - val_acc: 0.8987
+Epoch 14/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.1185 - acc: 0.9590 - val_loss: 0.3735 - val_acc: 0.9001
+Epoch 15/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.1064 - acc: 0.9643 - val_loss: 0.3614 - val_acc: 0.8999
+Epoch 16/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.1027 - acc: 0.9641 - val_loss: 0.3689 - val_acc: 0.9046
+Epoch 17/100
+29833/29833 [==============================] - 2s 57us/sample - loss: 0.1011 - acc: 0.9662 - val_loss: 0.3675 - val_acc: 0.9042
+Epoch 18/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.0906 - acc: 0.9687 - val_loss: 0.3829 - val_acc: 0.9036
+Epoch 19/100
+29833/29833 [==============================] - 2s 58us/sample - loss: 0.0934 - acc: 0.9695 - val_loss: 0.3715 - val_acc: 0.9085
+Epoch 20/100
+29833/29833 [==============================] - 2s 56us/sample - loss: 0.0846 - acc: 0.9709 - val_loss: 0.3733 - val_acc: 0.9092
+Epoch 21/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.0780 - acc: 0.9734 - val_loss: 0.3780 - val_acc: 0.9089
+Epoch 22/100
+29833/29833 [==============================] - 2s 59us/sample - loss: 0.0703 - acc: 0.9753 - val_loss: 0.3910 - val_acc: 0.9073
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+   Accuracy  AUPR (micro-averaged)  AUPR (macro-averaged)  AUC (micro-averaged)  AUC (macro-averaged)  ...  Precision (micro-averaged)  Precision (macro-averaged)  Recall (micro-averaged)  Recall (macro-averaged)    Time (s)
+0  0.886137               0.942502               0.846667              0.998016              0.988581  ...                    0.886137                     0.86469                 0.886137                 0.748782  749.911456
+
+[1 rows x 12 columns]
+time used for DDIMDL: 749.9114556
+Total time used: 750.1183427
+done

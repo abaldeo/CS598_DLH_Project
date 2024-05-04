@@ -1,0 +1,163 @@
+(H:\CondaEnv\CNNDDIV4) PS H:\CodeV4\CS598_DLH_Project-CNN_DDI (1)\CS598_DLH_Project-CNN_DDI> pdm run python CNN_DDI_final.py -c RF 
+Inside an active virtualenv H:\CondaEnv\CNNDDIV4, reusing it.
+Set env var PDM_IGNORE_ACTIVE_VENV to ignore it.
+2024-04-30 11:26:07.461757: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-30 11:26:08.553482: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2024-04-30 11:26:08.567511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 573.69GiB/s
+2024-04-30 11:26:08.567648: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-30 11:26:08.573932: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-30 11:26:08.576868: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2024-04-30 11:26:08.577758: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2024-04-30 11:26:08.581486: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2024-04-30 11:26:08.583182: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2024-04-30 11:26:08.598479: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-30 11:26:08.598619: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+Setting GPU memory limit to 10GB.
+2024-04-30 11:26:08.599119: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-30 11:26:08.606962: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1f37e21ec70 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2024-04-30 11:26:08.607048: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2024-04-30 11:26:08.607275: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 573.69GiB/s
+2024-04-30 11:26:08.607453: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-30 11:26:08.607532: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-30 11:26:08.607640: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2024-04-30 11:26:08.607683: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2024-04-30 11:26:08.607752: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2024-04-30 11:26:08.607883: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2024-04-30 11:26:08.607961: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-30 11:26:08.608091: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2024-04-30 11:26:09.027666: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-30 11:26:09.027782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0
+2024-04-30 11:26:09.027893: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N
+2024-04-30 11:26:09.028046: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10240 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2024-04-30 11:26:09.030319: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1f38a095250 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-04-30 11:26:09.030403: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+1 Physical GPU, 1 Logical GPU(s) with memory limit:10240
+TensorFlow version: 2.3.1
+Num GPUs Available:  1
+{'featureList': ['pathway', 'target', 'enzyme', 'category'], 'classifier': ['RF'], 'NLPProcess': 'read', 'similarity_measure': 'Jaccard', 'num_folds': 5, 'num_epochs': 100, 'batch_size': 128, 'evaluate_only': False, 'save_weights': False, 'loss_fn': 'categorical_crossentropy'}
+pathway
+target
+enzyme
+category
+4
+running cross validation for RF
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\utils\fixes.py:223: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if _joblib.__version__ >= LooseVersion('0.12'):
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+H:\CondaEnv\CNNDDIV4\lib\site-packages\sklearn\metrics\classification.py:1437: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+   Accuracy  AUPR (micro-averaged)  AUPR (macro-averaged)  AUC (micro-averaged)  AUC (macro-averaged)  ...  Precision (micro-averaged)  Precision (macro-averaged)  Recall (micro-averaged)  Recall (macro-averaged)    Time (s)
+0  0.782605               0.859723               0.686334              0.995919              0.976177  ...                    0.782605                    0.724602                 0.782605                 0.445529  978.628742
+
+[1 rows x 12 columns]
+time used for RF: 978.6287416
+Total time used: 978.6470675
+done

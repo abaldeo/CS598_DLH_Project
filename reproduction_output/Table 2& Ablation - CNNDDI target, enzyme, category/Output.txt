@@ -1,0 +1,1564 @@
+(H:\CondaEnv\CNNDDIV4) PS H:\CodeV2\CS598_DLH_Project-CNN_DDI\CS598_DLH_Project-CNN_DDI> pdm run python CNN_DDI_tf.py -c CNN_DDI
+Inside an active virtualenv H:\CondaEnv\CNNDDIV4, reusing it.
+Set env var PDM_IGNORE_ACTIVE_VENV to ignore it.
+2024-04-11 12:43:29.133308: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-11 12:43:38.477198: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2024-04-11 12:43:38.548335: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 573.69GiB/s
+2024-04-11 12:43:38.548517: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-11 12:43:38.951800: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-11 12:43:39.034515: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2024-04-11 12:43:39.071340: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2024-04-11 12:43:39.322365: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2024-04-11 12:43:39.535782: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2024-04-11 12:43:41.681931: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-11 12:43:41.682107: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2024-04-11 12:43:41.736397: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-11 12:43:41.939652: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x151407986c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2024-04-11 12:43:41.939761: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2024-04-11 12:43:41.950557: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 11.00GiB deviceMemoryBandwidth: 573.69GiB/s
+2024-04-11 12:43:41.950738: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2024-04-11 12:43:41.950873: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-11 12:43:41.950963: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2024-04-11 12:43:41.951129: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2024-04-11 12:43:41.951258: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2024-04-11 12:43:41.951381: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2024-04-11 12:43:41.951482: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-11 12:43:41.951578: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2024-04-11 12:43:44.527690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-04-11 12:43:44.527813: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0
+2024-04-11 12:43:44.527896: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N
+2024-04-11 12:43:44.540085: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9216 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2024-04-11 12:43:44.564627: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1518ac92b80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-04-11 12:43:44.564774: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+1 Physical GPU, 1 Logical GPU(s) with 10GB memory limit
+TensorFlow version: 2.3.4
+Num GPUs Available:  1
+{'featureList': ['target', 'enzyme', 'category'], 'classifier': ['CNN_DDI'], 'NLPProcess': 'read'}
+.
+target
+enzyme
+category
+CNN_DDI
+3
+Model: "functional_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d (Conv1D)                 (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu (LeakyReLU)         (None, 572, 64)      0           conv1d[0][0]
+__________________________________________________________________________________________________
+conv1d_1 (Conv1D)               (None, 572, 128)     24704       leaky_re_lu[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_1 (LeakyReLU)       (None, 572, 128)     0           conv1d_1[0][0]
+__________________________________________________________________________________________________
+conv1d_2 (Conv1D)               (None, 572, 128)     49280       leaky_re_lu_1[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_2 (LeakyReLU)       (None, 572, 128)     0           conv1d_2[0][0]
+__________________________________________________________________________________________________
+conv1d_3 (Conv1D)               (None, 572, 128)     49280       leaky_re_lu_2[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_3 (LeakyReLU)       (None, 572, 128)     0           conv1d_3[0][0]
+__________________________________________________________________________________________________
+add (Add)                       (None, 572, 128)     0           leaky_re_lu_1[0][0]
+                                                                 leaky_re_lu_3[0][0]
+__________________________________________________________________________________________________
+conv1d_4 (Conv1D)               (None, 572, 256)     98560       add[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_4 (LeakyReLU)       (None, 572, 256)     0           conv1d_4[0][0]
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 146432)       0           leaky_re_lu_4[0][0]
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 267)          39097611    flatten[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 65)           17420       dense[0][0]
+__________________________________________________________________________________________________
+activation (Activation)         (None, 65)           0           dense_1[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 14745.894912 total = 34176.229376 available = 14540.079104 used = 19636.150272 free = 14540.079104 percent = 57.5
+Epoch 1/100
+2024-04-11 12:43:57.135726: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2024-04-11 12:43:57.676225: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2024-04-11 12:43:58.663840: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation.
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+233/233 [==============================] - ETA: 0s - loss: 1.1606 - accuracy: 0.6614    
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 53ms/step - loss: 1.1606 - accuracy: 0.6614 - val_loss: 0.7135 - val_accuracy: 0.7717
+Epoch 2/100
+232/233 [============================>.] - ETA: 0s - loss: 0.5704 - accuracy: 0.8059
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.5700 - accuracy: 0.8059 - val_loss: 0.5817 - val_accuracy: 0.8022
+Epoch 3/100
+231/233 [============================>.] - ETA: 0s - loss: 0.4210 - accuracy: 0.8513
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.4207 - accuracy: 0.8516 - val_loss: 0.5650 - val_accuracy: 0.8037
+Epoch 4/100
+232/233 [============================>.] - ETA: 0s - loss: 0.3347 - accuracy: 0.8804
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.3349 - accuracy: 0.8804 - val_loss: 0.5966 - val_accuracy: 0.8099
+Epoch 5/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2856 - accuracy: 0.8990
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.2855 - accuracy: 0.8990 - val_loss: 0.5647 - val_accuracy: 0.8198
+Epoch 6/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2501 - accuracy: 0.9088 
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.2502 - accuracy: 0.9088 - val_loss: 0.5874 - val_accuracy: 0.8146
+Epoch 7/100
+231/233 [============================>.] - ETA: 0s - loss: 0.2314 - accuracy: 0.9174
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.2314 - accuracy: 0.9172 - val_loss: 0.5958 - val_accuracy: 0.8208
+Epoch 8/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2093 - accuracy: 0.9260
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 45ms/step - loss: 0.2097 - accuracy: 0.9260 - val_loss: 0.6027 - val_accuracy: 0.8249
+Epoch 9/100
+233/233 [==============================] - ETA: 0s - loss: 0.1978 - accuracy: 0.9295
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.1978 - accuracy: 0.9295 - val_loss: 0.5970 - val_accuracy: 0.8234
+Epoch 10/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1842 - accuracy: 0.9322
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.1846 - accuracy: 0.9321 - val_loss: 0.5894 - val_accuracy: 0.8196
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1820 - accuracy: 0.9331
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.1819 - accuracy: 0.9332 - val_loss: 0.6095 - val_accuracy: 0.8182
+Epoch 12/100
+233/233 [==============================] - ETA: 0s - loss: 0.1751 - accuracy: 0.9350
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.1751 - accuracy: 0.9350 - val_loss: 0.6187 - val_accuracy: 0.8245
+Epoch 13/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1696 - accuracy: 0.9364 
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.1695 - accuracy: 0.9365 - val_loss: 0.5975 - val_accuracy: 0.8262
+Epoch 14/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1648 - accuracy: 0.9368 
+Epoch 00014: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.1646 - accuracy: 0.9368 - val_loss: 0.6667 - val_accuracy: 0.8204
+Epoch 15/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1625 - accuracy: 0.9380
+Epoch 00015: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.1628 - accuracy: 0.9378 - val_loss: 0.6083 - val_accuracy: 0.8243
+Model: "functional_3"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_5 (Conv1D)               (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_5 (LeakyReLU)       (None, 572, 64)      0           conv1d_5[0][0]
+__________________________________________________________________________________________________
+conv1d_6 (Conv1D)               (None, 572, 128)     24704       leaky_re_lu_5[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_6 (LeakyReLU)       (None, 572, 128)     0           conv1d_6[0][0]
+__________________________________________________________________________________________________
+conv1d_7 (Conv1D)               (None, 572, 128)     49280       leaky_re_lu_6[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_7 (LeakyReLU)       (None, 572, 128)     0           conv1d_7[0][0]
+__________________________________________________________________________________________________
+conv1d_8 (Conv1D)               (None, 572, 128)     49280       leaky_re_lu_7[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_8 (LeakyReLU)       (None, 572, 128)     0           conv1d_8[0][0]
+__________________________________________________________________________________________________
+add_1 (Add)                     (None, 572, 128)     0           leaky_re_lu_6[0][0]
+                                                                 leaky_re_lu_8[0][0]
+__________________________________________________________________________________________________
+conv1d_9 (Conv1D)               (None, 572, 256)     98560       add_1[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_9 (LeakyReLU)       (None, 572, 256)     0           conv1d_9[0][0]
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 146432)       0           leaky_re_lu_9[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 267)          39097611    flatten_1[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 65)           17420       dense_2[0][0]
+__________________________________________________________________________________________________
+activation_1 (Activation)       (None, 65)           0           dense_3[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 16951.107584 total = 34176.229376 available = 13327.64672 used = 20848.582656 free = 13327.64672 percent = 61.0
+Epoch 1/100
+  1/233 [..............................] - ETA: 0s - loss: 4.1754 - accuracy: 0.0156WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0140s). Check your callbacks.
+231/233 [============================>.] - ETA: 0s - loss: 1.6326 - accuracy: 0.5218
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 1.6292 - accuracy: 0.5226 - val_loss: 1.2164 - val_accuracy: 0.6187
+Epoch 2/100
+231/233 [============================>.] - ETA: 0s - loss: 1.0883 - accuracy: 0.6462
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 1.0888 - accuracy: 0.6461 - val_loss: 1.0768 - val_accuracy: 0.6484
+Epoch 3/100
+231/233 [============================>.] - ETA: 0s - loss: 0.9368 - accuracy: 0.6830
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.9371 - accuracy: 0.6830 - val_loss: 1.0563 - val_accuracy: 0.6511
+Epoch 4/100
+231/233 [============================>.] - ETA: 0s - loss: 0.8498 - accuracy: 0.7036
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.8485 - accuracy: 0.7040 - val_loss: 1.0418 - val_accuracy: 0.6635
+Epoch 5/100
+232/233 [============================>.] - ETA: 0s - loss: 0.7926 - accuracy: 0.7222
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.7935 - accuracy: 0.7219 - val_loss: 1.0451 - val_accuracy: 0.6519
+Epoch 6/100
+231/233 [============================>.] - ETA: 0s - loss: 0.7497 - accuracy: 0.7320
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.7499 - accuracy: 0.7317 - val_loss: 1.0524 - val_accuracy: 0.6573
+Epoch 7/100
+232/233 [============================>.] - ETA: 0s - loss: 0.7172 - accuracy: 0.7417
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.7171 - accuracy: 0.7418 - val_loss: 1.0861 - val_accuracy: 0.6670
+Epoch 8/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6882 - accuracy: 0.7496
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 15s 65ms/step - loss: 0.6880 - accuracy: 0.7496 - val_loss: 1.1014 - val_accuracy: 0.6573
+Epoch 9/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6713 - accuracy: 0.7569
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.6720 - accuracy: 0.7567 - val_loss: 1.0669 - val_accuracy: 0.6528
+Epoch 10/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6567 - accuracy: 0.7592
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.6573 - accuracy: 0.7590 - val_loss: 1.1206 - val_accuracy: 0.6489
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6438 - accuracy: 0.7626
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.6436 - accuracy: 0.7627 - val_loss: 1.1230 - val_accuracy: 0.6480
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6329 - accuracy: 0.7664 
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.6333 - accuracy: 0.7662 - val_loss: 1.1559 - val_accuracy: 0.6568
+Epoch 13/100
+233/233 [==============================] - ETA: 0s - loss: 0.6217 - accuracy: 0.7700
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.6217 - accuracy: 0.7700 - val_loss: 1.1152 - val_accuracy: 0.6499
+Epoch 14/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6157 - accuracy: 0.7706
+Epoch 00014: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.6159 - accuracy: 0.7703 - val_loss: 1.1483 - val_accuracy: 0.6579
+Model: "functional_5"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_10 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_10 (LeakyReLU)      (None, 572, 64)      0           conv1d_10[0][0]
+__________________________________________________________________________________________________
+conv1d_11 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_10[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_11 (LeakyReLU)      (None, 572, 128)     0           conv1d_11[0][0]
+__________________________________________________________________________________________________
+conv1d_12 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_11[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_12 (LeakyReLU)      (None, 572, 128)     0           conv1d_12[0][0]
+__________________________________________________________________________________________________
+conv1d_13 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_12[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_13 (LeakyReLU)      (None, 572, 128)     0           conv1d_13[0][0]
+__________________________________________________________________________________________________
+add_2 (Add)                     (None, 572, 128)     0           leaky_re_lu_11[0][0]
+                                                                 leaky_re_lu_13[0][0]
+__________________________________________________________________________________________________
+conv1d_14 (Conv1D)              (None, 572, 256)     98560       add_2[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_14 (LeakyReLU)      (None, 572, 256)     0           conv1d_14[0][0]
+__________________________________________________________________________________________________
+flatten_2 (Flatten)             (None, 146432)       0           leaky_re_lu_14[0][0]
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 267)          39097611    flatten_2[0][0]
+__________________________________________________________________________________________________
+dense_5 (Dense)                 (None, 65)           17420       dense_4[0][0]
+__________________________________________________________________________________________________
+activation_2 (Activation)       (None, 65)           0           dense_5[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17151.819776 total = 34176.229376 available = 12876.087296 used = 21300.14208 free = 12876.087296 percent = 62.3
+Epoch 1/100
+  1/233 [..............................] - ETA: 0s - loss: 4.1721 - accuracy: 0.0234WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0140s). Check your callbacks.
+232/233 [============================>.] - ETA: 0s - loss: 1.0226 - accuracy: 0.7043
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 44ms/step - loss: 1.0217 - accuracy: 0.7045 - val_loss: 0.5515 - val_accuracy: 0.8188
+Epoch 2/100
+231/233 [============================>.] - ETA: 0s - loss: 0.4106 - accuracy: 0.8635 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.4099 - accuracy: 0.8637 - val_loss: 0.4559 - val_accuracy: 0.8519
+Epoch 3/100
+233/233 [==============================] - ETA: 0s - loss: 0.2583 - accuracy: 0.9099
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.2583 - accuracy: 0.9099 - val_loss: 0.4036 - val_accuracy: 0.8776
+Epoch 4/100
+233/233 [==============================] - ETA: 0s - loss: 0.1772 - accuracy: 0.9393
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.1772 - accuracy: 0.9393 - val_loss: 0.4461 - val_accuracy: 0.8721
+Epoch 5/100
+233/233 [==============================] - ETA: 0s - loss: 0.1276 - accuracy: 0.9563
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.1276 - accuracy: 0.9563 - val_loss: 0.4512 - val_accuracy: 0.8786
+Epoch 6/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1025 - accuracy: 0.9653
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.1026 - accuracy: 0.9653 - val_loss: 0.4561 - val_accuracy: 0.8792
+Epoch 7/100
+233/233 [==============================] - ETA: 0s - loss: 0.0751 - accuracy: 0.9745
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.0751 - accuracy: 0.9745 - val_loss: 0.5464 - val_accuracy: 0.8847
+Epoch 8/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0678 - accuracy: 0.9780
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.0678 - accuracy: 0.9779 - val_loss: 0.6098 - val_accuracy: 0.8801
+Epoch 9/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0516 - accuracy: 0.9830
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.0519 - accuracy: 0.9829 - val_loss: 0.5841 - val_accuracy: 0.8898
+Epoch 10/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0403 - accuracy: 0.9876
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 45ms/step - loss: 0.0408 - accuracy: 0.9875 - val_loss: 0.6206 - val_accuracy: 0.8849
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0452 - accuracy: 0.9860
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.0451 - accuracy: 0.9860 - val_loss: 0.6157 - val_accuracy: 0.8796
+Epoch 12/100
+233/233 [==============================] - ETA: 0s - loss: 0.0432 - accuracy: 0.9861
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.0432 - accuracy: 0.9861 - val_loss: 0.6150 - val_accuracy: 0.8839
+Epoch 13/100
+233/233 [==============================] - ETA: 0s - loss: 0.0304 - accuracy: 0.9905
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.0304 - accuracy: 0.9905 - val_loss: 0.6298 - val_accuracy: 0.8883
+3
+Model: "functional_7"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_15 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_15 (LeakyReLU)      (None, 572, 64)      0           conv1d_15[0][0]
+__________________________________________________________________________________________________
+conv1d_16 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_15[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_16 (LeakyReLU)      (None, 572, 128)     0           conv1d_16[0][0]
+__________________________________________________________________________________________________
+conv1d_17 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_16[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_17 (LeakyReLU)      (None, 572, 128)     0           conv1d_17[0][0]
+__________________________________________________________________________________________________
+conv1d_18 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_17[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_18 (LeakyReLU)      (None, 572, 128)     0           conv1d_18[0][0]
+__________________________________________________________________________________________________
+add_3 (Add)                     (None, 572, 128)     0           leaky_re_lu_16[0][0]
+                                                                 leaky_re_lu_18[0][0]
+__________________________________________________________________________________________________
+conv1d_19 (Conv1D)              (None, 572, 256)     98560       add_3[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_19 (LeakyReLU)      (None, 572, 256)     0           conv1d_19[0][0]
+__________________________________________________________________________________________________
+flatten_3 (Flatten)             (None, 146432)       0           leaky_re_lu_19[0][0]
+__________________________________________________________________________________________________
+dense_6 (Dense)                 (None, 267)          39097611    flatten_3[0][0]
+__________________________________________________________________________________________________
+dense_7 (Dense)                 (None, 65)           17420       dense_6[0][0]
+__________________________________________________________________________________________________
+activation_3 (Activation)       (None, 65)           0           dense_7[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17253.117952 total = 34176.229376 available = 13417.070592 used = 20759.158784 free = 13417.070592 percent = 60.7
+Epoch 1/100
+233/233 [==============================] - ETA: 0s - loss: 1.1745 - accuracy: 0.6556    
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 1.1745 - accuracy: 0.6556 - val_loss: 0.7367 - val_accuracy: 0.7588
+Epoch 2/100
+232/233 [============================>.] - ETA: 0s - loss: 0.5660 - accuracy: 0.8074 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 49ms/step - loss: 0.5658 - accuracy: 0.8074 - val_loss: 0.6058 - val_accuracy: 0.7939
+Epoch 3/100
+232/233 [============================>.] - ETA: 0s - loss: 0.4186 - accuracy: 0.8526
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.4186 - accuracy: 0.8527 - val_loss: 0.5712 - val_accuracy: 0.8047
+Epoch 4/100
+231/233 [============================>.] - ETA: 0s - loss: 0.3375 - accuracy: 0.8790
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.3375 - accuracy: 0.8792 - val_loss: 0.5899 - val_accuracy: 0.8108
+Epoch 5/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2884 - accuracy: 0.8977
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.2888 - accuracy: 0.8975 - val_loss: 0.6070 - val_accuracy: 0.8084
+Epoch 6/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2475 - accuracy: 0.9122
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.2479 - accuracy: 0.9120 - val_loss: 0.6059 - val_accuracy: 0.8091
+Epoch 7/100
+233/233 [==============================] - ETA: 0s - loss: 0.2272 - accuracy: 0.9202
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.2272 - accuracy: 0.9202 - val_loss: 0.6038 - val_accuracy: 0.8146
+Epoch 8/100
+233/233 [==============================] - ETA: 0s - loss: 0.2098 - accuracy: 0.9252
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.2098 - accuracy: 0.9252 - val_loss: 0.6043 - val_accuracy: 0.8185
+Epoch 9/100
+233/233 [==============================] - ETA: 0s - loss: 0.1926 - accuracy: 0.9306
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 14s 62ms/step - loss: 0.1926 - accuracy: 0.9306 - val_loss: 0.6074 - val_accuracy: 0.8193
+Epoch 10/100
+233/233 [==============================] - ETA: 0s - loss: 0.1858 - accuracy: 0.9319
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.1858 - accuracy: 0.9319 - val_loss: 0.6016 - val_accuracy: 0.8177
+Epoch 11/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1786 - accuracy: 0.9348
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.1785 - accuracy: 0.9348 - val_loss: 0.6070 - val_accuracy: 0.8148
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1721 - accuracy: 0.9360
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 17s 74ms/step - loss: 0.1722 - accuracy: 0.9360 - val_loss: 0.6752 - val_accuracy: 0.8178
+Epoch 13/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1671 - accuracy: 0.9371
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.1678 - accuracy: 0.9368 - val_loss: 0.6232 - val_accuracy: 0.8140
+Model: "functional_9"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_20 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_20 (LeakyReLU)      (None, 572, 64)      0           conv1d_20[0][0]
+__________________________________________________________________________________________________
+conv1d_21 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_20[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_21 (LeakyReLU)      (None, 572, 128)     0           conv1d_21[0][0]
+__________________________________________________________________________________________________
+conv1d_22 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_21[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_22 (LeakyReLU)      (None, 572, 128)     0           conv1d_22[0][0]
+__________________________________________________________________________________________________
+conv1d_23 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_22[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_23 (LeakyReLU)      (None, 572, 128)     0           conv1d_23[0][0]
+__________________________________________________________________________________________________
+add_4 (Add)                     (None, 572, 128)     0           leaky_re_lu_21[0][0]
+                                                                 leaky_re_lu_23[0][0]
+__________________________________________________________________________________________________
+conv1d_24 (Conv1D)              (None, 572, 256)     98560       add_4[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_24 (LeakyReLU)      (None, 572, 256)     0           conv1d_24[0][0]
+__________________________________________________________________________________________________
+flatten_4 (Flatten)             (None, 146432)       0           leaky_re_lu_24[0][0]
+__________________________________________________________________________________________________
+dense_8 (Dense)                 (None, 267)          39097611    flatten_4[0][0]
+__________________________________________________________________________________________________
+dense_9 (Dense)                 (None, 65)           17420       dense_8[0][0]
+__________________________________________________________________________________________________
+activation_4 (Activation)       (None, 65)           0           dense_9[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 16799.952896 total = 34176.229376 available = 13072.257024 used = 21103.972352 free = 13072.257024 percent = 61.8
+Epoch 1/100
+232/233 [============================>.] - ETA: 0s - loss: 1.6800 - accuracy: 0.5163
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 1.6785 - accuracy: 0.5164 - val_loss: 1.2655 - val_accuracy: 0.6081
+Epoch 2/100
+233/233 [==============================] - ETA: 0s - loss: 1.0968 - accuracy: 0.6453 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 44ms/step - loss: 1.0968 - accuracy: 0.6453 - val_loss: 1.1001 - val_accuracy: 0.6479
+Epoch 3/100
+233/233 [==============================] - ETA: 0s - loss: 0.9398 - accuracy: 0.6808
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.9398 - accuracy: 0.6808 - val_loss: 1.0544 - val_accuracy: 0.6589
+Epoch 4/100
+231/233 [============================>.] - ETA: 0s - loss: 0.8499 - accuracy: 0.7036
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 44ms/step - loss: 0.8494 - accuracy: 0.7038 - val_loss: 1.0531 - val_accuracy: 0.6479
+Epoch 5/100
+232/233 [============================>.] - ETA: 0s - loss: 0.7910 - accuracy: 0.7209
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.7908 - accuracy: 0.7209 - val_loss: 1.0771 - val_accuracy: 0.6478
+Epoch 6/100
+233/233 [==============================] - ETA: 0s - loss: 0.7441 - accuracy: 0.7347
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 17s 74ms/step - loss: 0.7441 - accuracy: 0.7347 - val_loss: 1.0844 - val_accuracy: 0.6559
+Epoch 7/100
+233/233 [==============================] - ETA: 0s - loss: 0.7124 - accuracy: 0.7445
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.7124 - accuracy: 0.7445 - val_loss: 1.0569 - val_accuracy: 0.6574
+Epoch 8/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6901 - accuracy: 0.7498
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 53ms/step - loss: 0.6900 - accuracy: 0.7498 - val_loss: 1.1061 - val_accuracy: 0.6522
+Epoch 9/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6697 - accuracy: 0.7567
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 55ms/step - loss: 0.6694 - accuracy: 0.7568 - val_loss: 1.1240 - val_accuracy: 0.6580
+Epoch 10/100
+233/233 [==============================] - ETA: 0s - loss: 0.6523 - accuracy: 0.7592
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.6523 - accuracy: 0.7592 - val_loss: 1.1087 - val_accuracy: 0.6565
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6395 - accuracy: 0.7632
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 56ms/step - loss: 0.6395 - accuracy: 0.7632 - val_loss: 1.1612 - val_accuracy: 0.6541
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6266 - accuracy: 0.7696
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 14s 58ms/step - loss: 0.6268 - accuracy: 0.7697 - val_loss: 1.1231 - val_accuracy: 0.6497
+Epoch 13/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6174 - accuracy: 0.7722
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 16s 67ms/step - loss: 0.6173 - accuracy: 0.7721 - val_loss: 1.1638 - val_accuracy: 0.6466
+Epoch 14/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6135 - accuracy: 0.7717
+Epoch 00014: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 54ms/step - loss: 0.6143 - accuracy: 0.7712 - val_loss: 1.1118 - val_accuracy: 0.6572
+Model: "functional_11"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_25 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_25 (LeakyReLU)      (None, 572, 64)      0           conv1d_25[0][0]
+__________________________________________________________________________________________________
+conv1d_26 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_25[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_26 (LeakyReLU)      (None, 572, 128)     0           conv1d_26[0][0]
+__________________________________________________________________________________________________
+conv1d_27 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_26[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_27 (LeakyReLU)      (None, 572, 128)     0           conv1d_27[0][0]
+__________________________________________________________________________________________________
+conv1d_28 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_27[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_28 (LeakyReLU)      (None, 572, 128)     0           conv1d_28[0][0]
+__________________________________________________________________________________________________
+add_5 (Add)                     (None, 572, 128)     0           leaky_re_lu_26[0][0]
+                                                                 leaky_re_lu_28[0][0]
+__________________________________________________________________________________________________
+conv1d_29 (Conv1D)              (None, 572, 256)     98560       add_5[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_29 (LeakyReLU)      (None, 572, 256)     0           conv1d_29[0][0]
+__________________________________________________________________________________________________
+flatten_5 (Flatten)             (None, 146432)       0           leaky_re_lu_29[0][0]
+__________________________________________________________________________________________________
+dense_10 (Dense)                (None, 267)          39097611    flatten_5[0][0]
+__________________________________________________________________________________________________
+dense_11 (Dense)                (None, 65)           17420       dense_10[0][0]
+__________________________________________________________________________________________________
+activation_5 (Activation)       (None, 65)           0           dense_11[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17014.829056 total = 34176.229376 available = 13173.219328 used = 21003.010048 free = 13173.219328 percent = 61.5
+Epoch 1/100
+  1/233 [..............................] - ETA: 0s - loss: 4.1751 - accuracy: 0.0078WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0140s). Check your callbacks.
+231/233 [============================>.] - ETA: 0s - loss: 0.9790 - accuracy: 0.7176
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 53ms/step - loss: 0.9754 - accuracy: 0.7184 - val_loss: 0.5610 - val_accuracy: 0.8213
+Epoch 2/100
+232/233 [============================>.] - ETA: 0s - loss: 0.3939 - accuracy: 0.8686
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.3939 - accuracy: 0.8686 - val_loss: 0.4612 - val_accuracy: 0.8534
+Epoch 3/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2555 - accuracy: 0.9143
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.2550 - accuracy: 0.9145 - val_loss: 0.4183 - val_accuracy: 0.8753
+Epoch 4/100
+233/233 [==============================] - ETA: 0s - loss: 0.1772 - accuracy: 0.9386
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.1772 - accuracy: 0.9386 - val_loss: 0.4401 - val_accuracy: 0.8700
+Epoch 5/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1278 - accuracy: 0.9573
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 17s 71ms/step - loss: 0.1281 - accuracy: 0.9571 - val_loss: 0.4589 - val_accuracy: 0.8786
+Epoch 6/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1062 - accuracy: 0.9634
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.1061 - accuracy: 0.9634 - val_loss: 0.4876 - val_accuracy: 0.8793
+Epoch 7/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0767 - accuracy: 0.9748
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.0767 - accuracy: 0.9748 - val_loss: 0.5538 - val_accuracy: 0.8765
+Epoch 8/100
+233/233 [==============================] - ETA: 0s - loss: 0.0626 - accuracy: 0.9797
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.0626 - accuracy: 0.9797 - val_loss: 0.5603 - val_accuracy: 0.8771
+Epoch 9/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0585 - accuracy: 0.9812
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.0584 - accuracy: 0.9812 - val_loss: 0.5716 - val_accuracy: 0.8793
+Epoch 10/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0441 - accuracy: 0.9861 
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.0441 - accuracy: 0.9860 - val_loss: 0.5868 - val_accuracy: 0.8833
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0426 - accuracy: 0.9876
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.0425 - accuracy: 0.9876 - val_loss: 0.5734 - val_accuracy: 0.8820
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0372 - accuracy: 0.9886
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.0374 - accuracy: 0.9886 - val_loss: 0.6135 - val_accuracy: 0.8818
+Epoch 13/100
+233/233 [==============================] - ETA: 0s - loss: 0.0327 - accuracy: 0.9907
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 58ms/step - loss: 0.0327 - accuracy: 0.9907 - val_loss: 0.6022 - val_accuracy: 0.8809
+3
+Model: "functional_13"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_30 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_30 (LeakyReLU)      (None, 572, 64)      0           conv1d_30[0][0]
+__________________________________________________________________________________________________
+conv1d_31 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_30[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_31 (LeakyReLU)      (None, 572, 128)     0           conv1d_31[0][0]
+__________________________________________________________________________________________________
+conv1d_32 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_31[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_32 (LeakyReLU)      (None, 572, 128)     0           conv1d_32[0][0]
+__________________________________________________________________________________________________
+conv1d_33 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_32[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_33 (LeakyReLU)      (None, 572, 128)     0           conv1d_33[0][0]
+__________________________________________________________________________________________________
+add_6 (Add)                     (None, 572, 128)     0           leaky_re_lu_31[0][0]
+                                                                 leaky_re_lu_33[0][0]
+__________________________________________________________________________________________________
+conv1d_34 (Conv1D)              (None, 572, 256)     98560       add_6[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_34 (LeakyReLU)      (None, 572, 256)     0           conv1d_34[0][0]
+__________________________________________________________________________________________________
+flatten_6 (Flatten)             (None, 146432)       0           leaky_re_lu_34[0][0]
+__________________________________________________________________________________________________
+dense_12 (Dense)                (None, 267)          39097611    flatten_6[0][0]
+__________________________________________________________________________________________________
+dense_13 (Dense)                (None, 65)           17420       dense_12[0][0]
+__________________________________________________________________________________________________
+activation_6 (Activation)       (None, 65)           0           dense_13[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17199.39072 total = 34176.229376 available = 13420.118016 used = 20756.11136 free = 13420.118016 percent = 60.7
+Epoch 1/100
+233/233 [==============================] - ETA: 0s - loss: 1.2255 - accuracy: 0.6427
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 1.2255 - accuracy: 0.6427 - val_loss: 0.7568 - val_accuracy: 0.7540
+Epoch 2/100
+231/233 [============================>.] - ETA: 0s - loss: 0.5769 - accuracy: 0.8057 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.5766 - accuracy: 0.8059 - val_loss: 0.6366 - val_accuracy: 0.7892
+Epoch 3/100
+232/233 [============================>.] - ETA: 0s - loss: 0.4211 - accuracy: 0.8501
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.4209 - accuracy: 0.8501 - val_loss: 0.6016 - val_accuracy: 0.7977
+Epoch 4/100
+233/233 [==============================] - ETA: 0s - loss: 0.3408 - accuracy: 0.8779
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 14s 59ms/step - loss: 0.3408 - accuracy: 0.8779 - val_loss: 0.6134 - val_accuracy: 0.8007
+Epoch 5/100
+231/233 [============================>.] - ETA: 0s - loss: 0.2886 - accuracy: 0.8986
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 54ms/step - loss: 0.2891 - accuracy: 0.8984 - val_loss: 0.6416 - val_accuracy: 0.8066
+Epoch 6/100
+233/233 [==============================] - ETA: 0s - loss: 0.2491 - accuracy: 0.9112
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.2491 - accuracy: 0.9112 - val_loss: 0.6517 - val_accuracy: 0.8002
+Epoch 7/100
+233/233 [==============================] - ETA: 0s - loss: 0.2250 - accuracy: 0.9202
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.2250 - accuracy: 0.9202 - val_loss: 0.6481 - val_accuracy: 0.8132
+Epoch 8/100
+233/233 [==============================] - ETA: 0s - loss: 0.2069 - accuracy: 0.9261 
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.2069 - accuracy: 0.9261 - val_loss: 0.6801 - val_accuracy: 0.8165
+Epoch 9/100
+233/233 [==============================] - ETA: 0s - loss: 0.1931 - accuracy: 0.9304 
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.1931 - accuracy: 0.9304 - val_loss: 0.6690 - val_accuracy: 0.8071
+Epoch 10/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1828 - accuracy: 0.9327
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.1832 - accuracy: 0.9326 - val_loss: 0.6685 - val_accuracy: 0.8110
+Epoch 11/100
+233/233 [==============================] - ETA: 0s - loss: 0.1755 - accuracy: 0.9368
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.1755 - accuracy: 0.9368 - val_loss: 0.6916 - val_accuracy: 0.8053
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1755 - accuracy: 0.9354 
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.1752 - accuracy: 0.9355 - val_loss: 0.6912 - val_accuracy: 0.8109
+Epoch 13/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1657 - accuracy: 0.9365
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.1655 - accuracy: 0.9366 - val_loss: 0.7021 - val_accuracy: 0.8100
+Model: "functional_15"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_35 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_35 (LeakyReLU)      (None, 572, 64)      0           conv1d_35[0][0]
+__________________________________________________________________________________________________
+conv1d_36 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_35[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_36 (LeakyReLU)      (None, 572, 128)     0           conv1d_36[0][0]
+__________________________________________________________________________________________________
+conv1d_37 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_36[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_37 (LeakyReLU)      (None, 572, 128)     0           conv1d_37[0][0]
+__________________________________________________________________________________________________
+conv1d_38 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_37[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_38 (LeakyReLU)      (None, 572, 128)     0           conv1d_38[0][0]
+__________________________________________________________________________________________________
+add_7 (Add)                     (None, 572, 128)     0           leaky_re_lu_36[0][0]
+                                                                 leaky_re_lu_38[0][0]
+__________________________________________________________________________________________________
+conv1d_39 (Conv1D)              (None, 572, 256)     98560       add_7[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_39 (LeakyReLU)      (None, 572, 256)     0           conv1d_39[0][0]
+__________________________________________________________________________________________________
+flatten_7 (Flatten)             (None, 146432)       0           leaky_re_lu_39[0][0]
+__________________________________________________________________________________________________
+dense_14 (Dense)                (None, 267)          39097611    flatten_7[0][0]
+__________________________________________________________________________________________________
+dense_15 (Dense)                (None, 65)           17420       dense_14[0][0]
+__________________________________________________________________________________________________
+activation_7 (Activation)       (None, 65)           0           dense_15[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17388.40064 total = 34176.229376 available = 14741.659648 used = 19434.569728 free = 14741.659648 percent = 56.9
+Epoch 1/100
+  1/233 [..............................] - ETA: 0s - loss: 4.1751 - accuracy: 0.0469WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0140s). Check your callbacks.
+231/233 [============================>.] - ETA: 0s - loss: 1.5784 - accuracy: 0.5400
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 1.5764 - accuracy: 0.5405 - val_loss: 1.2137 - val_accuracy: 0.6230
+Epoch 2/100
+232/233 [============================>.] - ETA: 0s - loss: 1.0725 - accuracy: 0.6513
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 1.0725 - accuracy: 0.6513 - val_loss: 1.0997 - val_accuracy: 0.6439
+Epoch 3/100
+231/233 [============================>.] - ETA: 0s - loss: 0.9313 - accuracy: 0.6809
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.9315 - accuracy: 0.6807 - val_loss: 1.0359 - val_accuracy: 0.6613
+Epoch 4/100
+232/233 [============================>.] - ETA: 0s - loss: 0.8421 - accuracy: 0.7065
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.8424 - accuracy: 0.7063 - val_loss: 1.0402 - val_accuracy: 0.6572
+Epoch 5/100
+231/233 [============================>.] - ETA: 0s - loss: 0.7838 - accuracy: 0.7207 
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.7845 - accuracy: 0.7205 - val_loss: 1.0377 - val_accuracy: 0.6533
+Epoch 6/100
+231/233 [============================>.] - ETA: 0s - loss: 0.7460 - accuracy: 0.7335 
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.7473 - accuracy: 0.7327 - val_loss: 1.0593 - val_accuracy: 0.6531
+Epoch 7/100
+231/233 [============================>.] - ETA: 0s - loss: 0.7168 - accuracy: 0.7424
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 44ms/step - loss: 0.7167 - accuracy: 0.7424 - val_loss: 1.0686 - val_accuracy: 0.6600
+Epoch 8/100
+233/233 [==============================] - ETA: 0s - loss: 0.6926 - accuracy: 0.7476
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 56ms/step - loss: 0.6926 - accuracy: 0.7476 - val_loss: 1.0878 - val_accuracy: 0.6537
+Epoch 9/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6742 - accuracy: 0.7549
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 54ms/step - loss: 0.6751 - accuracy: 0.7546 - val_loss: 1.1192 - val_accuracy: 0.6559
+Epoch 10/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6597 - accuracy: 0.7591
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 16s 70ms/step - loss: 0.6603 - accuracy: 0.7590 - val_loss: 1.1081 - val_accuracy: 0.6512
+Epoch 11/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6434 - accuracy: 0.7619
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.6437 - accuracy: 0.7618 - val_loss: 1.1656 - val_accuracy: 0.6537
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6359 - accuracy: 0.7657
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.6361 - accuracy: 0.7655 - val_loss: 1.1201 - val_accuracy: 0.6531
+Epoch 13/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6246 - accuracy: 0.7659
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 56ms/step - loss: 0.6256 - accuracy: 0.7656 - val_loss: 1.1072 - val_accuracy: 0.6438
+Model: "functional_17"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_40 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_40 (LeakyReLU)      (None, 572, 64)      0           conv1d_40[0][0]
+__________________________________________________________________________________________________
+conv1d_41 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_40[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_41 (LeakyReLU)      (None, 572, 128)     0           conv1d_41[0][0]
+__________________________________________________________________________________________________
+conv1d_42 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_41[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_42 (LeakyReLU)      (None, 572, 128)     0           conv1d_42[0][0]
+__________________________________________________________________________________________________
+conv1d_43 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_42[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_43 (LeakyReLU)      (None, 572, 128)     0           conv1d_43[0][0]
+__________________________________________________________________________________________________
+add_8 (Add)                     (None, 572, 128)     0           leaky_re_lu_41[0][0]
+                                                                 leaky_re_lu_43[0][0]
+__________________________________________________________________________________________________
+conv1d_44 (Conv1D)              (None, 572, 256)     98560       add_8[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_44 (LeakyReLU)      (None, 572, 256)     0           conv1d_44[0][0]
+__________________________________________________________________________________________________
+flatten_8 (Flatten)             (None, 146432)       0           leaky_re_lu_44[0][0]
+__________________________________________________________________________________________________
+dense_16 (Dense)                (None, 267)          39097611    flatten_8[0][0]
+__________________________________________________________________________________________________
+dense_17 (Dense)                (None, 65)           17420       dense_16[0][0]
+__________________________________________________________________________________________________
+activation_8 (Activation)       (None, 65)           0           dense_17[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17478.668288 total = 34176.229376 available = 14499.909632 used = 19676.319744 free = 14499.909632 percent = 57.6
+Epoch 1/100
+  1/233 [..............................] - ETA: 0s - loss: 4.1762 - accuracy: 0.0234WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0140s). Check your callbacks.
+231/233 [============================>.] - ETA: 0s - loss: 1.0655 - accuracy: 0.6918
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 54ms/step - loss: 1.0613 - accuracy: 0.6930 - val_loss: 0.5757 - val_accuracy: 0.8180
+Epoch 2/100
+233/233 [==============================] - ETA: 0s - loss: 0.4152 - accuracy: 0.8636
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.4152 - accuracy: 0.8636 - val_loss: 0.4606 - val_accuracy: 0.8500
+Epoch 3/100
+231/233 [============================>.] - ETA: 0s - loss: 0.2613 - accuracy: 0.9110
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.2615 - accuracy: 0.9110 - val_loss: 0.4516 - val_accuracy: 0.8643
+Epoch 4/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1771 - accuracy: 0.9404
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 16s 69ms/step - loss: 0.1769 - accuracy: 0.9405 - val_loss: 0.4480 - val_accuracy: 0.8701
+Epoch 5/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1312 - accuracy: 0.9550
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.1315 - accuracy: 0.9548 - val_loss: 0.4866 - val_accuracy: 0.8724
+Epoch 6/100
+233/233 [==============================] - ETA: 0s - loss: 0.1010 - accuracy: 0.9659
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 57ms/step - loss: 0.1010 - accuracy: 0.9659 - val_loss: 0.5001 - val_accuracy: 0.8784
+Epoch 7/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0803 - accuracy: 0.9731
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.0802 - accuracy: 0.9732 - val_loss: 0.5569 - val_accuracy: 0.8733
+Epoch 8/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0634 - accuracy: 0.9790
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.0634 - accuracy: 0.9790 - val_loss: 0.5771 - val_accuracy: 0.8783
+Epoch 9/100
+233/233 [==============================] - ETA: 0s - loss: 0.0589 - accuracy: 0.9811
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.0589 - accuracy: 0.9811 - val_loss: 0.5429 - val_accuracy: 0.8810
+Epoch 10/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0441 - accuracy: 0.9865
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 50ms/step - loss: 0.0440 - accuracy: 0.9865 - val_loss: 0.7145 - val_accuracy: 0.8659
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0524 - accuracy: 0.9836
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.0524 - accuracy: 0.9835 - val_loss: 0.5893 - val_accuracy: 0.8799
+Epoch 12/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0386 - accuracy: 0.9872
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 55ms/step - loss: 0.0385 - accuracy: 0.9873 - val_loss: 0.6114 - val_accuracy: 0.8796
+Epoch 13/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0278 - accuracy: 0.9915
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.0278 - accuracy: 0.9915 - val_loss: 0.7011 - val_accuracy: 0.8816
+Epoch 14/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0366 - accuracy: 0.9888
+Epoch 00014: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.0366 - accuracy: 0.9888 - val_loss: 0.6675 - val_accuracy: 0.8816
+3
+Model: "functional_19"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_45 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_45 (LeakyReLU)      (None, 572, 64)      0           conv1d_45[0][0]
+__________________________________________________________________________________________________
+conv1d_46 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_45[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_46 (LeakyReLU)      (None, 572, 128)     0           conv1d_46[0][0]
+__________________________________________________________________________________________________
+conv1d_47 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_46[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_47 (LeakyReLU)      (None, 572, 128)     0           conv1d_47[0][0]
+__________________________________________________________________________________________________
+conv1d_48 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_47[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_48 (LeakyReLU)      (None, 572, 128)     0           conv1d_48[0][0]
+__________________________________________________________________________________________________
+add_9 (Add)                     (None, 572, 128)     0           leaky_re_lu_46[0][0]
+                                                                 leaky_re_lu_48[0][0]
+__________________________________________________________________________________________________
+conv1d_49 (Conv1D)              (None, 572, 256)     98560       add_9[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_49 (LeakyReLU)      (None, 572, 256)     0           conv1d_49[0][0]
+__________________________________________________________________________________________________
+flatten_9 (Flatten)             (None, 146432)       0           leaky_re_lu_49[0][0]
+__________________________________________________________________________________________________
+dense_18 (Dense)                (None, 267)          39097611    flatten_9[0][0]
+__________________________________________________________________________________________________
+dense_19 (Dense)                (None, 65)           17420       dense_18[0][0]
+__________________________________________________________________________________________________
+activation_9 (Activation)       (None, 65)           0           dense_19[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 16851.607552 total = 34176.229376 available = 15209.914368 used = 18966.315008 free = 15209.914368 percent = 55.5
+Epoch 1/100
+  1/233 [..............................] - ETA: 0s - loss: 4.1755 - accuracy: 0.0078WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0140s). Check your callbacks.
+233/233 [==============================] - ETA: 0s - loss: 1.1353 - accuracy: 0.6648
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 1.1353 - accuracy: 0.6648 - val_loss: 0.7269 - val_accuracy: 0.7589
+Epoch 2/100
+233/233 [==============================] - ETA: 0s - loss: 0.5572 - accuracy: 0.8082 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.5572 - accuracy: 0.8082 - val_loss: 0.6102 - val_accuracy: 0.7941
+Epoch 3/100
+233/233 [==============================] - ETA: 0s - loss: 0.4121 - accuracy: 0.8537
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.4121 - accuracy: 0.8537 - val_loss: 0.5904 - val_accuracy: 0.8072
+Epoch 4/100
+233/233 [==============================] - ETA: 0s - loss: 0.3362 - accuracy: 0.8801
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.3362 - accuracy: 0.8801 - val_loss: 0.5650 - val_accuracy: 0.8193
+Epoch 5/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2779 - accuracy: 0.8994 
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.2781 - accuracy: 0.8994 - val_loss: 0.5941 - val_accuracy: 0.8148
+Epoch 6/100
+233/233 [==============================] - ETA: 0s - loss: 0.2461 - accuracy: 0.9125 
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.2461 - accuracy: 0.9125 - val_loss: 0.5720 - val_accuracy: 0.8240
+Epoch 7/100
+232/233 [============================>.] - ETA: 0s - loss: 0.2229 - accuracy: 0.9186
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.2233 - accuracy: 0.9185 - val_loss: 0.6009 - val_accuracy: 0.8211
+Epoch 8/100
+231/233 [============================>.] - ETA: 0s - loss: 0.2086 - accuracy: 0.9254
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.2088 - accuracy: 0.9253 - val_loss: 0.6106 - val_accuracy: 0.8178
+Epoch 9/100
+233/233 [==============================] - ETA: 0s - loss: 0.1965 - accuracy: 0.9290
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.1965 - accuracy: 0.9290 - val_loss: 0.6286 - val_accuracy: 0.8254
+Epoch 10/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1861 - accuracy: 0.9314
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.1866 - accuracy: 0.9313 - val_loss: 0.6052 - val_accuracy: 0.8275
+Epoch 11/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1768 - accuracy: 0.9345 
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.1767 - accuracy: 0.9345 - val_loss: 0.6631 - val_accuracy: 0.8201
+Epoch 12/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1738 - accuracy: 0.9347
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.1739 - accuracy: 0.9347 - val_loss: 0.6201 - val_accuracy: 0.8263
+Epoch 13/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1675 - accuracy: 0.9378 
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.1680 - accuracy: 0.9377 - val_loss: 0.6646 - val_accuracy: 0.8258
+Epoch 14/100
+233/233 [==============================] - ETA: 0s - loss: 0.1654 - accuracy: 0.9368
+Epoch 00014: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.1654 - accuracy: 0.9368 - val_loss: 0.6054 - val_accuracy: 0.8204
+Model: "functional_21"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_50 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_50 (LeakyReLU)      (None, 572, 64)      0           conv1d_50[0][0]
+__________________________________________________________________________________________________
+conv1d_51 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_50[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_51 (LeakyReLU)      (None, 572, 128)     0           conv1d_51[0][0]
+__________________________________________________________________________________________________
+conv1d_52 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_51[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_52 (LeakyReLU)      (None, 572, 128)     0           conv1d_52[0][0]
+__________________________________________________________________________________________________
+conv1d_53 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_52[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_53 (LeakyReLU)      (None, 572, 128)     0           conv1d_53[0][0]
+__________________________________________________________________________________________________
+add_10 (Add)                    (None, 572, 128)     0           leaky_re_lu_51[0][0]
+                                                                 leaky_re_lu_53[0][0]
+__________________________________________________________________________________________________
+conv1d_54 (Conv1D)              (None, 572, 256)     98560       add_10[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_54 (LeakyReLU)      (None, 572, 256)     0           conv1d_54[0][0]
+__________________________________________________________________________________________________
+flatten_10 (Flatten)            (None, 146432)       0           leaky_re_lu_54[0][0]
+__________________________________________________________________________________________________
+dense_20 (Dense)                (None, 267)          39097611    flatten_10[0][0]
+__________________________________________________________________________________________________
+dense_21 (Dense)                (None, 65)           17420       dense_20[0][0]
+__________________________________________________________________________________________________
+activation_10 (Activation)      (None, 65)           0           dense_21[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17066.995712 total = 34176.229376 available = 15203.442688 used = 18972.786688 free = 15203.442688 percent = 55.5
+Epoch 1/100
+233/233 [==============================] - ETA: 0s - loss: 1.5868 - accuracy: 0.5340
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 45ms/step - loss: 1.5868 - accuracy: 0.5340 - val_loss: 1.2462 - val_accuracy: 0.6030
+Epoch 2/100
+232/233 [============================>.] - ETA: 0s - loss: 1.0636 - accuracy: 0.6537
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 1.0641 - accuracy: 0.6537 - val_loss: 1.1239 - val_accuracy: 0.6269
+Epoch 3/100
+232/233 [============================>.] - ETA: 0s - loss: 0.9228 - accuracy: 0.6861
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 58ms/step - loss: 0.9224 - accuracy: 0.6862 - val_loss: 1.0762 - val_accuracy: 0.6437
+Epoch 4/100
+231/233 [============================>.] - ETA: 0s - loss: 0.8344 - accuracy: 0.7081
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.8354 - accuracy: 0.7078 - val_loss: 1.0742 - val_accuracy: 0.6515
+Epoch 5/100
+233/233 [==============================] - ETA: 0s - loss: 0.7773 - accuracy: 0.7252
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.7773 - accuracy: 0.7252 - val_loss: 1.1072 - val_accuracy: 0.6518
+Epoch 6/100
+233/233 [==============================] - ETA: 0s - loss: 0.7398 - accuracy: 0.7348
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.7398 - accuracy: 0.7348 - val_loss: 1.1067 - val_accuracy: 0.6447
+Epoch 7/100
+232/233 [============================>.] - ETA: 0s - loss: 0.7033 - accuracy: 0.7467
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 53ms/step - loss: 0.7027 - accuracy: 0.7468 - val_loss: 1.0919 - val_accuracy: 0.6505
+Epoch 8/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6826 - accuracy: 0.7531
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.6824 - accuracy: 0.7531 - val_loss: 1.1367 - val_accuracy: 0.6424
+Epoch 9/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6630 - accuracy: 0.7583 
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.6625 - accuracy: 0.7586 - val_loss: 1.1215 - val_accuracy: 0.6472
+Epoch 10/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6469 - accuracy: 0.7651
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 45ms/step - loss: 0.6465 - accuracy: 0.7653 - val_loss: 1.1456 - val_accuracy: 0.6514
+Epoch 11/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6335 - accuracy: 0.7680
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 45ms/step - loss: 0.6338 - accuracy: 0.7678 - val_loss: 1.1410 - val_accuracy: 0.6463
+Epoch 12/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6276 - accuracy: 0.7668 
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.6276 - accuracy: 0.7668 - val_loss: 1.1459 - val_accuracy: 0.6374
+Epoch 13/100
+232/233 [============================>.] - ETA: 0s - loss: 0.6148 - accuracy: 0.7707
+Epoch 00013: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 49ms/step - loss: 0.6154 - accuracy: 0.7705 - val_loss: 1.1696 - val_accuracy: 0.6492
+Epoch 14/100
+231/233 [============================>.] - ETA: 0s - loss: 0.6073 - accuracy: 0.7726
+Epoch 00014: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 10s 45ms/step - loss: 0.6067 - accuracy: 0.7728 - val_loss: 1.1636 - val_accuracy: 0.6433
+Model: "functional_23"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_55 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_55 (LeakyReLU)      (None, 572, 64)      0           conv1d_55[0][0]
+__________________________________________________________________________________________________
+conv1d_56 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_55[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_56 (LeakyReLU)      (None, 572, 128)     0           conv1d_56[0][0]
+__________________________________________________________________________________________________
+conv1d_57 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_56[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_57 (LeakyReLU)      (None, 572, 128)     0           conv1d_57[0][0]
+__________________________________________________________________________________________________
+conv1d_58 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_57[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_58 (LeakyReLU)      (None, 572, 128)     0           conv1d_58[0][0]
+__________________________________________________________________________________________________
+add_11 (Add)                    (None, 572, 128)     0           leaky_re_lu_56[0][0]
+                                                                 leaky_re_lu_58[0][0]
+__________________________________________________________________________________________________
+conv1d_59 (Conv1D)              (None, 572, 256)     98560       add_11[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_59 (LeakyReLU)      (None, 572, 256)     0           conv1d_59[0][0]
+__________________________________________________________________________________________________
+flatten_11 (Flatten)            (None, 146432)       0           leaky_re_lu_59[0][0]
+__________________________________________________________________________________________________
+dense_22 (Dense)                (None, 267)          39097611    flatten_11[0][0]
+__________________________________________________________________________________________________
+dense_23 (Dense)                (None, 65)           17420       dense_22[0][0]
+__________________________________________________________________________________________________
+activation_11 (Activation)      (None, 65)           0           dense_23[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17247.68256 total = 34176.229376 available = 14973.517824 used = 19202.711552 free = 14973.517824 percent = 56.2
+Epoch 1/100
+232/233 [============================>.] - ETA: 0s - loss: 1.0493 - accuracy: 0.7014
+Epoch 00001: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 1.0467 - accuracy: 0.7020 - val_loss: 0.5656 - val_accuracy: 0.8199
+Epoch 2/100
+233/233 [==============================] - ETA: 0s - loss: 0.4061 - accuracy: 0.8674 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 14s 62ms/step - loss: 0.4061 - accuracy: 0.8674 - val_loss: 0.4455 - val_accuracy: 0.8565
+Epoch 3/100
+233/233 [==============================] - ETA: 0s - loss: 0.2583 - accuracy: 0.9126
+Epoch 00003: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 51ms/step - loss: 0.2583 - accuracy: 0.9126 - val_loss: 0.4456 - val_accuracy: 0.8583
+Epoch 4/100
+232/233 [============================>.] - ETA: 0s - loss: 0.1725 - accuracy: 0.9398
+Epoch 00004: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 47ms/step - loss: 0.1726 - accuracy: 0.9397 - val_loss: 0.4715 - val_accuracy: 0.8712
+Epoch 5/100
+231/233 [============================>.] - ETA: 0s - loss: 0.1245 - accuracy: 0.9580
+Epoch 00005: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.1246 - accuracy: 0.9579 - val_loss: 0.4820 - val_accuracy: 0.8767
+Epoch 6/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0941 - accuracy: 0.9683 
+Epoch 00006: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.0941 - accuracy: 0.9683 - val_loss: 0.5024 - val_accuracy: 0.8816
+Epoch 7/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0841 - accuracy: 0.9732 
+Epoch 00007: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 48ms/step - loss: 0.0845 - accuracy: 0.9730 - val_loss: 0.5036 - val_accuracy: 0.8741
+Epoch 8/100
+232/233 [============================>.] - ETA: 0s - loss: 0.0587 - accuracy: 0.9812
+Epoch 00008: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.0585 - accuracy: 0.9812 - val_loss: 0.5309 - val_accuracy: 0.8845
+Epoch 9/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0501 - accuracy: 0.9835 
+Epoch 00009: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 12s 52ms/step - loss: 0.0503 - accuracy: 0.9834 - val_loss: 0.6063 - val_accuracy: 0.8843
+Epoch 10/100
+233/233 [==============================] - ETA: 0s - loss: 0.0508 - accuracy: 0.9841 
+Epoch 00010: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 46ms/step - loss: 0.0508 - accuracy: 0.9841 - val_loss: 0.6062 - val_accuracy: 0.8821
+Epoch 11/100
+233/233 [==============================] - ETA: 0s - loss: 0.0410 - accuracy: 0.9861
+Epoch 00011: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 11s 45ms/step - loss: 0.0410 - accuracy: 0.9861 - val_loss: 0.6173 - val_accuracy: 0.8886
+Epoch 12/100
+231/233 [============================>.] - ETA: 0s - loss: 0.0417 - accuracy: 0.9875 
+Epoch 00012: saving model to checkpoints\cp.ckpt
+233/233 [==============================] - 13s 54ms/step - loss: 0.0420 - accuracy: 0.9874 - val_loss: 0.6435 - val_accuracy: 0.8794
+3
+Model: "functional_25"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_60 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_60 (LeakyReLU)      (None, 572, 64)      0           conv1d_60[0][0]
+__________________________________________________________________________________________________
+conv1d_61 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_60[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_61 (LeakyReLU)      (None, 572, 128)     0           conv1d_61[0][0]
+__________________________________________________________________________________________________
+conv1d_62 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_61[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_62 (LeakyReLU)      (None, 572, 128)     0           conv1d_62[0][0]
+__________________________________________________________________________________________________
+conv1d_63 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_62[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_63 (LeakyReLU)      (None, 572, 128)     0           conv1d_63[0][0]
+__________________________________________________________________________________________________
+add_12 (Add)                    (None, 572, 128)     0           leaky_re_lu_61[0][0]
+                                                                 leaky_re_lu_63[0][0]
+__________________________________________________________________________________________________
+conv1d_64 (Conv1D)              (None, 572, 256)     98560       add_12[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_64 (LeakyReLU)      (None, 572, 256)     0           conv1d_64[0][0]
+__________________________________________________________________________________________________
+flatten_12 (Flatten)            (None, 146432)       0           leaky_re_lu_64[0][0]
+__________________________________________________________________________________________________
+dense_24 (Dense)                (None, 267)          39097611    flatten_12[0][0]
+__________________________________________________________________________________________________
+dense_25 (Dense)                (None, 65)           17420       dense_24[0][0]
+__________________________________________________________________________________________________
+activation_12 (Activation)      (None, 65)           0           dense_25[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17432.219648 total = 34176.229376 available = 14794.264576 used = 19381.9648 free = 14794.264576 percent = 56.7
+Epoch 1/100
+  1/234 [..............................] - ETA: 0s - loss: 4.1740 - accuracy: 0.0078WARNING:tensorflow:Callbacks method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0090s vs `on_train_batch_end` time: 0.0136s). Check your callbacks.
+234/234 [==============================] - ETA: 0s - loss: 1.1536 - accuracy: 0.6589
+Epoch 00001: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 48ms/step - loss: 1.1536 - accuracy: 0.6589 - val_loss: 0.6862 - val_accuracy: 0.7751
+Epoch 2/100
+232/234 [============================>.] - ETA: 0s - loss: 0.5734 - accuracy: 0.8049
+Epoch 00002: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 15s 66ms/step - loss: 0.5731 - accuracy: 0.8050 - val_loss: 0.5962 - val_accuracy: 0.7905
+Epoch 3/100
+234/234 [==============================] - ETA: 0s - loss: 0.4193 - accuracy: 0.8508
+Epoch 00003: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.4193 - accuracy: 0.8508 - val_loss: 0.5645 - val_accuracy: 0.8054
+Epoch 4/100
+232/234 [============================>.] - ETA: 0s - loss: 0.3404 - accuracy: 0.8757
+Epoch 00004: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.3404 - accuracy: 0.8758 - val_loss: 0.5509 - val_accuracy: 0.8193
+Epoch 5/100
+234/234 [==============================] - ETA: 0s - loss: 0.2876 - accuracy: 0.8947
+Epoch 00005: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 45ms/step - loss: 0.2876 - accuracy: 0.8947 - val_loss: 0.5742 - val_accuracy: 0.8167
+Epoch 6/100
+233/234 [============================>.] - ETA: 0s - loss: 0.2540 - accuracy: 0.9087 
+Epoch 00006: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 45ms/step - loss: 0.2541 - accuracy: 0.9086 - val_loss: 0.5619 - val_accuracy: 0.8261
+Epoch 7/100
+232/234 [============================>.] - ETA: 0s - loss: 0.2243 - accuracy: 0.9188
+Epoch 00007: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 50ms/step - loss: 0.2246 - accuracy: 0.9187 - val_loss: 0.5657 - val_accuracy: 0.8221
+Epoch 8/100
+233/234 [============================>.] - ETA: 0s - loss: 0.2089 - accuracy: 0.9249
+Epoch 00008: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.2090 - accuracy: 0.9248 - val_loss: 0.5490 - val_accuracy: 0.8229
+Epoch 9/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1957 - accuracy: 0.9282
+Epoch 00009: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 45ms/step - loss: 0.1957 - accuracy: 0.9282 - val_loss: 0.5788 - val_accuracy: 0.8277
+Epoch 10/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1892 - accuracy: 0.9308 
+Epoch 00010: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 10s 45ms/step - loss: 0.1892 - accuracy: 0.9307 - val_loss: 0.5689 - val_accuracy: 0.8245
+Epoch 11/100
+234/234 [==============================] - ETA: 0s - loss: 0.1817 - accuracy: 0.9326
+Epoch 00011: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 45ms/step - loss: 0.1817 - accuracy: 0.9326 - val_loss: 0.5659 - val_accuracy: 0.8300
+Epoch 12/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1799 - accuracy: 0.9336 
+Epoch 00012: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 47ms/step - loss: 0.1800 - accuracy: 0.9335 - val_loss: 0.5841 - val_accuracy: 0.8275
+Epoch 13/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1757 - accuracy: 0.9350 
+Epoch 00013: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 52ms/step - loss: 0.1757 - accuracy: 0.9350 - val_loss: 0.5479 - val_accuracy: 0.8296
+Epoch 14/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1647 - accuracy: 0.9363
+Epoch 00014: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 45ms/step - loss: 0.1646 - accuracy: 0.9363 - val_loss: 0.6092 - val_accuracy: 0.8277
+Epoch 15/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1600 - accuracy: 0.9380
+Epoch 00015: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 47ms/step - loss: 0.1600 - accuracy: 0.9380 - val_loss: 0.5883 - val_accuracy: 0.8282
+Epoch 16/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1647 - accuracy: 0.9363
+Epoch 00016: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 10s 45ms/step - loss: 0.1649 - accuracy: 0.9361 - val_loss: 0.6282 - val_accuracy: 0.8260
+Epoch 17/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1660 - accuracy: 0.9370 
+Epoch 00017: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 48ms/step - loss: 0.1660 - accuracy: 0.9370 - val_loss: 0.5815 - val_accuracy: 0.8273
+Epoch 18/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1564 - accuracy: 0.9374
+Epoch 00018: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 15s 65ms/step - loss: 0.1564 - accuracy: 0.9374 - val_loss: 0.6557 - val_accuracy: 0.8286
+Epoch 19/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1548 - accuracy: 0.9376
+Epoch 00019: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 51ms/step - loss: 0.1550 - accuracy: 0.9376 - val_loss: 0.6160 - val_accuracy: 0.8300
+Epoch 20/100
+234/234 [==============================] - ETA: 0s - loss: 0.1552 - accuracy: 0.9383
+Epoch 00020: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 50ms/step - loss: 0.1552 - accuracy: 0.9383 - val_loss: 0.6109 - val_accuracy: 0.8333
+Epoch 21/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1574 - accuracy: 0.9379 
+Epoch 00021: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 51ms/step - loss: 0.1573 - accuracy: 0.9379 - val_loss: 0.6254 - val_accuracy: 0.8267
+Epoch 22/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1485 - accuracy: 0.9394
+Epoch 00022: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 10s 44ms/step - loss: 0.1485 - accuracy: 0.9395 - val_loss: 0.6260 - val_accuracy: 0.8300
+Epoch 23/100
+233/234 [============================>.] - ETA: 0s - loss: 0.1457 - accuracy: 0.9397 
+Epoch 00023: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 49ms/step - loss: 0.1456 - accuracy: 0.9398 - val_loss: 0.6061 - val_accuracy: 0.8273
+Model: "functional_27"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_65 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_65 (LeakyReLU)      (None, 572, 64)      0           conv1d_65[0][0]
+__________________________________________________________________________________________________
+conv1d_66 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_65[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_66 (LeakyReLU)      (None, 572, 128)     0           conv1d_66[0][0]
+__________________________________________________________________________________________________
+conv1d_67 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_66[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_67 (LeakyReLU)      (None, 572, 128)     0           conv1d_67[0][0]
+__________________________________________________________________________________________________
+conv1d_68 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_67[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_68 (LeakyReLU)      (None, 572, 128)     0           conv1d_68[0][0]
+__________________________________________________________________________________________________
+add_13 (Add)                    (None, 572, 128)     0           leaky_re_lu_66[0][0]
+                                                                 leaky_re_lu_68[0][0]
+__________________________________________________________________________________________________
+conv1d_69 (Conv1D)              (None, 572, 256)     98560       add_13[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_69 (LeakyReLU)      (None, 572, 256)     0           conv1d_69[0][0]
+__________________________________________________________________________________________________
+flatten_13 (Flatten)            (None, 146432)       0           leaky_re_lu_69[0][0]
+__________________________________________________________________________________________________
+dense_26 (Dense)                (None, 267)          39097611    flatten_13[0][0]
+__________________________________________________________________________________________________
+dense_27 (Dense)                (None, 65)           17420       dense_26[0][0]
+__________________________________________________________________________________________________
+activation_13 (Activation)      (None, 65)           0           dense_27[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 17507.295232 total = 34176.229376 available = 14659.805184 used = 19516.424192 free = 14659.805184 percent = 57.1
+Epoch 1/100
+232/234 [============================>.] - ETA: 0s - loss: 1.6168 - accuracy: 0.5318
+Epoch 00001: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 49ms/step - loss: 1.6147 - accuracy: 0.5320 - val_loss: 1.2214 - val_accuracy: 0.6225
+Epoch 2/100
+232/234 [============================>.] - ETA: 0s - loss: 1.1031 - accuracy: 0.6399 
+Epoch 00002: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 1.1029 - accuracy: 0.6397 - val_loss: 1.0399 - val_accuracy: 0.6634
+Epoch 3/100
+232/234 [============================>.] - ETA: 0s - loss: 0.9486 - accuracy: 0.6776 
+Epoch 00003: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 53ms/step - loss: 0.9488 - accuracy: 0.6775 - val_loss: 1.0340 - val_accuracy: 0.6629
+Epoch 4/100
+233/234 [============================>.] - ETA: 0s - loss: 0.8681 - accuracy: 0.7012
+Epoch 00004: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 49ms/step - loss: 0.8680 - accuracy: 0.7012 - val_loss: 0.9987 - val_accuracy: 0.6690
+Epoch 5/100
+233/234 [============================>.] - ETA: 0s - loss: 0.8013 - accuracy: 0.7165
+Epoch 00005: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 16s 70ms/step - loss: 0.8012 - accuracy: 0.7164 - val_loss: 1.0226 - val_accuracy: 0.6597
+Epoch 6/100
+233/234 [============================>.] - ETA: 0s - loss: 0.7631 - accuracy: 0.7277
+Epoch 00006: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 10s 44ms/step - loss: 0.7632 - accuracy: 0.7277 - val_loss: 1.0185 - val_accuracy: 0.6649
+Epoch 7/100
+233/234 [============================>.] - ETA: 0s - loss: 0.7280 - accuracy: 0.7370
+Epoch 00007: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 51ms/step - loss: 0.7281 - accuracy: 0.7370 - val_loss: 1.0425 - val_accuracy: 0.6702
+Epoch 8/100
+233/234 [============================>.] - ETA: 0s - loss: 0.7061 - accuracy: 0.7444
+Epoch 00008: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 49ms/step - loss: 0.7062 - accuracy: 0.7443 - val_loss: 0.9896 - val_accuracy: 0.6703
+Epoch 9/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6923 - accuracy: 0.7501
+Epoch 00009: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 50ms/step - loss: 0.6924 - accuracy: 0.7501 - val_loss: 1.0132 - val_accuracy: 0.6672
+Epoch 10/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6717 - accuracy: 0.7564
+Epoch 00010: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 47ms/step - loss: 0.6717 - accuracy: 0.7564 - val_loss: 1.0394 - val_accuracy: 0.6577
+Epoch 11/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6545 - accuracy: 0.7600
+Epoch 00011: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 51ms/step - loss: 0.6544 - accuracy: 0.7600 - val_loss: 1.0584 - val_accuracy: 0.6677
+Epoch 12/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6386 - accuracy: 0.7631
+Epoch 00012: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.6386 - accuracy: 0.7630 - val_loss: 1.1168 - val_accuracy: 0.6644
+Epoch 13/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6366 - accuracy: 0.7631
+Epoch 00013: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 47ms/step - loss: 0.6365 - accuracy: 0.7631 - val_loss: 1.0843 - val_accuracy: 0.6677
+Epoch 14/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6210 - accuracy: 0.7673
+Epoch 00014: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 47ms/step - loss: 0.6211 - accuracy: 0.7673 - val_loss: 1.0452 - val_accuracy: 0.6663
+Epoch 15/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6247 - accuracy: 0.7662
+Epoch 00015: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 47ms/step - loss: 0.6246 - accuracy: 0.7662 - val_loss: 1.0830 - val_accuracy: 0.6741
+Epoch 16/100
+232/234 [============================>.] - ETA: 0s - loss: 0.6101 - accuracy: 0.7696
+Epoch 00016: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 45ms/step - loss: 0.6106 - accuracy: 0.7693 - val_loss: 1.0739 - val_accuracy: 0.6660
+Epoch 17/100
+233/234 [============================>.] - ETA: 0s - loss: 0.6069 - accuracy: 0.7733
+Epoch 00017: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 10s 44ms/step - loss: 0.6068 - accuracy: 0.7733 - val_loss: 1.0317 - val_accuracy: 0.6655
+Epoch 18/100
+233/234 [============================>.] - ETA: 0s - loss: 0.5989 - accuracy: 0.7740 
+Epoch 00018: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 50ms/step - loss: 0.5990 - accuracy: 0.7740 - val_loss: 1.1449 - val_accuracy: 0.6548
+Model: "functional_29"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+InputLayer (InputLayer)         [(None, 572, 2)]     0
+__________________________________________________________________________________________________
+conv1d_70 (Conv1D)              (None, 572, 64)      448         InputLayer[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_70 (LeakyReLU)      (None, 572, 64)      0           conv1d_70[0][0]
+__________________________________________________________________________________________________
+conv1d_71 (Conv1D)              (None, 572, 128)     24704       leaky_re_lu_70[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_71 (LeakyReLU)      (None, 572, 128)     0           conv1d_71[0][0]
+__________________________________________________________________________________________________
+conv1d_72 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_71[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_72 (LeakyReLU)      (None, 572, 128)     0           conv1d_72[0][0]
+__________________________________________________________________________________________________
+conv1d_73 (Conv1D)              (None, 572, 128)     49280       leaky_re_lu_72[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_73 (LeakyReLU)      (None, 572, 128)     0           conv1d_73[0][0]
+__________________________________________________________________________________________________
+add_14 (Add)                    (None, 572, 128)     0           leaky_re_lu_71[0][0]
+                                                                 leaky_re_lu_73[0][0]
+__________________________________________________________________________________________________
+conv1d_74 (Conv1D)              (None, 572, 256)     98560       add_14[0][0]
+__________________________________________________________________________________________________
+leaky_re_lu_74 (LeakyReLU)      (None, 572, 256)     0           conv1d_74[0][0]
+__________________________________________________________________________________________________
+flatten_14 (Flatten)            (None, 146432)       0           leaky_re_lu_74[0][0]
+__________________________________________________________________________________________________
+dense_28 (Dense)                (None, 267)          39097611    flatten_14[0][0]
+__________________________________________________________________________________________________
+dense_29 (Dense)                (None, 65)           17420       dense_28[0][0]
+__________________________________________________________________________________________________
+activation_14 (Activation)      (None, 65)           0           dense_29[0][0]
+==================================================================================================
+Total params: 39,337,303
+Trainable params: 39,337,303
+Non-trainable params: 0
+__________________________________________________________________________________________________
+process = 16865.939456 total = 34176.229376 available = 15394.103296 used = 18782.12608 free = 15394.103296 percent = 55.0
+Epoch 1/100
+232/234 [============================>.] - ETA: 0s - loss: 1.0668 - accuracy: 0.6922
+Epoch 00001: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 51ms/step - loss: 1.0643 - accuracy: 0.6929 - val_loss: 0.5496 - val_accuracy: 0.8233
+Epoch 2/100
+233/234 [============================>.] - ETA: 0s - loss: 0.4252 - accuracy: 0.8605
+Epoch 00002: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.4252 - accuracy: 0.8605 - val_loss: 0.4155 - val_accuracy: 0.8595
+Epoch 3/100
+233/234 [============================>.] - ETA: 0s - loss: 0.2811 - accuracy: 0.9055
+Epoch 00003: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 49ms/step - loss: 0.2810 - accuracy: 0.9056 - val_loss: 0.4048 - val_accuracy: 0.8669
+Epoch 4/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1880 - accuracy: 0.9352
+Epoch 00004: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 49ms/step - loss: 0.1884 - accuracy: 0.9351 - val_loss: 0.4028 - val_accuracy: 0.8761
+Epoch 5/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1448 - accuracy: 0.9522 
+Epoch 00005: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.1450 - accuracy: 0.9521 - val_loss: 0.4412 - val_accuracy: 0.8750
+Epoch 6/100
+232/234 [============================>.] - ETA: 0s - loss: 0.1058 - accuracy: 0.9637
+Epoch 00006: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 12s 52ms/step - loss: 0.1059 - accuracy: 0.9636 - val_loss: 0.4398 - val_accuracy: 0.8863
+Epoch 7/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0826 - accuracy: 0.9724
+Epoch 00007: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 49ms/step - loss: 0.0826 - accuracy: 0.9724 - val_loss: 0.4865 - val_accuracy: 0.8820
+Epoch 8/100
+232/234 [============================>.] - ETA: 0s - loss: 0.0634 - accuracy: 0.9790
+Epoch 00008: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 46ms/step - loss: 0.0635 - accuracy: 0.9791 - val_loss: 0.5028 - val_accuracy: 0.8879
+Epoch 9/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0614 - accuracy: 0.9797
+Epoch 00009: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 48ms/step - loss: 0.0615 - accuracy: 0.9797 - val_loss: 0.5360 - val_accuracy: 0.8759
+Epoch 10/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0583 - accuracy: 0.9829 
+Epoch 00010: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 16s 67ms/step - loss: 0.0583 - accuracy: 0.9829 - val_loss: 0.5439 - val_accuracy: 0.8870
+Epoch 11/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0435 - accuracy: 0.9864
+Epoch 00011: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 14s 60ms/step - loss: 0.0435 - accuracy: 0.9864 - val_loss: 0.5207 - val_accuracy: 0.8876
+Epoch 12/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0428 - accuracy: 0.9868
+Epoch 00012: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 49ms/step - loss: 0.0428 - accuracy: 0.9868 - val_loss: 0.5330 - val_accuracy: 0.8903
+Epoch 13/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0367 - accuracy: 0.9885
+Epoch 00013: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 48ms/step - loss: 0.0367 - accuracy: 0.9885 - val_loss: 0.5618 - val_accuracy: 0.8821
+Epoch 14/100
+233/234 [============================>.] - ETA: 0s - loss: 0.0321 - accuracy: 0.9901
+Epoch 00014: saving model to checkpoints\cp.ckpt
+234/234 [==============================] - 11s 48ms/step - loss: 0.0321 - accuracy: 0.9901 - val_loss: 0.5700 - val_accuracy: 0.8907
+time used: 2604.5529908999997
+done

@@ -1,0 +1,2 @@
+Accuracy,AUPR (micro-averaged),AUPR (macro-averaged),AUC (micro-averaged),AUC (macro-averaged),F1 Score (micro-averaged),F1 Score (macro-averaged),Precision (micro-averaged),Precision (macro-averaged),Recall (micro-averaged),Recall (macro-averaged),Time (s)
+0.8811721768999571,0.9383896551545148,0.8350262627690178,0.9978967567460563,0.9870514338995714,0.8811721768999571,0.7771749498110578,0.8811721768999571,0.8496137982542729,0.8811721768999571,0.7375345258425947,1853.8733587
