@@ -9,9 +9,12 @@
 - Jinfeng Wu (@jinfeng)
 - Hao Zhang (@haoz)
 
-## For TA's
-1. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31_Draft.ipynb)
-2. [Google Drive folder for Draft](https://drive.google.com/drive/folders/1ln1ga9J7XzwAnAikKXS-ejXcPLe27jgI?usp=drive_link)
+
+## For TA's :point_down: 
+1. [Final notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31_Final.ipynb)
+2. [Final Google Drive Folder](https://drive.google.com/drive/folders/1wSjRXvV91kcJbnOt9nDdHI_8DM-34Gr3?usp=drive_link)
+3. [Draft notebook](https://github.com/abaldeo/CS598_DLH_Project/blob/CNN_DDI/DL4H_Team_31_Draft.ipynb)
+4. [Draft Google Drive folder](https://drive.google.com/drive/folders/1ln1ga9J7XzwAnAikKXS-ejXcPLe27jgI?usp=drive_link)
 
 ## Introduction
 The paper we have selected to reproduce is "CNN-DDI: a learning-based method for predicting drug–drug interactions using convolution neural networks" [1]. This research relates to the issue of drug-drug interactions (DDIs) in pharmaceuticals development. Antagonistic DDIs are reactions between two or more drugs that may lead to adverse effects that diminish the efficacy of the drugs involved. Since these drugs are expensive to develop it is important to be able to predict DDIs based on properties of drugs. Knowing if two drugs interact is also useful since drugs similar to either of the two are more likely to interact and cause the same effect.
