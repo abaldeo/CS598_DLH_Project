@@ -163,8 +163,8 @@ python CNN_DDI_final.py -lf cosine_similarity
 ![Table 2 R.png](https://drive.google.com/uc?export=view&id=1fbC8dhaDiqN9M4squMcifsFk3jOQcfXn)
 ![Table 3 R.png](https://drive.google.com/uc?export=view&id=1lFJ5utmt1I12jkLjRmChu4-SDRetxitv)
 ![Table 4 R.png](https://drive.google.com/uc?export=view&id=1u91bILN3SHaaPubSoQx7aLKGrREt_7kj)
-![Precision-Recall Curves.png](https://drive.google.com/uc?export=view&id=1I7QRRgZzvnUzBKbrPnoqEuKyKUHZ-vEm)
 ![Ablation Plan.png](https://drive.google.com/uc?export=view&id=1qd_X56IjHvUXGo7PV0Zyl8hKo6nQJjHy)
+![Precision-Recall Curves.png](https://drive.google.com/uc?export=view&id=1I7QRRgZzvnUzBKbrPnoqEuKyKUHZ-vEm)
 
 ## Citation  
 ```
