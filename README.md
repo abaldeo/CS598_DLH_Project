@@ -6,7 +6,7 @@
 
 **Team Members:**
 - Avinash Baldeo (@abaldeo2)
-- Jinfeng Wu (@jinfeng)
+- Jinfeng Wu (@jinfeng4)
 - Hao Zhang (@haoz18)
 
 
