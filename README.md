@@ -7,7 +7,7 @@
 **Team Members:**
 - Avinash Baldeo (@abaldeo2)
 - Jinfeng Wu (@jinfeng)
-- Hao Zhang (@haoz)
+- Hao Zhang (@haoz18)
 
 
 ## For TA's :point_down: 
