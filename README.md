@@ -165,6 +165,7 @@ python CNN_DDI_final.py -lf cosine_similarity
 ![Table 4 R.png](https://drive.google.com/uc?export=view&id=1u91bILN3SHaaPubSoQx7aLKGrREt_7kj)
 ![Ablation Plan.png](https://drive.google.com/uc?export=view&id=1qd_X56IjHvUXGo7PV0Zyl8hKo6nQJjHy)
 ![Precision-Recall Curves.png](https://drive.google.com/uc?export=view&id=1I7QRRgZzvnUzBKbrPnoqEuKyKUHZ-vEm)
+![AUPR and AUC.png](https://drive.google.com/uc?export=view&id=1HPqLHgvh9t0SC3S6eg_rFhzKx44lDvUA)
 
 ## Citation  
 ```
