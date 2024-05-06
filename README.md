@@ -83,6 +83,20 @@ The function *cross_validation* will take the feature matrix as input to perform
 ```
 -f *featureList*: A selection of features to be used in CNN_DDI. The optional features are smile(substructure),target,enzyme, pathway, and category of the drugs. It defaults to pathway,target and enzyme, and category.
 -c *classifier*: A selection of prediction method to be used. The optional methods are CNN_DDI, DDIMDL, RF, KNN and LR. It defaults to CNN_DDI.  
+--similarity_measure: specify the similarity measure to use, with a default value of "Jaccard".
+
+--num_folds: specify the number of folds for cross-validation, with a default value of 5
+
+--num_epochs: specify, the number of epochs for training, with a default value of 100
+
+--batch_size: specify the batch size, with a default value of 128
+
+--evaluate_only: is a flag that when specified skips model training and runs evaluation if the weights are available in weights folder directory.
+
+--save_weights: is a flag that when specified saves the model weights after each training epoch.
+
+--loss_fn: specify the loss function to use during training, with a default value of "Jaccard".
+
 -p *NLPProcess*: The choices are *read* and *process*. It means reading the processed result from database directly or processing the raw data again with *NLPProcess.py*. It defaults to *read*. In order to use *NLPProcess.py*, you need to install StanfordNLP package:
 ```
     pip install stanfordnlp
